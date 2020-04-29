@@ -2,16 +2,16 @@
 title: Home
 sections:
   - type: heroblock
-    title: Hero Section
+    title: CardSavr API manages card on file placement
     section_id: hero
     component: HeroBlock
     content: >-
       This section can contain a subtitle or tagline. The recommended length is
       one to three sentences, but can be changed as you prefer.
-    image: images/5.jpg
+    image: images/StrivveLogo-white.png
     actions:
       - label: Get Started
-        url: docs/index.html
+        url: docs/getting-started
   - type: featuresblock
     section_id: features
     component: FeaturesBlock
@@ -84,16 +84,14 @@ sections:
       - label: Get Started
         url: /docs/getting-started/installation.html
   - type: contentblock
-    title: A Section Without Image
+    title: API Reference
     section_id: text-no-img
     component: ContentBlock
     content: >-
-      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet
-      cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum
-      consectetur lobortis.
+      Access API Documentation Details
     actions:
       - label: Get Started
-        url: /docs/getting-started/installation.html
+        url: /api/index
 menus:
   main:
     title: Home

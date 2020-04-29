@@ -10,7 +10,7 @@ export default class Docs extends React.Component {
         let root_page_path = _.get(this.props, 'pageContext.site.data.doc_sections.root_folder') + 'index.md';
         let current_page_path = '/' + _.get(this.props, 'pageContext.relativePath');
         let child_pages_path = '/' + _.get(this.props, 'pageContext.relativeDir');
-        let child_pages = _.orderBy(_.filter(getPages(this.props.pageContext.pages, child_pages_path), item => _.get(item, 'base') != 'index.md'), 'frontmatter.weight');
+        let child_pages = _.orderBy(_.filter(getPages(this.props.pageContext.pages, child_pages_path), item => _.get(item, 'base') !== 'index.md'), 'frontmatter.weight');
         let child_count = _.size(child_pages);
         let has_children = (child_count > 0) ? true : false;
         return (

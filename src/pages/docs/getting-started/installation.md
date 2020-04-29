@@ -9,128 +9,28 @@ template: docs
   This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
-## Callouts
+## Installation
 
-<hr>
+Beging by cloning the repository
 
-There are two types of callouts availabale in this theme, **note** and **important**. To add a callout to your documentation simply add the following `html` code with class `important` or `note`. Like in the example bellow. 
-
-### HTML example
-
-Copy the code and modify these blocks according to your needs.
-
-```html
-<div class="important">
-  <strong>Important:</strong> 
-  This is an "Important" callout block of text.
-  This block indicates a warning or caution. 
-  Use it for an important message. 
-</div>
+```bash
+git clone https://github.com/swch/Strivve-SDK.git
 ```
 
-```html
-<div class="note">
-  <strong>Note:</strong> 
-  This is a "Note" callout block of text. 
-  This block signifies a general note.
-</div>
-```
-### Live example
+To try out the SDK, cd to the sample directory, and:
 
-<div class="important">
-  <strong>Important:</strong> 
-  This is an "Important" callout block of text. 
-  This block indicates a warning or caution.
-  Use it for an important message. 
-</div>
-
-<div class="note">
-  <strong>Note:</strong> 
-  This is an "Note" callout block of text. 
-  This block signifies a general note.
-</div>
-
-## Code blocks
-
-<hr>
-
-<div class="note">
-  <strong>Note:</strong>
-  Code blocks have copy functionality. To copy the code press the grey button located in the right side top corner.
-</div>
-
-You can create simple code blocks by placing triple backticks <code>```</code> before and after the code block. To render a code block more readable, we recommend placing a blank line before and after code blocks.
-
-<pre>```
-if (condition) {
-  code to run if condition is true
-} else {
-  run some other code instead
-}
-```
-</pre>
-
-```
-if (condition) {
-  code to run if condition is true
-} else {
-  run some other code instead
-}
+```bash
+npm install
 ```
 
-### Syntax highlighting
+This will install the SDK from npmjs.org as well as download the necessar dependencies.
 
-You can add a language identifier to enable syntax highlighting in your code block. For example, to syntax highlight **JavaScript** code, specify `javascript` next to the tick marks before the fenced code block:
+The SDK is a typescript wrapper around the Strivve Cardsavr REST API.  Although there are several api calls you can make to manage your financial institutions users, cards and merchants, the CardsavrHelper of the SDK makes it easy to do the most common functions:  add credit cards to a user, and then post a job that can update that card on one or more merchant sites.  
 
-<pre>
-```javascript
-if (condition) {
-  code to run if condition is true
-} else {
-  run some other code instead
-}
+For this sample, there are two applications.  The first is a simple node app that provisions a user and adds a credit card to their profile.  This card is encrypted and saved in the Cardsavr database, and only accessible by the updating process.  The second application is a simple web application written in javascript that collects a merchant site's credentails, posts a job to place that card, and then provides basic feedback to the cardholder:  status messages, and potentially additional security information like two-factor authentication codes, and even a chance to update the username or password.
+
+If you are building your own application, you can also simply install the npm module into your own node or react application:
+
+```bash
+npm install @strivve/strivve-sdk
 ```
-</pre>
-
-The rendered output looks like this:
-
-```javascript
-if (condition) {
-  code to run if condition is true
-} else {
-  run some other code instead
-}
-```
-
-## Tables
-
-<hr>
-
-You can build tables with markdown to help you organize information. To add a table, use three or more hyphens (---) to create each column’s header, and use pipes (|) to separate each column like in the example below.
-
-<pre>
-| Title | Title |
-| ------| ----- |
-| Text  | Text  |
-| Text  | Text  |
-</pre>
-
-| Title | Title |
-| ------| ----- |
-| Text  | Text  |
-| Text  | Text  |
-
-<div class="note">
-  <strong>Note:</strong> 
-  Creating tables with hyphens and pipes can be time-consuming. To speed up the process, try using the <a href="http://www.tablesgenerator.com/markdown_tables" >Markdown Tables Generator</a>.
-</div>
-
-## Start using Libris theme
-
-<hr>
-
-We’ve packed this theme with powerful features to help you have awesome documentation for your current or next project.
-
-**Why not start using this theme today?**
-
-<a href="https://www.stackbit.com/" class="button">Join Stackbit</a>
