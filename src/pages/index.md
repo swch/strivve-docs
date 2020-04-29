@@ -40,19 +40,15 @@ sections:
           - label: Learn More
             url: /style-guide.html
   - type: contentblock
-    title: A Section With An Image
+    title: MOBILE & WEB APPS
     section_id: text-img
     component: ContentBlock
     content: >-
-      Nam pulvinar ante eu ultricies volutpat. Sed nulla nibh, dapibus sit amet
-      cursus quis, fringilla nec sapien. Vestibulum imperdiet nunc bibendum
-      consectetur lobortis.
-    image: images/10.jpg
+      Seamlessly embed card provisioning technology into bank or credit union apps to reclaim and increase transaction volume.
+    image: /images/cardsavr_hand_phone-e1547060126327.png
     actions:
       - label: View Demo
-        url: /docs/getting-started/index.html
-      - label: Get Started
-        url: /docs/getting-started/index.html
+        url: https://acmebank.cardupdatr.app
   - type: featuresblock
     title: Sample Layouts
     section_id: features-two-col
