@@ -7,5 +7,5 @@ menus:
 template: docs
 ---
 
-## Credit card issuance doesn’t have to end at activation.
+# Credit card issuance doesn’t end at activation.
 ![image info](/images/cardupdatr_image4-600x473.png)
