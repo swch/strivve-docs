@@ -154,4 +154,6 @@ cardholder experience and security considerations. In the end, the best
 cardholder experience (design) must be balanced with the integrator’s security
 practices appropriate for the business.
 
+***
 
+### Here are the articles in this section:
