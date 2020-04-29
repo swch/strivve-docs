@@ -69,6 +69,22 @@ sections:
         actions:
           - label: Learn More
             url: /showcase.html
+      - title: Overview
+        content: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl
+          ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh
+          fringilla, fringilla tortor at, pulvinar orci.
+        actions:
+          - label: Learn More
+            url: /overview.html
+      - title: Showcase
+        content: >-
+          Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam
+          a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at,
+          tincidunt ut tellus. Vivamus rhoncus mattis varius.
+        actions:
+          - label: Learn More
+            url: /showcase.html
   - type: ctablock
     title: The Title of The Call to Action Block
     section_id: cta
