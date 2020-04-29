@@ -112,6 +112,57 @@ window.$docsify = {
 };
 ```
 
+<hr>
+
+<div class="note">
+  <strong>Note:</strong>
+  Code blocks have copy functionality. To copy the code press the grey button located in the right side top corner.
+</div>
+
+You can create simple code blocks by placing triple backticks <code>```</code> before and after the code block. To render a code block more readable, we recommend placing a blank line before and after code blocks.
+
+<pre>```
+if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
+}
+```
+</pre>
+
+```
+if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
+}
+```
+
+### Syntax highlighting
+
+You can add a language identifier to enable syntax highlighting in your code block. For example, to syntax highlight **JavaScript** code, specify `javascript` next to the tick marks before the fenced code block:
+
+<pre>
+```javascript
+if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
+}
+```
+</pre>
+
+The rendered output looks like this:
+
+```javascript
+if (condition) {
+  code to run if condition is true
+} else {
+  run some other code instead
+}
+```
+
+
 ## Tables
 
 <table>
