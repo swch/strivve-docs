@@ -35,7 +35,7 @@ export default class SignIn extends React.Component {
                 </div>
               </article>
 
-			<GitHubLogin clientId="963d366d593be476d2d1" onSuccess={onSuccess} onFailure={onFailure} redirectUri="https://strivve-docs-8b1ae.netlify.app/gh-auth/done" />
+			<GitHubLogin clientId="963d366d593be476d2d1" onSuccess={onSuccess} onFailure={onFailure} redirectUri="https://strivve-docs-8b1ae.netlify.app/gh-auth" />
             </Layout>
         );
     }
