@@ -1,9 +1,9 @@
 root_folder: /docs/
 sections:
-  - about
   - getting-started
   - guides
   - resources
   - tools
   - faq
   - community
+  - about
