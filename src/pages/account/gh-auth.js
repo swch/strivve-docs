@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import { handleAuthentication } from '../../services/auth'
 
 
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 
 export default () => {
   handleAuthentication(() => navigate('/'))
