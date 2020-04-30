@@ -5,6 +5,7 @@ import _ from 'lodash';
 import {safePrefix} from '../utils';
 import Header from './Header';
 import Footer from './Footer';
+import favicon from '../../static/images/favicon-96x96.png';
 
 export default class Body extends React.Component {
     render() {
@@ -17,6 +18,7 @@ export default class Body extends React.Component {
                     <meta name="google" content="notranslate" />
                     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26Display=swap" rel="stylesheet"/> 
                     <link rel="stylesheet" href={safePrefix('assets/css/main.css')}/>
+					<link rel="icon" href={favicon} />
                 </Helmet>
                 <div id="page" className="site">
                   <Header {...this.props} />

@@ -7,9 +7,9 @@
             "weight": 5
         },
         {
-            "identifier": "github",
-            "title": "GitHub",
-            "url": "https://github.com/",
+            "identifier": "signin",
+            "title": "Sign In",
+            "url": "/account/account",
             "weight": 6
         }
     ]
