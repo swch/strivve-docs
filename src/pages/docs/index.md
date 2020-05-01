@@ -7,5 +7,9 @@ menus:
 template: docs
 ---
 
-# Card issuance doesn’t end at activation.
+# Credit card issuance doesn’t end at activation.
 ![image info](/images/cardupdatr_image4-600x473.png)
+
+
+## Gary T is great!!
+
