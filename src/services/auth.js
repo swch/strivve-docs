@@ -73,6 +73,9 @@ export const handleLogin = () => {
 
 export const handleAuthentication = callback => {
   if (!isBrowser) return null
+  console.error(err)
+  console.error(authResult)
+
   /*auth0.parseHash(async (err, authResult) => {
     if (authResult && authResult.accessToken && authResult.idToken) {
       setSession(authResult)
