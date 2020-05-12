@@ -2,14 +2,14 @@
     "main": [
         {
             "identifier": "layouts",
-            "title": "Sample Layouts",
+            "title": "Site Refs",
             "url": "#",
             "weight": 5
         },
         {
             "identifier": "signin",
             "title": "Sign In",
-            "url": "/account/account",
+            "url": "/app",
             "weight": 6
         }
     ]

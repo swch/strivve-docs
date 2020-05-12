@@ -4,14 +4,16 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-exports.onInitialClientRender = () => {
+/*exports.onInitialClientRender = () => {
     if ('onGatsbyInitialClientRender' in window && typeof window.onGatsbyInitialClientRender === 'function') {
         window.onGatsbyInitialClientRender();
-    }
+		console.log('onInitialClientRender: ' + window.location.href);
+	}
 };
 
 exports.onRouteUpdate = () => {
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
         window.onGatsbyRouteUpdate();
+		console.log('onRouteUpdate: ' + window.location.href);
     }
-};
+};*/

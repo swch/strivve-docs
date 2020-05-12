@@ -12,5 +12,4 @@ else
 fi
 curl -s -X POST https://api.stackbit.com/project/5ea8b1ae51da8f0019edc11f/webhook/build/ssgbuild > /dev/null
 gatsby build
-./inject-netlify-identity-widget.js public
 curl -s -X POST https://api.stackbit.com/project/5ea8b1ae51da8f0019edc11f/webhook/build/publish > /dev/null

@@ -10,7 +10,9 @@ sections:
       one to three sentences, but can be changed as you prefer.
     image: images/StrivveLogo-white.png
     actions:
-      - label: Get Started
+      - label: Geting Started Guides
+        url: docs/getting-started
+      - label: Create Your Sandbox Account
         url: docs/getting-started
   - type: featuresblock
     section_id: features
@@ -102,9 +104,5 @@ sections:
     actions:
       - label: Get Started
         url: /api/index
-menus:
-  main:
-    title: Home
-    weight: 1
 template: home
 ---

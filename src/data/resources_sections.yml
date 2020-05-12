@@ -1,0 +1,8 @@
+root_folder: /resources/
+sections:
+  - environments
+  - data-models
+  - credentials
+  - testing
+  - partner-portal
+  - support

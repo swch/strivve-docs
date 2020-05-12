@@ -194,10 +194,110 @@ models:
           slug representing the section.
         items:
           type: string
+  guides_sections:
+    type: data
+    file: guides_sections.yml
+    label: Guides Sections
+    fields:
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/guides/" to put all documentation pages under "/guides/".
+        default: /guides/
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
+        items:
+          type: string
+  resources_sections:
+    type: data
+    file: resources_sections.yml
+    label: Resources Sections
+    fields:
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/resources/" to put all documentation pages under "/resources/".
+        default: /resources/
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
+        items:
+          type: string
   docs:
     type: page
     label: Documentation Pages
     template: docs
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+        required: true
+      - type: number
+        name: weight
+        label: Weight
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+      - type: page_menus
+        name: menus
+        label: Documentation Pages Menus
+        description: Which menus should this page show up in
+  guides:
+    type: page
+    label: Documentation Pages
+    template: guides
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+        required: true
+      - type: number
+        name: weight
+        label: Weight
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+      - type: page_menus
+        name: menus
+        label: Documentation Pages Menus
+        description: Which menus should this page show up in
+  resources:
+    type: page
+    label: Documentation Pages
+    template: resources
     fields:
       - type: string
         name: title
@@ -559,7 +659,6 @@ models:
     type: data
     file: menus.json
     label: Site Menus
-    labelField: null
     description: >-
       Site menus model, defines list of menus that can be specified from within
       site configuration
@@ -606,7 +705,6 @@ models:
   page_menus:
     type: object
     label: Page Menus
-    labelField: null
     description: 'Page menus model, defines menus that can be specified from within pages'
     fields:
       - type: page_menu_item

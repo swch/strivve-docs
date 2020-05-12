@@ -2,6 +2,8 @@ import ContentBlock from './ContentBlock';
 import CtaBlock from './CtaBlock';
 import CtaButtons from './CtaButtons';
 import DocsMenu from './DocsMenu';
+import ReourcesMenu from './ResourcesMenu';
+import GuidesMenu from './GuidesMenu';
 import DocsSubmenu from './DocsSubmenu';
 import FeaturesBlock from './FeaturesBlock';
 import Footer from './Footer';
@@ -10,12 +12,15 @@ import HeroBlock from './HeroBlock';
 import Menu from './Menu';
 import Social from './Social';
 import Layout from './Layout';
+import SignIn from './SignIn';
 
 export {
     ContentBlock,
     CtaBlock,
     CtaButtons,
     DocsMenu,
+	ReourcesMenu,
+	GuidesMenu,
     DocsSubmenu,
     FeaturesBlock,
     Footer,
@@ -23,7 +28,8 @@ export {
     HeroBlock,
     Menu,
     Social,
-    Layout
+    Layout,
+	SignIn
 };
 
 export default {
@@ -31,6 +37,8 @@ export default {
     CtaBlock,
     CtaButtons,
     DocsMenu,
+	ReourcesMenu,
+	GuidesMenu,
     DocsSubmenu,
     FeaturesBlock,
     Footer,
@@ -38,5 +46,6 @@ export default {
     HeroBlock,
     Menu,
     Social,
-    Layout
+    Layout,
+	SignIn
 };

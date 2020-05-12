@@ -1,8 +1,10 @@
 //import auth0js from 'auth0-js'
+// http://localhost:9000/auth
 
-export const isBrowser = typeof window !== 'undefined'
 
-let profile = false
+export const isBrowser = typeof window !== 'undefined';
+
+let profile = false;
 
 /*const auth0 = isBrowser ? new auth0js.WebAuth({
   domain: process.env.AUTH0_DOMAIN,
@@ -73,8 +75,6 @@ export const handleLogin = () => {
 
 export const handleAuthentication = callback => {
   if (!isBrowser) return null
-  console.error(err)
-  console.error(authResult)
 
   /*auth0.parseHash(async (err, authResult) => {
     if (authResult && authResult.accessToken && authResult.idToken) {
@@ -85,12 +85,23 @@ export const handleAuthentication = callback => {
       console.error(err)
     }
   })*/
+
+    // sign in using our lambda functions
+    /*fetch(`http://localhost:9000/auth`)
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+		  console.log('resultData: ', resultData);
+      }) // set data for the number of stars
+	  */
+
 }
 
 export const isLoggedIn = () => {
   if (!isBrowser) return null
-  let expiresAt = JSON.parse(window.localStorage.getItem('expires_at'))
-  return new Date().getTime() < expiresAt
+  /*let expiresAt = JSON.parse(window.localStorage.getItem('expires_at'))
+  return new Date().getTime() < expiresAt*/
+  
+  return false;
 }
 
 export const logout = callback => {

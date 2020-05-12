@@ -3,7 +3,7 @@ title: Developer Docs
 menus:
   main:
     title: Docs
-    weight: 2
+    weight: 3
 template: docs
 ---
 
