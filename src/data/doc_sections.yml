@@ -1,9 +1,10 @@
 root_folder: /docs/
 sections:
   - getting-started
-  - guides
-  - resources
-  - tools
+  - quick-start
+  - api
+  - strivve-github
+  - sample-code
   - faq
-  - community
-  - about
+  
+  
