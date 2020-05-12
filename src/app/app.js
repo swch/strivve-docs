@@ -13,7 +13,7 @@ import Login from "./components/login"*/
 
 const App = () => {
   return (
-		<Layout {...this.props}>
+		<Layout>
 			<Router basepath="/app">
 			</Router>
 		</Layout>

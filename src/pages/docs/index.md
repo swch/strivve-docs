@@ -1,8 +1,8 @@
 ---
-title: Developer Docs
+title: Overview
 menus:
   main:
-    title: Docs
+    title: API docs
     weight: 3
 template: docs
 ---
@@ -11,5 +11,9 @@ template: docs
 ![image info](/images/cardupdatr_image4-600x473.png)
 
 
-## Gary T is great!!
+## 3 Easy Steps to get start now
+
+## Sample Code to Support Rapid and Quality Integrations
+
+
 
