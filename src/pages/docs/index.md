@@ -8,7 +8,7 @@ template: docs
 ---
 
 # Credit card issuance doesn’t end at activation.
-![image info](/images/cardupdatr_image4-600x473.png)
+![image info](/images/Strivve-High-Level-Arch.png)
 
 
 ## 3 Easy Steps to get start now

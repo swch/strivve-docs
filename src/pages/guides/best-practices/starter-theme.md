@@ -1,7 +1,7 @@
 ---
 title: Starter Theme
 weight: 1
-template: docs
+template: guides
 ---
 
 <div class="note">
