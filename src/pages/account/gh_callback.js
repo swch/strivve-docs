@@ -1,12 +1,7 @@
 import React from 'react'
 
 class GitHubCallback extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { data } = this.props;
     //window.alert('in componentDidMount() of gh_callback.js: ' + JSON.stringify(this.props.location.search));
     if (typeof window !== 'undefined') {
         const userInfo = decodeURIComponent(this.props.location.search.split('=')[1]);
