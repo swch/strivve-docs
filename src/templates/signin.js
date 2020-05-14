@@ -23,9 +23,6 @@ export default class SignIn extends React.Component {
               <div className="outer">
                 <div className="inner-medium">
                   <div className="post-feed">
-                    <SignInGH>
-                      {htmlToReact(_.get(this.props, 'pageContext.html'))}
-                    </SignInGH>
                   </div>
               </div>
             </div>
