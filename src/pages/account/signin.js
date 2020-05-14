@@ -21,26 +21,14 @@ class Account extends React.Component {
     }
 
     async componentDidMount() {
-        window.alert('Doc body:', JSON.stringify(document.body));
-        /*
-                    // Set User Object in local storage
-            window.localStorage.setItem('Strivve-docs-user-info', userInfo );
-        
-
-        const token = await signIn.authClient.tokenManager.get('idToken');
-        if (token) {
-          this.setState({user: token.claims.name});
-        } else {
-          // Token has expired
-          this.setState({user: false});
-          localStorage.setItem('isAuthenticated', 'false');
-        }*/
     }
 
     render() {
-        //if (!isAuthenticated()) {
-        if (true) {
-            window.location.href = process.env.GH_AUTH_URI;
+        if (typeof window !== 'undefined') {
+            const userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+            if (!userInfo) {
+                window.location.href = process.env.GH_AUTH_URI;
+            }
         }
         return (null);
     }
