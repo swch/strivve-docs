@@ -3,7 +3,11 @@ import _ from 'lodash';
 import {Link, safePrefix} from '../utils';
 import Menu from './Menu';
 
-var userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+var userInfo = null;
+
+if (typeof window !== 'undefined') {
+    userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+}
 
 if (!userInfo) {
     userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
