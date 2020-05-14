@@ -20,6 +20,13 @@ GH_CLIENT_SECRET='b113b5ac57eb0dbaf57501a6a301b3ac62474ba2'
 GH_AUTH_URI='http://localhost:8000/.netlify/lambdas/auth'
 GH_REDIRECT_URI='http://localhost:8000/.netlify/lambdas/auth-callback'
 
+[production.environment]
+GH_CLIENT_APP_ID='1280686'
+GH_CLIENT_ID='963d366d593be476d2d1'
+GH_CLIENT_SECRET='f953906547672cdb59204e6499d8089106ced79e'
+GH_AUTH_URI='https://strivve-docs-8b1ae.netlify.app/.netlify/functions/auth'
+GH_REDIRECT_URI='https://strivve-docs-8b1ae.netlify.app/.netlify/functions/auth'
+API_URI=''
 
 # Stackbit
 #command = "./stackbit-build.sh"
