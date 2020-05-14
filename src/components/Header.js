@@ -7,10 +7,9 @@ var userInfo = null;
 
 if (typeof window !== 'undefined') {
     userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
-}
-
-if (!userInfo) {
-    userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
+    if (!userInfo) {
+        userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
+    }
 }
 
 export default class Header extends React.Component {
