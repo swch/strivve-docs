@@ -40,7 +40,7 @@ export default class Header extends React.Component {
                   </nav>
                   <button id="menu-open" className="menu-toggle"><span className="screen-reader-text">Close Menu</span><span className="icon-menu" aria-hidden="true" /></button>
                   </React.Fragment>}
-                  <div class="site-navigation"><img width="36" height="36" src={userInfo.avatar_url} alt="GitHub User" />{userInfo.name}</div>
+                  <div className="site-navigation"><img width="36" height="36" src={userInfo.avatar_url} alt="GitHub User" />{userInfo.name}</div>
                 </div>
               </div>
             </header>
