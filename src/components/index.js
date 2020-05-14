@@ -12,7 +12,6 @@ import HeroBlock from './HeroBlock';
 import Menu from './Menu';
 import Social from './Social';
 import Layout from './Layout';
-import SignIn from './SignIn';
 
 export {
     ContentBlock,
@@ -28,8 +27,7 @@ export {
     HeroBlock,
     Menu,
     Social,
-    Layout,
-	SignIn
+    Layout
 };
 
 export default {
@@ -46,6 +44,5 @@ export default {
     HeroBlock,
     Menu,
     Social,
-    Layout,
-	SignIn
+    Layout
 };

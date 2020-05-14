@@ -4,16 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-/*exports.onInitialClientRender = () => {
-    if ('onGatsbyInitialClientRender' in window && typeof window.onGatsbyInitialClientRender === 'function') {
-        window.onGatsbyInitialClientRender();
-		console.log('onInitialClientRender: ' + window.location.href);
-	}
-};
-
-exports.onRouteUpdate = () => {
-    if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
-        window.onGatsbyRouteUpdate();
-		console.log('onRouteUpdate: ' + window.location.href);
+exports.onInitialClientRender = () => {
+    const userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+    if (!userInfo) {
+        window.location.href = process.env.GH_AUTH_URI;
     }
-};*/
+}

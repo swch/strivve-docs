@@ -5,12 +5,6 @@
             "title": "Site Refs",
             "url": "/#",
             "weight": 5
-        },
-        {
-            "identifier": "signin",
-            "title": "Sign In",
-            "url": "/app",
-            "weight": 6
         }
     ]
 }

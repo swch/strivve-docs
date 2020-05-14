@@ -3,6 +3,12 @@ import _ from 'lodash';
 import {Link, safePrefix} from '../utils';
 import Menu from './Menu';
 
+var userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+
+if (!userInfo) {
+    userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
+}
+
 export default class Header extends React.Component {
     render() {
         let menu = _.get(this.props, 'pageContext.menus.main');
@@ -33,6 +39,7 @@ export default class Header extends React.Component {
                   </nav>
                   <button id="menu-open" className="menu-toggle"><span className="screen-reader-text">Close Menu</span><span className="icon-menu" aria-hidden="true" /></button>
                   </React.Fragment>}
+                <div class="site-navigation"><img width="36" height="36" src={userInfo.avatar_url} alt="GitHub User" />{userInfo.name}</div>
                 </div>
               </div>
             </header>
