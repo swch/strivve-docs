@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 //import moment from 'moment-strftime';
 
-import {SignInGH} from '../components/index';
 import {Layout} from '../components/index';
 import {toStyleObj, safePrefix, getPages, Link, htmlToReact} from '../utils';
 
