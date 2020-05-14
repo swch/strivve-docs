@@ -1,9 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
-//import moment from 'moment-strftime';
 
 import {Layout} from '../components/index';
-import {toStyleObj, safePrefix, getPages, Link, htmlToReact} from '../utils';
+import {toStyleObj, safePrefix} from '../utils';
 
 export default class SignIn extends React.Component {
     render() {

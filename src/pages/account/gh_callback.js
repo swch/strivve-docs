@@ -1,38 +1,8 @@
 import React from 'react'
-import queryString from 'query-string'
-import PropTypes from 'prop-types'
-import { navigate, Router } from '@reach/router'
-import { Link } from 'gatsby'
-import Layout from "../../components/Layout"
-
-const isAuthenticated = () => {
-  if (typeof window !== 'undefined') {
-    //return localStorage.getItem('isAuthenticated') === 'true';
-	return false; //temp
-  } else {
-    return false;
-  }
-};
 
 class GitHubCallback extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {user: false};
-    this.logout = this.logout.bind(this);
-  }
-
-  async componentDidMount() {
-  }
-
-  logout() {
-    /*signIn.authClient.signOut().catch((error) => {
-      console.error('Sign out error: ' + error)
-    }).then(() => {
-      localStorage.setItem('isAuthenticated', 'false');
-      this.setState({user: false});
-      navigate('/');
-    });*/
   }
 
   render() {
