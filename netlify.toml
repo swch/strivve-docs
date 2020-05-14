@@ -13,14 +13,14 @@ functions = "lambdas-built"
   publish = "public" # If you use a _redirect file, provide the path to your static content folder
   functions = "lambdas-built"
 
-[build.environment]
+[dev.environment]
 GH_CLIENT_APP_ID='1285225'
 GH_CLIENT_ID='76ce40eaa5718c5271cf'
 GH_CLIENT_SECRET='b113b5ac57eb0dbaf57501a6a301b3ac62474ba2'
 GH_AUTH_URI='http://localhost:8000/.netlify/lambdas/auth'
 GH_REDIRECT_URI='http://localhost:8000/.netlify/lambdas/auth-callback'
 
-[production.environment]
+[build.environment]
 GH_CLIENT_APP_ID='1280686'
 GH_CLIENT_ID='963d366d593be476d2d1'
 GH_CLIENT_SECRET='f953906547672cdb59204e6499d8089106ced79e'
