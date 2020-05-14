@@ -38,9 +38,11 @@ class GitHubCallback extends React.Component {
   render() {
     const { data } = this.props;
     //window.alert('in componentDidMount() of gh_callback.js: ' + JSON.stringify(this.props.location.search));
-    const userInfo = decodeURIComponent(this.props.location.search.split('=')[1]);
-    window.localStorage.setItem('Strivve-docs-user-info', userInfo );
-    window.location.href = '/';
+    if (typeof window !== 'undefined') {
+        const userInfo = decodeURIComponent(this.props.location.search.split('=')[1]);
+        window.localStorage.setItem('Strivve-docs-user-info', userInfo );
+        window.location.href = '/';
+    }
     return (null)
   }
 }
