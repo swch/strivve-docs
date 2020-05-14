@@ -3,18 +3,15 @@ import _ from 'lodash';
 import {Link, safePrefix} from '../utils';
 import Menu from './Menu';
 
-var userInfo = null;
-
-if (typeof window !== 'undefined') {
-    userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
-    if (!userInfo) {
-        userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
-    }
-}
+var userInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
 
 export default class Header extends React.Component {
     render() {
         let menu = _.get(this.props, 'pageContext.menus.main');
+        if (typeof window !== 'undefined') {
+            userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+        }
+
         return (
             <header id="masthead" className="site-header outer">
               <div className="inner">
