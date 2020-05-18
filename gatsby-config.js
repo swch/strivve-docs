@@ -48,7 +48,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-create-client-paths`,
             options: {
-                prefixes: [`/services/*`]
+                prefixes: [`/account/*`]
             },
 		},
         {
@@ -92,7 +92,7 @@ module.exports = {
                 specs: [ // specs collection is required, you can define as many specs as you want
                         {
                         name: 'CardSavrSpec', // required, must be unique
-                        resolve: () => fromJson(path.resolve(__dirname, './src/data/swagger-petstore.json')) // required, function which returns a Promise resolving Swagger JSON
+                        resolve: () => fromJson(`${__dirname}/src/data/swagger-petstore.json`) // required, function which returns a Promise resolving Swagger JSON
                         }
                     ]
             }

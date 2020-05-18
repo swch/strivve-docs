@@ -1,6 +1,6 @@
 ---
 title: PetStore Swagger API
-template: openapi
+template: swagger
 ---
 
 ***

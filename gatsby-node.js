@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     `).then(result => {
       result.data.allOpenApiSpec.edges.map(({ node }) => {
         createPage({
-          path: `swagger-api/${node.name}`,
+          path: `apis/${node.name}`,
           component: path.resolve(`./src/templates/swagger.js`),
           context: {
             id: node.id,

@@ -2,11 +2,13 @@
 // https://github.com/devdigital/gatsby-source-openapi-aggregate
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-import groupBy from 'lodash.groupby'
-import SpecInformation from '../swagger-spec/SpecInformation'
+import { graphql } from "gatsby"
+
+import Specs from '../swagger-spec/Specs'
 import SpecPaths from '../swagger-spec/SpecPaths'
+import SpecInformation from '../swagger-spec/SpecInformation'
+import groupBy from 'lodash.groupby'
 import g from 'glamorous'
 
 const backStyle = {
@@ -15,6 +17,7 @@ const backStyle = {
 
 class Api extends Component {
   render() {
+    console.log('this.props: ' + JSON.stringify(this.props));
     const api = this.props.data.openApiSpec
     const paths = api.childrenOpenApiSpecPath
     const pathGroups = groupBy(paths, p => p.tag)
@@ -44,8 +47,8 @@ Api.propTypes = {
 export default Api
 
 export const query = graphql`
-  query ApiQuery($id: String!) {
-    openApiSpec(id: { eq: $id }) {
+  query IndexQuery {
+    openApiSpec {
       version
       title
       description

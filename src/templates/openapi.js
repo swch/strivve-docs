@@ -4,7 +4,6 @@ import _ from 'lodash';
 
 import {Layout} from '../components/index';
 import {toStyleObj, safePrefix, Link, htmlToReact} from '../utils';
-import {Api} from './swagger';
 
 const backStyle = {
   marginBottom: '1rem',
@@ -15,10 +14,10 @@ export default class OpenApiView extends React.Component {
 
     render() {
         //const specs = this.props.data.allOpenApiSpec.edges.map(e => e.node)
-        const api = this.props.data.openApiSpec      //.edges.map(e => e.node)
-        console.log('this.props: ' + JSON.stringify(this.props));
-        const paths = api.childrenOpenApiSpecPath
-        const pathGroups = groupBy(paths, p => p.tag)
+        //const api = this.props.data.openApiSpec      //.edges.map(e => e.node)
+        //console.log('this.props: ' + JSON.stringify(this.props));
+        //const paths = api.childrenOpenApiSpecPath
+        //const pathGroups = groupBy(paths, p => p.tag)
 
 
         return (
@@ -40,26 +39,16 @@ export default class OpenApiView extends React.Component {
                 <div className="outer">
                   <div className="inner">
                     <div className="post-content">
-                        <div>
-                                <g.Div css={backStyle}>
-                                  <Link to="/">Back</Link>
-                                </g.Div>
-                                <SpecInformation
-                                  title={api.title}
-                                  version={api.version}
-                                  description={api.description}
-                                />
-                                {Object.keys(pathGroups).map(t => (
-                                  <SpecPaths key={t} tag={t} paths={pathGroups[t]} />
-                                ))}
-                              </div>
-                        </div>
+                    </div>
                   </div>
                 </div>
               </article>
             </Layout>
         );
     }
+
+//<Api />
+    
 /*return (
     <div>
       <h2>Specs</h2>
