@@ -26,7 +26,7 @@ export default class SignIn extends React.Component {
                   <div className="inner">
                     <div className="post-content">
                       {htmlToReact(_.get(this.props, 'pageContext.html'))}
-                      <p className="read-more"><a href="/.netlify/lambdas/auth" className="read-more-link post-subtitle">Sign In via GitHub Now... <span className="icon-arrow-right" aria-hidden="true" /></a></p>
+                      <p className="read-more"><a href={process.env.GH_AUTH_URI} className="read-more-link post-subtitle">Sign In via GitHub Now... <span className="icon-arrow-right" aria-hidden="true" /></a></p>
                     </div>
                   </div>
                 </div>
