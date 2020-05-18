@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { Router } from "@reach/router"
 import _ from 'lodash';
 import {safePrefix} from '../utils';
@@ -15,7 +15,13 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import favicon from '../../static/images/favicon-96x96.png';
 
-const App = () => (
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
+    render() {
+        return (
             <React.Fragment>
                 <Helmet>
                     <title>{_.get(this.props, 'pageContext.frontmatter.title') && _.get(this.props, 'pageContext.frontmatter.title') + ' - '}{_.get(this.props, 'pageContext.site.siteMetadata.title')}</title>
@@ -34,9 +40,11 @@ const App = () => (
                   <Footer {...this.props} />
                 </div>
             </React.Fragment>
-)
+        )
+    }
+}
 
-export default App
+
 
 /*
 
