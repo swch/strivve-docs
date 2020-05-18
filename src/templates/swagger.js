@@ -43,7 +43,6 @@ Api.propTypes = {
 
 export default Api
 
-/*
 export const query = graphql`
   query ApiQuery($id: String!) {
     openApiSpec(id: { eq: $id }) {
@@ -84,4 +83,3 @@ export const query = graphql`
     }
   }
 `
-*/

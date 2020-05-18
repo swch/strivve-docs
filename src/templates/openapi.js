@@ -2,14 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import _ from 'lodash';
 
-import Specs from '../../../swagger-spec/Specs'
-import SpecPaths from '../../../swagger-spec/SpecPaths'
-import SpecInformation from '../../../swagger-spec/SpecInformation'
-import groupBy from 'lodash.groupby'
-import g from 'glamorous'
-
-import {Layout} from '../../../components/index';
-import {toStyleObj, safePrefix, Link, htmlToReact} from '../../../utils';
+import {Layout} from '../components/index';
+import {toStyleObj, safePrefix, Link, htmlToReact} from '../utils';
+import {Api} from './swagger';
 
 const backStyle = {
   marginBottom: '1rem',
