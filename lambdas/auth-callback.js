@@ -47,7 +47,7 @@ exports.handler = (event, context, callback) => {
             return callback(null, {
                 statusCode: 302,
                 headers: {
-                  Location: '/account/gh_callback?user=' + encodeURIComponent(JSON.stringify(userInfo)),
+                  Location: '/cb/gh_callback?user=' + encodeURIComponent(JSON.stringify(userInfo)),
                   'Cache-Control': 'no-cache' // Disable caching of this response
                 },
 

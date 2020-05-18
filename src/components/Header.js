@@ -9,7 +9,7 @@ export default class Header extends React.Component {
     render() {
         let menu = _.get(this.props, 'pageContext.menus.main');
         if (typeof window !== 'undefined') {
-            var ghUserInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
+            var ghUserInfo = JSON.parse(window.sessionStorage.getItem('Strivve-docs-user-info'));
         }
         var userInfo = ghUserInfo || defaultUserInfo;
         

@@ -1,4 +1,10 @@
 import simpleOauth from 'simple-oauth2'
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+require('dotenv').config({ path: './.env.' + activeEnv});
+
+console.log('lambdas using activeEnv: ' + activeEnv);
+//console.log('process.env: ' + JSON.stringify(process.env))
+//console.log('process.cwd: ' + process.cwd());
 
 const githubOauthApi = 'https://github.com'
 const githubApi = 'https://api.github.com'

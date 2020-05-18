@@ -1,0 +1,79 @@
+{
+    "info": {
+        "title": "Cardsavr REST API",
+        "version": "1.0.0",
+        "description": "Endpoints to securely manage the placement of credit cards on merchant sites."
+    },
+    "host": "api.localhost.cardsavr.io",
+    "basePath": "/",
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "scheme": "bearer",
+            "in": "header"
+        }
+    },
+    "swagger": "2.0",
+    "paths": {
+        "/cardsavr_users": {
+            "post": {
+                "tags": ["Users"],
+                "name": "Create user",
+                "summary": "Creates a user",
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "$ref": "#/definitions/User",
+                        "type": "object",
+                        "properties": {
+                            "username": {
+                                "type": "string"
+                            },
+                            "password": {
+                                "type": "string",
+                                "format": "password"
+                            },
+                            "cardholder_safe_key": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string"
+                            },
+                            "first_name": {
+                                "type": "string"
+                            },
+                            "last_name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "phone_number": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": ["username", "password", "role", "first_name", "last_name", "email", "phone_number"]
+                }],
+                "responses": {
+                    "200": {
+                        "description": "User was createds successfully"
+                    },
+                    "401": {
+                        "description": "Bad username, not found in db"
+                    },
+                    "403": {
+                        "description": "Username and password don't match"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "responses": {},
+    "parameters": {},
+    "tags": []
+}
