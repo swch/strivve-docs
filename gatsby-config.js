@@ -48,7 +48,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-create-client-paths`,
             options: {
-                prefixes: [`/account/*`]
+                prefixes: [`/app/*`]
             },
 		},
         {
@@ -65,11 +65,22 @@ module.exports = {
                 outputFile: `${__dirname}/public/assets/css/main.css`
             },
         },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [`gatsby-remark-component`],
-                plugins: [`gatsby-remark-responsive-iframe`]
+                plugins: [`gatsby-remark-responsive-iframe`],
+                plugins: [
+                {
+                    resolve: `gatsby-remark-images`,
+                    options: {
+                        quality: 90,
+                        maxWidth: 800,
+                        wrapperStyle: fluidResult => `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+                    },
+                }]
             }
         },
         {
@@ -78,6 +89,7 @@ module.exports = {
                 path: `${__dirname}/src/pages`,
             }
         },
+        
         {
             resolve: `@stackbit/gatsby-plugin-menus`,
             options: {

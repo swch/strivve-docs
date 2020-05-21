@@ -16,10 +16,6 @@ import Footer from '../components/Footer';
 import favicon from '../../static/images/favicon-96x96.png';
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     render() {
         return (
             <React.Fragment>

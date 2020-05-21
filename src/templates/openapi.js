@@ -13,13 +13,6 @@ export default class OpenApiView extends React.Component {
   //                         <Specs specs={specs} />
 
     render() {
-        //const specs = this.props.data.allOpenApiSpec.edges.map(e => e.node)
-        //const api = this.props.data.openApiSpec      //.edges.map(e => e.node)
-        //console.log('this.props: ' + JSON.stringify(this.props));
-        //const paths = api.childrenOpenApiSpecPath
-        //const pathGroups = groupBy(paths, p => p.tag)
-
-
         return (
             <Layout {...this.props}>
               <article className="post page post-full">

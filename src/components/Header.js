@@ -2,17 +2,18 @@ import React from 'react';
 import _ from 'lodash';
 import {Link, safePrefix} from '../utils';
 import Menu from './Menu';
+import { getProfile } from "../utils/auth"
 
-var defaultUserInfo = {"avatar_url": "/images/favicon-96x96.png", "userInfo.name": "Unknown"};
+var defaultUserInfo = {"avatar_url": "/images/favicon-96x96.png", "name": "Sign In", "link_to": process.env.GH_AUTH_URI};
 
 export default class Header extends React.Component {
     render() {
         let menu = _.get(this.props, 'pageContext.menus.main');
         if (typeof window !== 'undefined') {
-            var ghUserInfo = JSON.parse(window.sessionStorage.getItem('Strivve-docs-user-info'));
+            var ghUserInfo = getProfile();
+            if (ghUserInfo) ghUserInfo.link_to = "/signout";
         }
         var userInfo = ghUserInfo || defaultUserInfo;
-        
         return (
             <header id="masthead" className="site-header outer">
               <div className="inner">
@@ -40,7 +41,7 @@ export default class Header extends React.Component {
                   </nav>
                   <button id="menu-open" className="menu-toggle"><span className="screen-reader-text">Close Menu</span><span className="icon-menu" aria-hidden="true" /></button>
                   </React.Fragment>}
-                  <div className="site-navigation"><img width="36" height="36" src={userInfo.avatar_url} alt="GitHub User" />{userInfo.name}</div>
+                  <div className="site-navigation"><img className="docs-section-item social-links" width="36" height="36" src={userInfo.avatar_url} alt="GitHub User" /><Link to={userInfo.link_to}><center className="social-links">{userInfo.name}</center></Link></div>
                 </div>
               </div>
             </header>

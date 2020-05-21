@@ -4,8 +4,6 @@ import {
 } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
-
-let user = {}
 const userInfoKey = 'Strivve-docs-user-info';
 
 export const isAuthenticated = () => {
@@ -17,12 +15,16 @@ export const isAuthenticated = () => {
     return (ghUserInfo !== null);
 }
 
-export const login = () => {
-    if (!isBrowser) {
-        return;
+export const login = (userInfo) => {
+    //window.alert('In login: isBrowser: ' + isBrowser )
+    //window.alert('In login: typeof(userInfo): ' + typeof(userInfo) )
+    //window.alert('In login: isBrowser: ' + isBrowser + '  userInfo: ' + userInfo )
+    if (isBrowser && (typeof(userInfo) == 'string')) { // stringified object
+        //window.alert('In login: Calling setSession')
+        setSession(false, userInfo);
+        navigate('/');
     }
-
-    //auth.authorize()
+    return;
 }
 
 function setSession(bIsLoggedIn, authResult) {
@@ -30,13 +32,6 @@ function setSession(bIsLoggedIn, authResult) {
     
     //window.alert('In auth.js: setSession: bIsLoggedIn: ' + bIsLoggedIn + ' - authResult: ' + authResult )
     if (!bIsLoggedIn && authResult) {
-        /*let expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
-        tokens.accessToken = authResult.accessToken
-        tokens.idToken = authResult.idToken
-        tokens.expiresAt = expiresAt
-        user = authResult.idTokenPayload
-        localStorage.setItem("isLoggedIn", true)
-        */
         storage.setItem(userInfoKey, authResult );
     }
     navigate("/")
@@ -49,21 +44,9 @@ export const silentAuth = callback => {
     //window.alert('In silentAuth: isAuthenticated: ' + bIsAuthenticated )
     // redirect to account sign in page
     var cbReturn = callback();
-    navigate('/account');
+    navigate('/signin');
 
     return cbReturn;
-}
-
-export const handleAuthentication = (userInfo) => {
-    //window.alert('In handleAuthentication: isBrowser: ' + isBrowser )
-    //window.alert('In handleAuthentication: typeof(userInfo): ' + typeof(userInfo) )
-    //window.alert('In handleAuthentication: isBrowser: ' + isBrowser + '  userInfo: ' + userInfo )
-    if (isBrowser && (typeof(userInfo) == 'string')) { // stringified object
-        //window.alert('In handleAuthentication: Calling setSession')
-        setSession(false, userInfo);
-        navigate('/');
-    }
-    return;
 }
 
 export const getProfile = () => {
@@ -72,7 +55,7 @@ export const getProfile = () => {
         var userJsonString = storage.getItem(userInfoKey);
         var ghUserInfo = null;
         if (userJsonString && userJsonString.length) {
-            var ghUserInfo = JSON.parse(userJsonString);
+            ghUserInfo = JSON.parse(userJsonString);
         }
         return ghUserInfo;
     } else {
@@ -81,9 +64,9 @@ export const getProfile = () => {
 }
 
 export const logout = () => {
-    window.alert('In logout: isBrowser: ' + isBrowser )
     const storage = isBrowser ? window.sessionStorage : null;
     if (isBrowser) {
+        //window.alert('In logout: isBrowser: ' + isBrowser )
         // storage.setItem("isLoggedIn", false)
         storage.removeItem(userInfoKey)
     //auth.logout()
