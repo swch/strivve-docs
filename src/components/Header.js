@@ -11,7 +11,11 @@ export default class Header extends React.Component {
         let menu = _.get(this.props, 'pageContext.menus.main');
         if (typeof window !== 'undefined') {
             var ghUserInfo = getProfile();
-            if (ghUserInfo) ghUserInfo.link_to = "/signout";
+            if (ghUserInfo) { 
+                ghUserInfo.link_to = "/signout";
+                if (!ghUserInfo.name.length)
+                    ghUserInfo.name = ghUserInfo.username;
+            }
         }
         var userInfo = ghUserInfo || defaultUserInfo;
         return (
