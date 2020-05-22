@@ -46,7 +46,7 @@ export const silentAuth = callback => {
     var cbReturn = callback();
     navigate('/signin');
 
-    return cbReturn;
+    if (cbReturn) return cbReturn;
 }
 
 export const getProfile = () => {
