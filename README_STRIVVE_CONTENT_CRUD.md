@@ -12,11 +12,7 @@ _This reference is written for those who need to merely add, move, reorganize or
 
 ## File System Layout
 In the gatsby-config.js node file, there is a proxy middleware NPM package we use to roxy rewrite the lambdas so they can be built and run locallly.  Below is the basic configuration, for more detals see this article ()
-```javascript
-const {
-    createProxyMiddleware
-} = require('http-proxy-middleware');
-```
+
 ## Quick Start
 + Pages (markdown) are in the ./src/pages parent folder
 + Subsequent content is in subfolders under pages
