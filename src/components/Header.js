@@ -13,11 +13,12 @@ export default class Header extends React.Component {
             var ghUserInfo = getProfile();
             if (ghUserInfo) { 
                 ghUserInfo.link_to = "/signout";
-                if (!ghUserInfo.name.length)
-                    ghUserInfo.name = ghUserInfo.username;
             }
         }
         var userInfo = ghUserInfo || defaultUserInfo;
+        if (typeof(userInfo.name) == 'undefined' || userInfo.name == null || userInfo.name.length == 0)
+            userInfo.name = ghUserInfo.username;
+
         return (
             <header id="masthead" className="site-header outer">
               <div className="inner">
