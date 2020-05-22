@@ -10,6 +10,7 @@ export const isAuthenticated = () => {
     if (!isBrowser) {
         return;
     }
+    //window.alert('In isAuthenticated: ')
 
     var ghUserInfo = getProfile();
     return (ghUserInfo !== null);
@@ -40,8 +41,8 @@ function setSession(bIsLoggedIn, authResult) {
 
 export const silentAuth = callback => {
     var bIsAuthenticated = isAuthenticated();
-    if (bIsAuthenticated) return callback()
     //window.alert('In silentAuth: isAuthenticated: ' + bIsAuthenticated )
+    if (bIsAuthenticated) return callback()
     // redirect to account sign in page
     var cbReturn = callback();
     navigate('/signin');

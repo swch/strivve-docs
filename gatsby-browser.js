@@ -4,17 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-/*exports.onInitialClientRender = () => {
-    const userInfo = JSON.parse(window.localStorage.getItem('Strivve-docs-user-info'));
-    if (!userInfo) {
-        window.location.href = process.env.GH_AUTH_URI;
-    }
-}*/
-
 import React from "react"
+import {navigate} from "gatsby"
 
 import { silentAuth } from "./src/utils/auth"
 
+// First time only, application/site load checks for authentication at startup
 class SessionCheck extends React.Component {
   constructor(props) {
     super(props)

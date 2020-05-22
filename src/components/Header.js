@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import {Link, safePrefix} from '../utils';
 import Menu from './Menu';
-import { getProfile } from "../utils/auth"
+import { getProfile, isAuthenticated } from "../utils/auth"
 
 var defaultUserInfo = {"avatar_url": "/images/favicon-96x96.png", "name": "Sign In", "link_to": process.env.GH_AUTH_URI};
 
@@ -37,7 +37,7 @@ export default class Header extends React.Component {
                     <p className="site-title"><Link to={safePrefix(_.get(this.props, 'pageContext.site.data.header.url') || '/')}>{_.get(this.props, 'pageContext.site.data.header.title')}</Link></p>
                     }
                   </div>
-                  {(_.get(this.props, 'pageContext.menus.main') && _.get(this.props, 'pageContext.site.data.header.has_nav')) && <React.Fragment>
+                  {(isAuthenticated() && _.get(this.props, 'pageContext.menus.main') && _.get(this.props, 'pageContext.site.data.header.has_nav')) && <React.Fragment>
                   <nav id="main-navigation" className="site-navigation" aria-label="Main Navigation">
                     <div className="site-nav-inside">
                       <button id="menu-close" className="menu-toggle"><span className="screen-reader-text">Open Menu</span><span className="icon-close" aria-hidden="true" /></button>
