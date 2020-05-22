@@ -23,7 +23,6 @@ export default class SignIn extends React.Component {
     render() {
         var ctaButtonLabel = "fix me";
         var githubAppId = process.env.GH_CLIENT_ID;
-        var appLoginUrl = process.env.GH_AUTH_URI;
         
         if (getProfile() !== null) {
             ctaButtonLabel = "Sign Out Now...";
