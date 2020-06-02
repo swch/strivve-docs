@@ -1,9 +1,9 @@
 ---
-title: Credentials
+title: NodeJS SDK
 template: resources
 ---
 
-# Strivve-SDK
+# Introduction
 
 This library is an implementation of the CardSavr API for Node.js or web applications. It contains methods for session management; security and cryptography; and resource retrieval, creation, updating, and deleting. By mangaging CardSavr's complex security requirements automatically, the JavaScript library greatly simplifies the implementation of CardSavr in your own app.
 

@@ -2,7 +2,7 @@ root_folder: /resources/
 sections:
   - environments
   - data-models
-  - credentials
+  - nodejs-sdk
   - testing
-  - partner-portal
+  - sandbox
   - support

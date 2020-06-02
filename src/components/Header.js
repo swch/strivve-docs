@@ -16,7 +16,7 @@ export default class Header extends React.Component {
             }
         }
         var userInfo = ghUserInfo || defaultUserInfo;
-        if (typeof(userInfo.name) == 'undefined' || userInfo.name == null || userInfo.name.length == 0)
+        if (typeof(userInfo.name) == 'undefined' || userInfo.name === null || userInfo.name.length === 0)
             userInfo.name = ghUserInfo.username;
 
         return (

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import { graphql } from "gatsby"
 
-import Specs from '../swagger-spec/Specs'
+//import Specs from '../swagger-spec/Specs'
 import SpecPaths from '../swagger-spec/SpecPaths'
 import SpecInformation from '../swagger-spec/SpecInformation'
 import groupBy from 'lodash.groupby'

@@ -11,34 +11,31 @@ sections:
     image: images/StrivveLogo-white.png
     actions:
       - label: Geting Started Guides
-        url: docs/getting-started
+        url: guides
       - label: Create Your Sandbox Account
         url: docs/getting-started
   - type: featuresblock
     section_id: features
     component: FeaturesBlock
     featureslist:
+      - title: Developer Resources
+        content: >-
+          Easily walk through the resources documentation to learn about specific data models, objects, languages, recipes and the like.
+        actions:
+          - label: Resources
+            url: resources
       - title: Documentation
         content: >-
-          Mark Budos is the best
+          Essential API reference documentation and accesibility in various platforms and languages can be access here.
         actions:
-          - label: Get Started
-            url: docs/index.html
-      - title: Blog
+          - label: View API Docs
+            url: docs
+      - title: Strivve @ GitHub
         content: >-
-          Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis
-          nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
+          Strivve GitHub site also contains more details, packages, examples and integrations that are not contained herein.
         actions:
-          - label: View Posts
-            url: blog/index.html
-      - title: Style Guides
-        content: >-
-          Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam
-          a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at,
-          tincidunt ut tellus. Vivamus rhoncus mattis varius.
-        actions:
-          - label: Learn More
-            url: /style-guide.html
+          - label: Launch Strivve SDK on GitHub now
+            url: https://github.com/swch/Strivve-SDK
   - type: contentblock
     title: MOBILE & WEB APPS
     section_id: text-img
@@ -71,22 +68,6 @@ sections:
         actions:
           - label: Learn More
             url: /showcase.html
-      - title: Overview
-        content: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl
-          ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh
-          fringilla, fringilla tortor at, pulvinar orci.
-        actions:
-          - label: Learn More
-            url: /overview.html
-      - title: Showcase
-        content: >-
-          Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam
-          a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at,
-          tincidunt ut tellus. Vivamus rhoncus mattis varius.
-        actions:
-          - label: Learn More
-            url: /showcase.html
   - type: ctablock
     title: The Title of The Call to Action Block
     section_id: cta
@@ -103,6 +84,6 @@ sections:
       Access API Documentation Details
     actions:
       - label: Get Started
-        url: /api/index
+        url: /docs
 template: home
 ---
