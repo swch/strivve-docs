@@ -44,8 +44,11 @@ export const onInitialClientRender = () => {
     }
 };
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location, prevLocation }) => {
+    //console.log('PATHNAME: ' + location.pathname);
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
-        window.onGatsbyRouteUpdate();
+        if (!location.pathname.startsWith('/cb')) {
+            window.onGatsbyRouteUpdate();
+        }
     }
 };

@@ -35,7 +35,6 @@ function setSession(bIsLoggedIn, authResult) {
     if (!bIsLoggedIn && authResult) {
         storage.setItem(userInfoKey, authResult );
     }
-    navigate("/")
     return
 }
 
