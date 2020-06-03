@@ -7,11 +7,16 @@
 const React = require("react");
 const safePrefix = require("./src/utils/safePrefix").default;
 
-exports.onRenderBody = function({ setHeadComponents, setPostBodyComponents }) {
+exports.onRenderBody = function({ setBodyAttributes, setHeadComponents, setPostBodyComponents }) {
 
     setHeadComponents([
         
     ]);
+    
+    // See: https://curtistimson.co.uk/post/gatsbyjs/add-body-class-gatsbyjs-fouc/
+    setBodyAttributes({
+      className: 'no-js'
+    });
 
     setPostBodyComponents([
         <React.Fragment>
