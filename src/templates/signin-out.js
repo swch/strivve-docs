@@ -16,7 +16,6 @@ export default class SignIn extends React.Component {
             window.location.href = process.env.GH_AUTH_URI;
         } else {
             logout();
-            navigate('/signin');
         }
     }
     

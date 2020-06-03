@@ -23,7 +23,7 @@ export const login = (userInfo) => {
     if (isBrowser && (typeof(userInfo) == 'string')) { // stringified object
         //window.alert('In login: Calling setSession')
         setSession(false, userInfo);
-        navigate('/');
+        setTimeout( navigate, 300, '/');
     }
     return;
 }
@@ -69,6 +69,7 @@ export const logout = () => {
         //window.alert('In logout: isBrowser: ' + isBrowser )
         // storage.setItem("isLoggedIn", false)
         storage.removeItem(userInfoKey)
+        navigate('/');
     //auth.logout()
     }
 }

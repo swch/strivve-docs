@@ -65,6 +65,12 @@ module.exports = {
                 outputFile: `${__dirname}/public/assets/css/main.css`
             },
         },
+        {
+            resolve: `gatsby-plugin-styled-components`,
+            options: {
+                // Add any options here
+            },
+        },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         {
