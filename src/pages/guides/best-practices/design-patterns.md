@@ -8,7 +8,7 @@ template: guides
   <strong>Note:</strong> This is the demo content for demonstration purpose only. The primary function of this content is to show you what this theme can do. There is a more detailed explanation in the <strong>Getting Started</strong> section.
 </div>
 
-### Syntax highlighting
+## Syntax highlighting
 
 You can add a language identifier to enable syntax highlighting in your code block. For example, to highlight the **JavaScript** code, specify `javascript` next to the tick marks before the fenced code block:
 

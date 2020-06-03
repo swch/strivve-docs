@@ -7,7 +7,7 @@ excerpt: >-
 template: guides
 ---
 
-# Back-End Architecture
+## Back-End Architecture
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -19,7 +19,7 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
 ![image info](/images/fe_be_architecture_1.png)
 
 
-# Front-End Architecture
+## Front-End Architecture
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -31,7 +31,7 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
 ![image info](/images/fe_be_architecture_2.png)
 
 
-# What's Best For You?
+## What's Best For You?
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 enim ad minim veniam, quis nostrud exercitation ullamco laboris

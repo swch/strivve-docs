@@ -7,7 +7,7 @@ menus:
 template: docs
 ---
 
-# Credit card issuance doesn’t end at activation.
+## High Level Architecture
 ![image info](/images/Strivve-High-Level-Arch.png)
 
 
