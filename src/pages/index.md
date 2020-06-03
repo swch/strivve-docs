@@ -13,7 +13,7 @@ sections:
       - label: Geting Started Guides
         url: guides
       - label: Create Your Sandbox Account
-        url: docs/getting-started
+        url: /sandboxrequest
   - type: featuresblock
     section_id: features
     component: FeaturesBlock

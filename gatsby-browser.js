@@ -54,6 +54,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 };
 
 export const onClientEntry = () => {
+    // See: https://curtistimson.co.uk/post/gatsbyjs/add-body-class-gatsbyjs-fouc/
   window.addEventListener('load', () => {
     document.body.className = document.body.className.replace(/\bno-js\b/, '');
   });
