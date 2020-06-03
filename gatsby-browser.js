@@ -37,3 +37,15 @@ class SessionCheck extends React.Component {
 export const wrapRootElement = ({ element }) => {
   return <SessionCheck>{element}</SessionCheck>
 }
+
+export const onInitialClientRender = () => {
+    if ('onGatsbyInitialClientRender' in window && typeof window.onGatsbyInitialClientRender === 'function') {
+        window.onGatsbyInitialClientRender();
+    }
+};
+
+export const onRouteUpdate = () => {
+    if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
+        window.onGatsbyRouteUpdate();
+    }
+};

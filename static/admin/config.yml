@@ -173,7 +173,7 @@ collections:
               name: string
               widget: string
   - name: docs
-    label: Documentation Pagess
+    label: Documentation Pages
     folder: src/pages/
     create: true
     extension: md
