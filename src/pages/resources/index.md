@@ -11,19 +11,19 @@ template: resources
 Intros content...
 
 ## Development Phases and Composition
-Development pipeline is generally orgnaized in the follow way....
+Development pipeline is generally orgnaized in the following way....
 ![image summary](/images/ProcessSummary.png)
 
-### Environments
+## Environments
 Tell me more...
 
-### Getting Development amd Integration Started
+## Getting Development amd Integration Started
 Tell me more...
 
-### Design Patterns, Integration Decisions, Models
+## Design Patterns, Integration Decisions, Models
 Tell me more...
 
-### Live and Syntehtic Testing
+### Live and Synthetic Testing
 Tell me more...
 
 ### Production and Production Operations
