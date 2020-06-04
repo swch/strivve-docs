@@ -1,7 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
-
-import components, {Layout, Contact} from '../components/index';
+import {Layout, Contact} from '../components/index';
 
 export default class SandboxRequest extends React.Component {
     render() {

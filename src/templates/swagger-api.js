@@ -1,12 +1,14 @@
-import React from 'react';
+// Swagger template
+// https://github.com/devdigital/gatsby-source-openapi-aggregate
+import React, { Component } from 'react'
 import _ from 'lodash';
 
 import {Layout} from '../components/index';
 import DocsMenu from '../components/DocsMenu';
-import {htmlToReact} from '../utils';
+import SwaggerDoc from '../components/SwaggerDoc';
+import "../pages/docs/swagger-api/swagger-api.css"
 
-
-export default class ApiView extends React.Component {
+class SwaggerApi extends Component {
   render() {
     return (
         <Layout {...this.props}>
@@ -14,12 +16,16 @@ export default class ApiView extends React.Component {
             <div className="inner">
               <div className="docs-content">
                 <DocsMenu {...this.props} page={this.props.pageContext} site={this.props.pageContext.site} />
-                <div className="post type-docs">
+                <article className="post type-docs">
+                  <div className="post-inside">
                     <header className="post-header">
                       <h1 className="post-title line-left">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
                     </header>
-                        {htmlToReact(_.get(this.props, 'pageContext.html'))}
-                </div>
+                    <div id="swagger-element" className="post-content">
+                        <SwaggerDoc />
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
@@ -28,3 +34,5 @@ export default class ApiView extends React.Component {
 
   }
 }
+
+export default SwaggerApi

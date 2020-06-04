@@ -1,6 +1,6 @@
 ---
 title: CardSavr Swagger API
-template: swagger
+template: swagger-api
 ---
 
 ***

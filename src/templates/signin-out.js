@@ -1,6 +1,4 @@
 import React from 'react';
-import { navigate } from "gatsby"
-
 import _ from 'lodash';
 
 import {Layout} from '../components/index';
