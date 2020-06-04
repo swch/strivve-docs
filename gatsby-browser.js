@@ -46,11 +46,20 @@ export const onInitialClientRender = () => {
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
     //console.log('PATHNAME: ' + location.pathname);
+    const skipPaths = ['/cb', 'swagger-api'];
+    var skipPath = false;
+    
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
-        if (!location.pathname.startsWith('/cb')) {
+        for (var i = 0; i < skipPaths.length; ++i) {
+            if (location.pathname.indexOf(skipPaths[i]) !== -1) {
+                skipPath = true;
+            }
+        }
+        if (!skipPath) {
             window.onGatsbyRouteUpdate();
         }
     }
+
 };
 
 export const onClientEntry = () => {
