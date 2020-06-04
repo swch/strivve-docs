@@ -5,8 +5,11 @@
  */
 
 import React from "react"
-
 import { silentAuth } from "./src/utils/auth"
+
+import SwaggerUI from 'swagger-ui'
+window.SwaggerUI = SwaggerUI;
+
 
 // First time only, application/site load checks for authentication at startup
 class SessionCheck extends React.Component {
@@ -51,7 +54,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {
         for (var i = 0; i < skipPaths.length; ++i) {
-            if (location.pathname.indexOf(skipPaths[i]) !== -1) {
+            if (location && location.pathname && location.pathname.indexOf(skipPaths[i]) !== -1) {
                 skipPath = true;
             }
         }

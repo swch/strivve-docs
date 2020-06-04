@@ -1,5 +1,5 @@
 ---
-title: PetStore Swagger API
+title: CardSavr Swagger API
 template: swagger
 ---
 

@@ -2,18 +2,15 @@
 // https://github.com/devdigital/gatsby-source-openapi-aggregate
 import React, { Component } from 'react'
 import _ from 'lodash';
-
+import groupBy from 'lodash.groupby'
 
 import PropTypes from 'prop-types'
 import { graphql } from "gatsby"
 import {Layout} from '../components/index';
 import DocsMenu from '../components/DocsMenu';
+import SwaggerDoc from '../components/SwaggerDoc';
+import "../pages/docs/swagger-api/swagger-api.css"
 import {htmlToReact, getPages, Link, safePrefix} from '../utils';
-
-//import Specs from '../swagger-spec/Specs'
-import SpecPaths from '../swagger-spec/SpecPaths'
-import SpecInformation from '../swagger-spec/SpecInformation'
-import groupBy from 'lodash.groupby'
 
 const backStyle = {
   marginBottom: '1rem',
@@ -21,11 +18,6 @@ const backStyle = {
 
 class Api extends Component {
   render() {
-    console.log('this.props: ' + JSON.stringify(this.props));
-    const api = this.props.data.openApiSpec
-    const paths = api.childrenOpenApiSpecPath
-    const pathGroups = groupBy(paths, p => p.tag)
-
     let root_page_path = _.get(this.props, 'pageContext.site.data.doc_sections.root_folder') + 'index.md';
     let current_page_path = '/' + _.get(this.props, 'pageContext.relativePath');
     let child_pages_path = '/' + _.get(this.props, 'pageContext.relativeDir');
@@ -33,6 +25,34 @@ class Api extends Component {
     let child_count = _.size(child_pages);
     let has_children = (child_count > 0) ? true : false;
     return (
+        <Layout {...this.props}>
+          <div className="outer">
+            <div className="inner">
+              <div className="docs-content">
+                <DocsMenu {...this.props} page={this.props.pageContext} site={this.props.pageContext.site} />
+                <article className="post type-docs">
+                  <div className="post-inside">
+                    <header className="post-header">
+                      <h1 className="post-title line-left">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
+                    </header>
+                    <div id="swagger-element" className="post-content">
+                        <SwaggerDoc />
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </Layout>
+    );
+
+  }
+}
+// <SwaggerUI url="https://petstore.swagger.io/v2/swagger.json" />
+// https://raw.githubusercontent.com/swch/strivve-docs/master/src/data/swagger.json
+
+
+/*
         <Layout {...this.props}>
           <div className="outer">
             <div className="inner">
@@ -61,10 +81,7 @@ class Api extends Component {
             </div>
           </div>
         </Layout>
-    );
-
-  }
-}
+*/
 
 Api.propTypes = {
   data: PropTypes.object.isRequired,
