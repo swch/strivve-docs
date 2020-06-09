@@ -1,10 +1,1 @@
-{
-    "main": [
-        {
-            "identifier": "layouts",
-            "title": "Site Refs",
-            "url": "/#",
-            "weight": 5
-        }
-    ]
-}
+{}

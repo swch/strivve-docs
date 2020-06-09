@@ -1,9 +1,5 @@
 ---
 title: CardSavr REST API
-menus:
-  main:
-    title: API Docs
-    weight: 3
 template: apiview
 ---
 

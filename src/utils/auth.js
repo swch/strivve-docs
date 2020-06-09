@@ -29,7 +29,7 @@ export const login = (userInfo) => {
 }
 
 function setSession(bIsLoggedIn, authResult) {
-    const storage = isBrowser ? window.sessionStorage : null;
+    const storage = isBrowser ? window.localStorage : null;
     
     //window.alert('In auth.js: setSession: bIsLoggedIn: ' + bIsLoggedIn + ' - authResult: ' + authResult )
     if (!bIsLoggedIn && authResult) {
@@ -44,13 +44,12 @@ export const silentAuth = callback => {
     if (bIsAuthenticated) return callback()
     // redirect to account sign in page
     var cbReturn = callback();
-    navigate('/signin');
 
     if (cbReturn) return cbReturn;
 }
 
 export const getProfile = () => {
-    const storage = isBrowser ? window.sessionStorage : null;
+    const storage = isBrowser ? window.localStorage : null;
     if (isBrowser) {
         var userJsonString = storage.getItem(userInfoKey);
         var ghUserInfo = null;
@@ -64,7 +63,7 @@ export const getProfile = () => {
 }
 
 export const logout = () => {
-    const storage = isBrowser ? window.sessionStorage : null;
+    const storage = isBrowser ? window.localStorage : null;
     if (isBrowser) {
         //window.alert('In logout: isBrowser: ' + isBrowser )
         // storage.setItem("isLoggedIn", false)

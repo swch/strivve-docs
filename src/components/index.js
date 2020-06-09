@@ -4,6 +4,7 @@ import CtaButtons from './CtaButtons';
 import DocsMenu from './DocsMenu';
 import ReourcesMenu from './ResourcesMenu';
 import GuidesMenu from './GuidesMenu';
+import SDKMenu from './SDKMenu';
 import DocsSubmenu from './DocsSubmenu';
 import FeaturesBlock from './FeaturesBlock';
 import Footer from './Footer';
@@ -22,6 +23,7 @@ export {
     DocsMenu,
 	ReourcesMenu,
 	GuidesMenu,
+    SDKMenu,
     DocsSubmenu,
     FeaturesBlock,
     Footer,
@@ -41,6 +43,7 @@ export default {
     DocsMenu,
 	ReourcesMenu,
 	GuidesMenu,
+    SDKMenu,
     DocsSubmenu,
     FeaturesBlock,
     Footer,

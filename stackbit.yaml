@@ -238,6 +238,28 @@ models:
           slug representing the section.
         items:
           type: string
+  sdktools_sections:
+    type: data
+    file: sdktools_sections.yml
+    label: SDK Sections
+    fields:
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/sdktools/" to put all documentation pages under "/sdktools/".
+        default: /sdktools/
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
+        items:
+          type: string
   docs:
     type: page
     label: Documentation Pages
@@ -298,6 +320,34 @@ models:
     type: page
     label: Documentation Pages
     template: resources
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+        required: true
+      - type: number
+        name: weight
+        label: Weight
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+      - type: page_menus
+        name: menus
+        label: Documentation Pages Menus
+        description: Which menus should this page show up in
+  sdktools:
+    type: page
+    label: Documentation Pages
+    template: sdktools
     fields:
       - type: string
         name: title
