@@ -49,7 +49,7 @@ export const onInitialClientRender = () => {
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
     //console.log('PATHNAME: ' + location.pathname);
-    const skipPaths = ['/cb', 'swagger-api'];
+    const skipPaths = ['/cb', 'swagger-api', '/auth', 'auth-callback'];
     var skipPath = false;
     
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {

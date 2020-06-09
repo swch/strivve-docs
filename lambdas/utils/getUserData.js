@@ -12,7 +12,7 @@ export default function getUserData(token) {
         app_id: config.appId
     })
 
-    console.log('\n\n\n\n GetUserData Token: ', token);
+    //console.log('\n\n\n\n GetUserData Token: ', token);
     /*const requestOptions = {
         url: `${config.profilePath}`,
         json: true,
@@ -43,7 +43,7 @@ export default function getUserData(token) {
 
 /* promisify request call */
 function requestWrapper(requestOptions, token) {
-    console.log('\n\n\n\n GetUserData requestOptions: ', requestOptions);
+    //console.log('\n\n\n\n GetUserData requestOptions: ', requestOptions);
     return new Promise((resolve, reject) => {
         request(requestOptions, (err, response, body) => {
             if (err) {

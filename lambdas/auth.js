@@ -13,8 +13,8 @@ exports.handler = (event, context, callback) => {
     /* State helps mitigate CSRF attacks & Restore the previous state of your app */
     state: ghState
   })
-  console.log('auth.js RESPONSE event:\n', event);
-  console.log('\nauth.js RESPONSE authorizationURI:\n', authorizationURI);
+  //console.log('auth.js RESPONSE event:\n', event);
+  //console.log('\nauth.js RESPONSE authorizationURI:\n', authorizationURI);
 
     /* Redirect user to authorizationURI */
   const response = {

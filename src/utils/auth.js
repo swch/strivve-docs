@@ -44,6 +44,7 @@ export const silentAuth = callback => {
     if (bIsAuthenticated) return callback()
     // redirect to account sign in page
     var cbReturn = callback();
+    navigate('/signin');
 
     if (cbReturn) return cbReturn;
 }
