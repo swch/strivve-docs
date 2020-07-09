@@ -1,5 +1,5 @@
 ---
-title: CardUpdatr
+title: CardUpdatr iFrame Sample
 template: cardupdatr
 ---
 
