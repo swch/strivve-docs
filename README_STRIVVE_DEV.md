@@ -51,16 +51,11 @@ GitHub is used for two major purposes.  The obvious first use is for managing th
 #### Markdwn and JSX
 ###### Good Starting Docs
 
-### Auto Doc API Docs Integration
-+https://swagger.io/specification/
-
-
 ### Additional Important Components to Understand
 + reactJS - (https://reactjs.org/)
 + GraphQL - (https://graphql.org/
 + webpack - (https://webpack.js.org/)
 + npm     - (https://www.npmjs.com/)
-+ swagge  - (https://swagger.io/)
 + dotenv  - (https://www.npmjs.com/package/dotenv)
 + proxymiddleware - (https://travis-ci.org/chimurai/http-proxy-middleware)
 

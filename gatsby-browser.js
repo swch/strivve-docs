@@ -7,10 +7,6 @@
 import React from "react"
 import { silentAuth } from "./src/utils/auth"
 
-import SwaggerUI from 'swagger-ui'
-window.SwaggerUI = SwaggerUI;
-
-
 // First time only, application/site load checks for authentication at startup
 class SessionCheck extends React.Component {
   constructor(props) {
@@ -49,7 +45,7 @@ export const onInitialClientRender = () => {
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
     //console.log('PATHNAME: ' + location.pathname);
-    const skipPaths = ['/cb', 'swagger-api', '/auth', 'auth-callback'];
+    const skipPaths = ['/cb', '/auth', 'auth-callback'];
     var skipPath = false;
     
     if ('onGatsbyRouteUpdate' in window && typeof window.onGatsbyRouteUpdate === 'function') {

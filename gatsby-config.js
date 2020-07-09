@@ -104,17 +104,6 @@ module.exports = {
                 menus: require('./src/data/menus.json'),
             }
         },
-        {
-            resolve: `gatsby-source-openapi-aggregate`,
-            options: {
-                specs: [ // specs collection is required, you can define as many specs as you want
-                        {
-                        name: 'CardSavrSpec', // required, must be unique
-                        resolve: () => fromJson(`${__dirname}/src/data/swagger-petstore.json`) // required, function which returns a Promise resolving Swagger JSON
-                        }
-                    ]
-            }
-        },
         `gatsby-plugin-glamor`,
         {
           resolve: `gatsby-plugin-typography`,

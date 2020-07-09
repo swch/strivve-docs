@@ -14,7 +14,6 @@ import Menu from './Menu';
 import Social from './Social';
 import Layout from './Layout';
 import Contact from './Contact';
-import SwaggerDoc from './SwaggerDoc';
 
 export {
     ContentBlock,
@@ -32,8 +31,7 @@ export {
     Menu,
     Social,
     Layout,
-    Contact,
-    SwaggerDoc
+    Contact
 };
 
 export default {
@@ -52,6 +50,5 @@ export default {
     Menu,
     Social,
     Layout,
-    Contact,
-    SwaggerDoc
+    Contact
 };

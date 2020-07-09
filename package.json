@@ -66,7 +66,6 @@
     "sockjs-client": "^1.4.0",
     "sprintf-js": "^1.1.2",
     "styled-components": "^5.1.1",
-    "swagger-ui": "^3.26.0",
     "type-fest": "^0.14.0",
     "typescript": "^3.9.5",
     "typography": "^0.16.19",
