@@ -5,10 +5,13 @@ import {Layout} from '../components/index';
 import DocsMenu from '../components/DocsMenu';
 import {htmlToReact, toStyleObj} from '../utils';
 
+const isBrowser = typeof window !== "undefined"
 
 export default class CardUpdatr extends React.Component {
     componentDidMount() {
-        window.initCardupdatr( 'cardupdatr-frame', 'https://vloomba.cardupdatr.app/');
+        if (isBrowser) {
+            window.initCardupdatr( 'cardupdatr-frame', 'https://vloomba.cardupdatr.app/');
+        }
     }
 
     render() {
