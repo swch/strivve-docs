@@ -6,7 +6,7 @@ template: cardupdatr
 
 ## CardUpdatr iFrame Sample
 
-Insert this code below into your page to host the CardUpdatr iFrame.
+Insert this code below into your page to host the CardUpdatr iFrame and replace __HOSTNAME__ with the hostname of your cardupdatr environment instance.
 
 ```javascript
 <div class="container" style="background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;">
@@ -21,5 +21,7 @@ Insert this code below into your page to host the CardUpdatr iFrame.
 </script>
 ```
 
+To request your own CardUpdatr preview instance, fill out the free preview form
+at the bottom of the CardUpdatr page   [Request Preview Now](https://strivve.com/cardupdatr/)
 
 ***

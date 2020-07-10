@@ -73,8 +73,8 @@ export default class CardUpdatr extends React.Component {
                         <div className="post-content">
                          {htmlToReact(_.get(this.props, 'pageContext.html'))}
                         </div>
-                <div class="container" style={toStyleObj("background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;")}>
-                    <div class="cardupdatr-frame" id="cardupdatr-frame"></div>
+                <div className="container" style={toStyleObj("background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;")}>
+                    <div className="cardupdatr-frame" id="cardupdatr-frame"></div>
                 </div>
                       </div>
                     </article>
