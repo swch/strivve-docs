@@ -2,15 +2,16 @@ import React from 'react';
 import _ from 'lodash';
 
 import {Layout} from '../components/index';
-import DocsMenu from '../components/DocsMenu';
 import {htmlToReact, toStyleObj} from '../utils';
 
 const isBrowser = typeof window !== "undefined"
+const cardupdatrHostname = 'acmebank';
+const cardupdatrUrl = 'https://' + cardupdatrHostname + '.cardupdatr.app/';
 
 export default class CardUpdatr extends React.Component {
     componentDidMount() {
         if (isBrowser) {
-            window.initCardupdatr( 'cardupdatr-frame', 'https://vloomba.cardupdatr.app/');
+            window.initCardupdatr( 'cardupdatr-frame', cardupdatrUrl );
         }
     }
 

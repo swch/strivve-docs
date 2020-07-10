@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 
 import {Layout} from '../components/index';
-import DocsMenu from '../components/DocsMenu';
 import {htmlToReact} from '../utils';
 
 
