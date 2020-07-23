@@ -21,5 +21,7 @@ Insert this code below into your page to host the CardUpdatr iFrame and replace 
 </script>
 ```
 
-To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>
+To request your own CardUpdatr preview instance, fill out the free preview form
+at the bottom of the CardUpdatr page   [Request Preview Now](https://strivve.com/cardupdatr/)
+
 ***
