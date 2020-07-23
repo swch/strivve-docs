@@ -74,6 +74,7 @@
     "webpack-plugin-serve": "^1.0.1"
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^16.13.0",
     "dotenv-webpack": "^1.8.0",
     "http-proxy-middleware": "^1.0.5",
     "netlify-lambda": "^1.6.3",

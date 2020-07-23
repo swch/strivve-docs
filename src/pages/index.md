@@ -29,7 +29,7 @@ sections:
           Essential API reference documentation and accesibility in various platforms and languages can be access here.
         actions:
           - label: View API Docs
-            url: docs
+            url: api-sdk
       - title: Strivve @ GitHub
         content: >-
           Strivve GitHub site also contains more details, packages, examples and integrations that are not contained herein.
@@ -45,7 +45,7 @@ sections:
       Seamlessly embed card provisioning technology into bank or credit union apps to reclaim and increase transaction volume.
     image: /images/cardsavr_hand_phone-e1547060126327.png
     actions:
-      - label: View Demo
+      - label: Demo CardUpdatr App Now
         url: https://acmebank.cardupdatr.app
         target: _blank
 template: home
