@@ -9,20 +9,29 @@ const Contact = (props) => (
                     <input type="hidden" name="bot-field" />
 
                     <div className="field half first">
-                        <label htmlFor="name">Name</label>
+                        <label id="name-label" htmlFor="name">
+                        Name:
                         <input type="text" name="name" id="name" required/>
+                        </label>
                     </div>
                     <div className="field half">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">
+                        Email:
                         <input type="text" name="email" id="email" required/>
+                        </label>
                     </div>
                     <div className="field">
-                        <label htmlFor="message">Message</label>
+                        <label htmlFor="message">
+                        Message:
                         <textarea name="message" id="message" rows="6" required></textarea>
+                        </label>
                     </div>
-                    <ul className="actions">
-                        <li><input type="submit" value="Send Request" className="special" /></li>
-                    </ul>
+                    <hr></hr>
+                    <div className="block-text">
+                        <ul className="actions.block-cta">
+                            <input type="submit" value="Send Request" className="button.secondary" />
+                        </ul>
+                    </div>
                 </form>
             </section>
         </div>
