@@ -8,7 +8,7 @@ export default class CtaButtons extends React.Component {
         return (
             <div className="block-item-cta">
               {_.map(_.get(this.props, 'actions'), (action, action_idx) => (
-              <Link key={action_idx} to={safePrefix(_.get(action, 'url'))}>{_.get(action, 'label')} <span className="icon-arrow-right" aria-hidden="true" /></Link>
+              <Link key={action_idx} to={safePrefix(_.get(action, 'url'))} target={_.get(action, 'target')}>{_.get(action, 'label')} <span className="icon-arrow-right" aria-hidden="true" /></Link>
               ))}
             </div>
         );

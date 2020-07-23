@@ -36,6 +36,7 @@ sections:
         actions:
           - label: Launch Strivve SDK on GitHub now
             url: https://github.com/swch/Strivve-SDK
+            target: _blank
   - type: contentblock
     title: MOBILE & WEB APPS
     section_id: text-img
@@ -46,5 +47,6 @@ sections:
     actions:
       - label: View Demo
         url: https://acmebank.cardupdatr.app
+        target: _blank
 template: home
 ---

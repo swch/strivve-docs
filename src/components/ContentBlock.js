@@ -22,7 +22,7 @@ export default class ContentBlock extends React.Component {
                     {_.get(this.props, 'section.actions') && 
                     <div className="block-cta">
                       {_.map(_.get(this.props, 'section.actions'), (action, action_idx) => (
-                      <Link key={action_idx} to={safePrefix(_.get(action, 'url'))} className="button">{_.get(action, 'label')}</Link>
+                      <Link key={action_idx} to={safePrefix(_.get(action, 'url'))}  target={_.get(action, 'target')} className="button">{_.get(action, 'label')}</Link>
                       ))}
                     </div>
                     }
