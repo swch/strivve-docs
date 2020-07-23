@@ -3,9 +3,9 @@ title: Getting Started
 weight: 1
 menus:
   main:
-    title: SDK's & Tools
+    title: CardUpdatr
     weight: 4
-template: sdktools
+template: cardupdatr
 ---
 
 # Strivve-SDK

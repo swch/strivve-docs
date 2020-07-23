@@ -1,11 +1,10 @@
 import ContentBlock from './ContentBlock';
 import CtaBlock from './CtaBlock';
 import CtaButtons from './CtaButtons';
-import DocsMenu from './DocsMenu';
+import DocsSubmenu from './DocsSubmenu';
 import ReourcesMenu from './ResourcesMenu';
 import GuidesMenu from './GuidesMenu';
-import SDKMenu from './SDKMenu';
-import DocsSubmenu from './DocsSubmenu';
+import CardUpdatrMenu from './CardUpdatrMenu';
 import FeaturesBlock from './FeaturesBlock';
 import Footer from './Footer';
 import Header from './Header';
@@ -19,11 +18,10 @@ export {
     ContentBlock,
     CtaBlock,
     CtaButtons,
-    DocsMenu,
+    DocsSubmenu,
 	ReourcesMenu,
 	GuidesMenu,
-    SDKMenu,
-    DocsSubmenu,
+    CardUpdatrMenu,
     FeaturesBlock,
     Footer,
     Header,
@@ -38,11 +36,10 @@ export default {
     ContentBlock,
     CtaBlock,
     CtaButtons,
-    DocsMenu,
+    DocsSubmenu,
 	ReourcesMenu,
 	GuidesMenu,
-    SDKMenu,
-    DocsSubmenu,
+    CardUpdatrMenu,
     FeaturesBlock,
     Footer,
     Header,

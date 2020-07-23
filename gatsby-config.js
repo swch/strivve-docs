@@ -53,13 +53,6 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-stackbit-static-sass`,
-            options: {
-                inputFile: `${__dirname}/src/sass/main.scss`,
-                outputFile: `${__dirname}/public/assets/css/main.css`
-            },
-        },
-        {
             resolve: `gatsby-plugin-styled-components`,
             options: {
                 // Add any options here
@@ -89,7 +82,13 @@ module.exports = {
                 path: `${__dirname}/src/pages`,
             }
         },
-        
+        {
+            resolve: `gatsby-plugin-stackbit-static-sass`,
+            options: {
+                inputFile: `${__dirname}/src/sass/main.scss`,
+                outputFile: `${__dirname}/public/assets/css/main.css`,
+            },
+        },
         {
             resolve: `@stackbit/gatsby-plugin-menus`,
             options: {

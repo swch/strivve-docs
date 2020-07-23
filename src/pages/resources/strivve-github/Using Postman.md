@@ -1,7 +1,7 @@
 ---
 title: Using Postman
 weight: 1
-template: sdktools
+template: resources
 ---
 
 <div class="note">

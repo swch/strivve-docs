@@ -1,7 +1,7 @@
 ---
 title: Installation
 weight: 1
-template: docs
+template: cardupdatr
 ---
 
 <div class="note">

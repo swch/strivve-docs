@@ -5,4 +5,5 @@ sections:
   - nodejs-sdk
   - testing
   - sandbox
+  - strivve-github
   - support

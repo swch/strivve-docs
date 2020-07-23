@@ -1,7 +1,7 @@
 ---
 title: Quick Start
 weight: 2
-template: docs
+template: cardupdatr
 ---
 
 <div class="note">

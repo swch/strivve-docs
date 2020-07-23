@@ -2,12 +2,12 @@
 title: Home
 sections:
   - type: heroblock
-    title: CardSavr API manages card on file placement
+    title: CardSavr API manages card on file placements
     section_id: hero
     component: HeroBlock
     content: >-
-      This section can contain a subtitle or tagline. The recommended length is
-      one to three sentences, but can be changed as you prefer.
+      Placing cards in the Top of Wallet Position has never been easier. In fact,
+      its a MUST HAVE to compete for payment volume for any issuer or co-brand card program.
     image: images/StrivveLogo-white.png
     actions:
       - label: Geting Started Guides
@@ -46,44 +46,5 @@ sections:
     actions:
       - label: View Demo
         url: https://acmebank.cardupdatr.app
-  - type: featuresblock
-    title: Sample Layouts
-    section_id: features-two-col
-    component: FeaturesBlock
-    subtitle: An optional subtitle of the section
-    featureslist:
-      - title: Overview
-        content: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl
-          ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh
-          fringilla, fringilla tortor at, pulvinar orci.
-        actions:
-          - label: Learn More
-            url: /overview.html
-      - title: Showcase
-        content: >-
-          Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam
-          a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at,
-          tincidunt ut tellus. Vivamus rhoncus mattis varius.
-        actions:
-          - label: Learn More
-            url: /showcase.html
-  - type: ctablock
-    title: The Title of The Call to Action Block
-    section_id: cta
-    component: CtaBlock
-    subtitle: This is an optional description for the call to action block.
-    actions:
-      - label: Get Started
-        url: /docs/getting-started/installation.html
-  - type: contentblock
-    title: API Reference
-    section_id: text-no-img
-    component: ContentBlock
-    content: >-
-      Access API Documentation Details
-    actions:
-      - label: Get Started
-        url: /docs
 template: home
 ---

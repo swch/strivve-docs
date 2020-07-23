@@ -1,7 +1,7 @@
 ---
 title: Plug-ins
 weight: 2
-template: sdktools
+template: cardupdatr
 ---
 
 <div class="note">

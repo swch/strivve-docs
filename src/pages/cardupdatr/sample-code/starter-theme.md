@@ -1,7 +1,7 @@
 ---
 title: Starter Theme
 weight: 1
-template: sdktools
+template: cardupdatr
 ---
 
 <div class="note">

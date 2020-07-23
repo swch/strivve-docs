@@ -4,11 +4,11 @@ import _ from 'lodash';
 import {getPage, classNames, Link, safePrefix, getPages} from '../utils';
 import DocsSubmenu from './DocsSubmenu';
 
-export default class SDKMenu extends React.Component {
+export default class CardUpdatrMenu extends React.Component {
     render() {
         let site = _.get(this.props, 'site');
         let page = _.get(this.props, 'page');
-        let root_page_path = _.get(site, 'data.sdktools_sections.root_folder') + 'index.md';
+        let root_page_path = _.get(site, 'data.cardupdatr_sections.root_folder') + 'index.md';
         let root_page = getPage(this.props.pageContext.pages, root_page_path);
         return (
             <nav id="docs-nav" className="docs-nav">
@@ -19,8 +19,8 @@ export default class SDKMenu extends React.Component {
                     <li className={classNames('toc-item', {'current': _.get(page, 'relativePath') === _.get(root_page, 'relativePath')})}>
                       <Link to={safePrefix(_.get(root_page, 'url'))}>{_.get(root_page, 'frontmatter.title')}</Link>
                     </li>
-                    {_.map(_.get(site, 'data.sdktools_sections.sections'), (section, section_idx) => {
-                        let section_folder = _.get(site, 'data.sdktools_sections.root_folder') + section;
+                    {_.map(_.get(site, 'data.cardupdatr_sections.sections'), (section, section_idx) => {
+                        let section_folder = _.get(site, 'data.cardupdatr_sections.root_folder') + section;
                         let section_page_path = section_folder + '/index.md';
                         let section_page = getPage(this.props.pageContext.pages, section_page_path);
                         let child_pages = _.orderBy(_.filter(getPages(this.props.pageContext.pages, section_folder), item => _.get(item, 'base') !== 'index.md'), 'frontmatter.weight');

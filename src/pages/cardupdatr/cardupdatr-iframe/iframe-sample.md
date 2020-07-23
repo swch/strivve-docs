@@ -1,6 +1,6 @@
 ---
 title: CardUpdatr iFrame Sample
-template: cardupdatr
+template: cardupdatr-embed
 ---
 
 

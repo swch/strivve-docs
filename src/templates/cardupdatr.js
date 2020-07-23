@@ -2,87 +2,51 @@ import React from 'react';
 import _ from 'lodash';
 
 import {Layout} from '../components/index';
-import {htmlToReact, toStyleObj} from '../utils';
+import CardUpdatrMenu from '../components/CardUpdatrMenu';
+import {htmlToReact, getPages, Link, safePrefix} from '../utils';
 
-const isBrowser = typeof window !== "undefined"
-const cardupdatrHostname = 'acmebank';
-const cardupdatrUrl = 'https://' + cardupdatrHostname + '.cardupdatr.app/';
-
-export default class CardUpdatr extends React.Component {
-    componentDidMount() {
-        if (isBrowser) {
-            window.initCardupdatr( 'cardupdatr-frame', cardupdatrUrl );
-        }
-    }
-
+export default class CardUpdatrToolsMenu extends React.Component {
     render() {
-        if (isBrowser) {
-            window.initCardupdatr = function (app_container_id, hostname, username) {
-                // Create an iFrame to load in to the container.
-                const cardupdatr_iframe = document.createElement("iframe");
-                // Set up the required properties on the iFrame element (no scroll, transparency, border, id);
-                cardupdatr_iframe.id = "cardupdatr-app";
-                cardupdatr_iframe.style.border = "none";
-                cardupdatr_iframe.allowtransparency = "true";
-                cardupdatr_iframe.scroll = "no";
-                cardupdatr_iframe.style.margin = 0;
-                cardupdatr_iframe.style.padding = 0;
-                cardupdatr_iframe.style.minHeight = "100vh";
-                cardupdatr_iframe.style.width = "100%";
-
-                // Set up the onload, which dynamically adjusts the height according to the document.
-                window.addEventListener("message", function (e) {
-                    const eventName = e.data[0];
-                    const data = e.data[1];
-                    switch (eventName) {
-                        case "setHeight":
-                            cardupdatr_iframe.style.height = data + "px";
-                            break;
-                        case "setTrace":
-                            console.log("set trace");
-                            window.location.hash = data;
-                    }
-                }, false);
-                // Append the iFrame to the supplied container div.
-                const cardupdatr_app_container = document.getElementById(app_container_id);
-                cardupdatr_app_container.appendChild(cardupdatr_iframe);
-                // Conditional loading of the source.
-                let app_source;
-                if (hostname) {
-                    app_source = hostname;
-                } else {
-                    app_source = "/"; // This should never happen based on the assumption that it'll be hosted on their domain. But for our own testing on staging/acme/etc. this will work.
-                }
-                if (username) {
-                    if (window.location.hash === "") {
-                        window.location.hash = "trace=" + username;
-                    } else {
-                        window.location.hash += "&trace=" + username;
-                    }
-                }
-                cardupdatr_iframe.src = app_source + "index.html#no-header&terms"; // Set the source of the iFrame
-            };
-        }
-    return (
-        <Layout {...this.props}>
-          <div className="outer">
-            <div className="inner">
-              <div className="docs-content">
-                    <article className="post page post-full">
+        let root_page_path = _.get(this.props, 'pageContext.site.data.cardupdatr.root_folder') + 'index.md';
+        let current_page_path = '/' + _.get(this.props, 'pageContext.relativePath');
+        let child_pages_path = '/' + _.get(this.props, 'pageContext.relativeDir');
+        let child_pages = _.orderBy(_.filter(getPages(this.props.pageContext.pages, child_pages_path), item => _.get(item, 'base') !== 'index.md'), 'frontmatter.weight');
+        let child_count = _.size(child_pages);
+        let has_children = (child_count > 0) ? true : false;
+        return (
+            <Layout {...this.props}>
+              <div className="outer">
+                <div className="inner">
+                  <div className="docs-content">
+                    <CardUpdatrMenu {...this.props} page={this.props.pageContext} site={this.props.pageContext.site} />
+                    <article className="post type-docs">
                       <div className="post-inside">
+                        <header className="post-header">
+                          <h1 className="post-title line-left">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
+                        </header>
                         <div className="post-content">
-                         {htmlToReact(_.get(this.props, 'pageContext.html'))}
+                          {htmlToReact(_.get(this.props, 'pageContext.html'))}
+                          {(root_page_path !== current_page_path) && <React.Fragment>
+                            {has_children && 
+                              <ul className="docs-section-items">
+                                {_.map(child_pages, (child_page, child_page_idx) => (
+                                <li key={child_page_idx} className="docs-section-item"><Link to={safePrefix(_.get(child_page, 'url'))} className="docs-item-link">{_.get(child_page, 'frontmatter.title')}<span className="icon-angle-right" aria-hidden="true" /></Link></li>
+                                ))}
+                              </ul>
+                            }
+                          </React.Fragment>}
                         </div>
-                <div className="container" style={toStyleObj("background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;")}>
-                    <div className="cardupdatr-frame" id="cardupdatr-frame"></div>
-                </div>
                       </div>
                     </article>
+                    <nav id="page-nav" className="page-nav">
+                      <div id="page-nav-inside" className="page-nav-inside sticky">
+                        <h2 className="page-nav-title">Jump to Section</h2>
+                      </div>
+                    </nav>
+                  </div>
                 </div>
-            </div>
-          </div>
-        </Layout>
-    );
-
-  }
+              </div>
+            </Layout>
+        );
+    }
 }

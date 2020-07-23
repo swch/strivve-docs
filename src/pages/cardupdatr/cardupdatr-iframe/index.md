@@ -1,7 +1,7 @@
 ---
 title: CardUpdatr
 weight: 1
-template: sdktools
+template: cardupdatr
 ---
 
 ## Summary of Integrations

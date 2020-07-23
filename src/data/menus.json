@@ -1,1 +1,9 @@
-{}
+{
+    "main": [
+        {
+            "title": "API/SDK's",
+            "url": "/api-sdk",
+            "weight": 3
+        }
+    ]
+}
