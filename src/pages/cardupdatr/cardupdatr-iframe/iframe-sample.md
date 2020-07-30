@@ -16,8 +16,8 @@ Insert this code below into your page to host the CardUpdatr iFrame and replace 
     <div class="cardupdatr-frame" id="cardupdatr-frame"></div>
 </div>
 <script>
-    // Parameters: blank, container div id to load in iframe, hostname of CardUpdatr instance.
-    window.initCardupdatr("cardupdatr-frame", "https://HOSTNAME.cardupdatr.app/");
+    // Parameters: app_container_id, id of a div id load iframe within, URL of CardUpdatr instance.
+    window.initCardupdatr({ "app_container_id": 'cardupdatr-frame', "hostname": 'https://HOSTNAME.cardupdatr.app/');
 </script>
 ```
 
