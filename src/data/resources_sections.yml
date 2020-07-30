@@ -3,6 +3,7 @@ sections:
   - environments
   - data-models
   - nodejs-sdk
+  - partner-portal
   - testing
   - sandbox
   - strivve-github
