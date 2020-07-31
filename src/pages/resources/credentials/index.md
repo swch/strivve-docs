@@ -1,9 +1,9 @@
 ---
-title: Credential Types & Roles
+title: Credentials
 template: resources
 ---
 
-There are multiple credentials involved in using CardSavr.  CardSavr user credentials represent the principal identity of the person or computer application agent using the CardSavr platform.  Card credentials represent the payment card being placed on merchant sites by CardSavr.  Merchant credentials represent the principal identity of the user using an online merchant site.
+There are multiple credentials involved in using CardSavr.  User credentials represent the principal identity of the person or computer application agent using the CardSavr platform.  Card credentials represent the payment card being placed on merchant sites by CardSavr.  Merchant credentials represent the principal identity of the user using an online merchant site.
 
 ## CardSavr User Credentials
 This represents the principal identity of the person or application agent using the CardSavr platform.
@@ -22,19 +22,19 @@ A password is used as one of the mechanisms to verify the authenticity of a prin
 
 ### Credential Grant
 
-A OAuth token, known as a Credential Grant within the CardSavr platform is used to authenticate a principal identity during login.  Credential grants must be acquired from CardSavr by a privileged user, typically for the purpose of Single Sign On.
+A OAuth token, known as a Credential Grant within CardSavr is the other meachanism used to authenticate a principal identity during login.  Credential grants must be acquired from CardSavr by a privileged user, typically by the roles of cardholder\_agent or customer\_agent for the purpose of Single Sign On.
 
 ### Role
 
-There are multiple roles with different access privileges for CardSavr API services.  A CardSavr User is assigned one role and only one role.  Roles can be reassigned by a a user with a role of sufficient privileges, however role reassignment will not take effect until the next time the CardSavr user logins in.  The following roles are available for partner usage:
+There are multiple roles with different access privileges for CardSavr API services.  A CardSavr User is assigned one role and only one role.  Roles can be reassigned by a user with a role of sufficient privileges, however role reassignment will not take effect until the next time the CardSavr user logins in.  The following roles are available for partner usage:
 
--admin: Most privileged user. This is typically a real person.
--analyst: User with read only access to reports. This is typically a real person.
--cardholder: A cardholder end user who can access their own information and place their card(s) on merchant sites.
---cardholder_agent: A user restricted to creating cardholder users.  This is intended for front end applications performing creation of a cardholder user and acquiring a credential grant for them.
--customer_agent: The second most privileged user.  This is intended for backend applications performing a multitude of automated operations.
--customer_auditor: User with read only access to audit records.
--developer: 3rd most privileged user. This typically a real person developing applications and testing them in non production environments.
+- **admin:** Most privileged user. This is typically a real person.
+- **analyst:** User with read only access to reports. This is typically a real person.
+- **cardholder:** A cardholder end user who can access their own information and place their card(s) on merchant sites.
+- **cardholder_agent:** A user restricted to creating cardholder users.  This is intended for front end applications performing creation of a cardholder user and acquiring a credential grant for them.
+- **customer_agent:** The second most privileged user.  This is intended for backend applications performing a multitude of automated operations.
+- **customer_auditor:** User with read only access to audit records.
+- **developer:** 3rd most privileged user. This typically a real person developing applications and testing them in non production environments.
 
 ## Payment Card Credentials
 
