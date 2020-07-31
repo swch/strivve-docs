@@ -3,6 +3,7 @@ sections:
   - environments
   - cryptography
   - data-models
+  - grants
   - nodejs-sdk
   - partner-portal
   - testing
