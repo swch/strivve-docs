@@ -1,7 +1,7 @@
 root_folder: /resources/
 sections:
   - environments
-  - data-encryption
+  - cryptography
   - data-models
   - nodejs-sdk
   - partner-portal
