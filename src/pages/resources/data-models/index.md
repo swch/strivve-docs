@@ -1,5 +1,5 @@
 ---
-title: Data Objects and Models
+title: Data Model
 excerpt: >-
   Data Objects and Models.
 template: resources
