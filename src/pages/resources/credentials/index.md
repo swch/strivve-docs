@@ -2,6 +2,12 @@
 title: Credentials
 template: resources
 ---
+<small>
+For background information about credentials, see the detaield credentials section in guides
+
+[Guides - Credentials](/guides/credentials) for further background information.
+
+</small>
 
 There are multiple forms of credentials involved when using the Strivve Platform and specifically the CardSavr API.
 - <mark>User credentials</mark> represent the principal identity of the person or computer application agent using the CardSavr platform.

@@ -153,4 +153,5 @@ practices appropriate for the business.
 
 ***
 
-### Here are the articles in this section:
+### Here are detailed resource articles about Credentials:
+[Resources - Credentials](/resources/credentials)
