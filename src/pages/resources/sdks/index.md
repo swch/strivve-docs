@@ -1,5 +1,5 @@
 ---
-title: Summary of SDK's for CardSavr Platform API's
+title: CardSavr SDK's
 template: resources
 ---
 
