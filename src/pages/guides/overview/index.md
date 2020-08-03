@@ -3,9 +3,9 @@ title: Overview
 template: guides
 ---
 
-# Strivve-SDK
+# Strivve Platform
 
-This library is an implementation of the CardSavr API for Node.js or web applications. It contains methods for session management; security and cryptography; and resource retrieval, creation, updating, and deleting. By mangaging CardSavr's complex security requirements automatically, the JavaScript library greatly simplifies the implementation of CardSavr in your own app.
+Strivve's secure card placement service and API's for financial services, constitutes the CardSavr Platform platform-as-a-service solution.
 
 ## Development Phases and Composition
 ![image summary](/images/ProcessSummary.png)
