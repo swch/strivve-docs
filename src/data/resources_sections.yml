@@ -6,8 +6,8 @@ sections:
   - credentials
   - cryptography
   - grants
-  - support
-  - testing
   - sandbox
-  - nodejs-sdk
-  - strivve-github
+  - sdks
+  - testing
+  - support
+  
