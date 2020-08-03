@@ -7,30 +7,38 @@ menus:
 template: resources
 ---
 
-# Introduction
-Introduction content...
+Creating applications with the CardSavr API involves working with the API, user and card credentials, PCI compliance, 
+environments, the Partner Portal, and additional components. These resources are intended to provide the information 
+you'll need to successfully integrate the CardSavr API with your system.
 
-## Development Phases and Composition
-Development pipeline is generally orgnaized in the following way....
+# Software Development Phases
+Application development is more than just code. The CardSavr platform is designed to support your entire software 
+development process. From intial setup to operations and everything in between, you'll find the information you need 
+here.
 ![image summary](/images/ProcessSummary.png)
 
 ## Environments
-Tell me more about environments
+Development organizations often utilize multiple environments when developing applications. The environments typically
+consist of dev, test, and production. The CardSavr platform supports multiple environments through the use of AWS VPCs.
 
-## Getting Development amd Integration Started
-Tell me more about how to begin developing...
+(Use the Quickstart guide to start placing cards at merchant sites with minimal effort.)
 
-## Design Patterns, Integration Decisions, Models
-Tell me more...
+## Partner Portal
+Each environment is administrated via the Partner Portal. This administration portal is essentially a custom application
+built using the same APIs that you utilize. This administration portal allows you to create users, register applications,
+get reporting data, and create the financial institutions that will use your application.
 
-### Live and Synthetic Testing
-Tell me more about synthetic sites
+## Data Model
+The CardSavr API allows the placement of cards as the default payment method at merchant sites. These card placement
+jobs require four objects - billing address (address), card details (card), merchant credentials (account), and user.
 
-### Production and Production Operations
-Tell me more...likely a new section this links to....
+## Testing - Live and Synthetic Sites
+Application development requires a lot of testing. While non-production CardSavr environments have access all 
+merchant sites you may not want to test against real merchants. CardSavr provides synthetic sites that mimic the 
+use cases that you will encounter on real merchant sites. The behavior of the synthetic sites is controlled by the 
+data provided so you can write automation tests of your uses cases.
+
+## Credentials
+Learn about both user credentials (username/password and TFA) as well as payment card credentials.
 
 ***
-
-### Here are the articles in this section:
-
-
