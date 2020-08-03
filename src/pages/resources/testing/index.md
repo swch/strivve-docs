@@ -24,7 +24,7 @@ Basic Login | Mimics a site with only username/password login capabilities | "si
 Multi-Factor-Authentication Login | Mimics a site that requires MFA as part of the login process | "site_hostname": "Synthetic-MFA Login"
 
 
-## How To Use
+### How To Use
 You can post jobs to the synthetic site just like you would to a live merchant site.
 
 First, ensure that you have all the objects need to post a job to the CardSavr API:
@@ -77,3 +77,7 @@ a site_hostname=synthetic.site
 
 Using the synthetic sites, you can test the user interactions 
 within your application 
+
+## Explore CardSavr API With Postman
+
+CardSavr environments can be configured to work with tools such as Postman, curl, etc.  A Postman template collection of requests is available along with usage instructions at GitHub for the [Strive-SDK](https://github.com/swch/Strivve-SDK/tree/master/postman-samples "Strivve-SDK") to aide in exploring the CardSavr API.

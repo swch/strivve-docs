@@ -13,7 +13,7 @@ CarSavr systems architecture utilizes a modern Cloud architecture.  It is implem
 
 In this illustration, the CDE boundary is defined by the VPC.  Every CDE is replicated across multiple AWS availability zones in a AWS Region, including multiple instances of each component in order to provide  high availability and scalability.  Each CDE has its own exclusive AWS RDS database to store Personal Identifiable Information \(PII\), Cardholder Data \(CHD\), Sensitive Authentication Data \(SAD\) and Merchant Credentials \(MC\), All Strivve developed components are single purpose servers encapsulated in hardened Docker containers and run as a cluster of tasks under the AWS Fargate orchestration management service on AWS EC2 virtual machines.
 
-All CDEs run under the CardSavr top level domain **cardsavr.io**. Each CDE has its own subdomain name . CardSavr API is accessed  as the subdomain **api** in the invidual CDE subdomain. Example api url takes the form: api.*cde*.cardsavr.io/*endpoint*.
+All CDEs run under the CardSavr top level domain **cardsavr.io**. Each CDE has its own subdomain environment name. CardSavr API is accessed  as the subdomain **api** in the invidual CDE subdomain. Example api url takes the form: https://api.<*cde-environment-name*>.cardsavr.io/*endpoint*.
 
 ### CardSavr API Server
 
