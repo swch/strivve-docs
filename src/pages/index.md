@@ -10,32 +10,32 @@ sections:
       its a MUST HAVE to compete for payment volume for any issuer or co-brand card program.
     image: images/StrivveLogo-white.png
     actions:
-      - label: Geting Started Guides
-        url: guides
-      - label: Create Your Sandbox Account
+      - label: Quickstart
+        url: api-sdk
+      - label: Request A Sandbox Account
         url: /sandboxrequest
   - type: featuresblock
     section_id: features
     component: FeaturesBlock
     featureslist:
-      - title: Developer Resources
+      - title: Guides
         content: >-
-          Easily walk through the resources documentation to learn about specific data models, objects, languages, recipes and the like.
+          Learn about the CardSavr Platform architecture, best practices, PCI compliance, and operational aspects.
         actions:
-          - label: Resources
+          - label: View Guides
+            url: guides
+      - title: Resources
+        content: >-
+          Everything you need to know, from credentials to cryptography, from data models to environments, and everything in between.
+        actions:
+          - label: View Resources
             url: resources
-      - title: Documentation
+      - title: API / SDK
         content: >-
-          Essential API reference documentation and accesibility in various platforms and languages can be access here.
+          Quikstart guides, SDKs, and code examples - with just a few lines of code you can implement card placement services. 
         actions:
-          - label: View API Docs
+          - label: View API/SDK
             url: api-sdk
-      - title: Strivve @ GitHub
-        content: >-
-          Strivve GitHub site also contains more details, packages, examples and integrations that are not contained herein.
-        actions:
-          - label: Launch Strivve SDK on GitHub now
-            url: https://github.com/swch/Strivve-SDK
             target: _blank
   - type: contentblock
     title: MOBILE & WEB APPS

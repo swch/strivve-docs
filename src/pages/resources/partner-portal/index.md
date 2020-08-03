@@ -5,8 +5,6 @@ excerpt: >-
 template: resources
 ---
 
-# Overview
-
 Each CardSavr environment includes an portal application used in the administration of
 that environment.  This includes creating cardsavr users, configuring applications for use 
 with CardSavr and various other tasks. This portal is known as the Partner Portal 

@@ -1,13 +1,13 @@
 root_folder: /resources/
 sections:
   - environments
-  - cryptography
-  - credentials
-  - grants
-  - data-models
-  - nodejs-sdk
   - partner-portal
+  - data-models
+  - credentials
+  - cryptography
+  - grants
+  - support
   - testing
   - sandbox
+  - nodejs-sdk
   - strivve-github
-  - support
