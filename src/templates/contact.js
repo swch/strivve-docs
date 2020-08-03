@@ -1,5 +1,9 @@
 import React from 'react';
+import _ from 'lodash';
+
 import {Layout, Contact} from '../components/index';
+import {htmlToReact} from '../utils';
+
 
 export default class SandboxRequest extends React.Component {
     render() {
@@ -11,7 +15,9 @@ export default class SandboxRequest extends React.Component {
                     <article className="post type-docs">
                       <div className="post-inside">
                         <div className="post-content">
-                            <Contact />
+                          {htmlToReact(_.get(this.props, 'pageContext.html'))}
+
+                          <Contact />
                         </div>
                       </div>
                     </article>
