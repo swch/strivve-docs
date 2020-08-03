@@ -1,12 +1,11 @@
 root_folder: /resources/
 sections:
   - environments
-  - partner-portal
   - data-models
   - credentials
   - cryptography
   - grants
-  - sandbox
+  - partner-portal
   - sdks
   - testing
   - support
