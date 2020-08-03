@@ -5,8 +5,6 @@ excerpt: >-
 template: resources
 ---
 
-# Overview
-
 The CardSavr platform has 6 data objects:
 
 * Account - 
