@@ -20,7 +20,7 @@ sections:
     featureslist:
       - title: Guides
         content: >-
-          Learn about the CardSavr Platform architecture and best practices, and operational aspects.
+          Learn about the CardSavr Platform architecture, best practices, PCI compliance, and operational aspects.
         actions:
           - label: View Guides
             url: guides
