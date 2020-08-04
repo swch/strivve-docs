@@ -3,9 +3,6 @@ title: CardUpdatr iFrame Sample
 template: cardupdatr-embed
 ---
 
-
-## CardUpdatr iFrame Sample
-
 Insert this code below into your page to host the CardUpdatr iFrame and replace __HOSTNAME__ with the hostname of your cardupdatr environment instance.
 
 ```javascript
@@ -23,4 +20,3 @@ Insert this code below into your page to host the CardUpdatr iFrame and replace 
 
 To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>
 
-***

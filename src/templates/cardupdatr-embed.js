@@ -2,6 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import ScriptTag from 'react-script-tag';
 
+import CardUpdatrMenu from '../components/CardUpdatrMenu';
+
 import {Layout} from '../components/index';
 import {htmlToReact, toStyleObj} from '../utils';
 
@@ -27,16 +29,20 @@ export default class CardUpdatr extends React.Component {
               <div className="outer">
                 <div className="inner">
                   <div className="docs-content">
-                        <article className="post page post-full">
-                          <div className="post-inside">
+                    <CardUpdatrMenu {...this.props} page={this.props.pageContext} site={this.props.pageContext.site} />
+                    <article className="post type-docs">
+                      <div className="post-inside">
+                        <header className="post-header">
+                          <h1 className="post-title line-left">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
+                        </header>                        
                             <div className="post-content">
                              {htmlToReact(_.get(this.props, 'pageContext.html'))}
                             </div>
-                                <div className="container" style={toStyleObj("background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;")}>
+                            </div>                                <div className="container" style={toStyleObj("background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;")}>
                                 <ScriptTag src={cardupdatrJavascriptUrl} />
                                 <div className={iFrameClassID} id={iFrameClassID}></div>
-                            </div>
-                          </div>
+
+                         </div>
                         </article>
                     </div>
                 </div>
