@@ -1,6 +1,6 @@
 ---
-title: NodeJS Quick Start
-weight: 1
+title: Microsoft.Net Quick Start
+weight: 2
 template: resources
 ---
 
@@ -30,7 +30,7 @@ The application is a simple web application (/sample/webserver.js).  The initial
 From the sample directory, you can also run the express web server:
 
 ```bash
-node webserver.js
+INSERT INSTRUCTIONS HERE FOR DotNet sample app
 ```
 
 This is just a simple api call and static webserver that demonstrates how the web application works.  In the dist/index.html file, there is a simple application that uses a webpack bundle of the sdk (strivve-sdk.js) to manage the user's merchant credentials and job.  By passing the grant and username into the url of the web application, it can attain a sesssion for that user:
