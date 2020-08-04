@@ -13,7 +13,7 @@ Strivve's secure card placement service and API's for financial services, consti
 ### Environments
 Tell me more...
 
-### Getting Development amd Integration Started
+### Getting Development and Integration Started
 Tell me more...
 
 ### Design Patterns, Integration Decisions, Models
