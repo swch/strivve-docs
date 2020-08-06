@@ -5,29 +5,14 @@ template: guides
 
 # Strivve Platform
 
-Strivve's secure card placement service and API's for financial services, constitutes the CardSavr Platform platform-as-a-service solution.
+Strivve’s CardSavr Service is a Software As A Service (SaaS) which securely places payment cards on merchant sites on 
+behalf of Card Issuers and their cardholders. It uses Remote Process Automation (RPA) to perform these push-provisioning
+operations.  CardSavr is PCI-DSS compliant.  
 
-## Development Phases and Composition
-![image summary](/images/ProcessSummary.png)
+### Development Processes
+The CardSavr service supports your development model with multple environments for each phase of development.  For 
+ example; sandbox, dev, and production environments are configurable. For testing, non-production environments are 
+ equipped with synthetic sites allowing you to test without impacting live merchant sites.
 
-### Environments
-Tell me more...
 
-### Getting Development and Integration Started
-Tell me more...
-
-### Design Patterns, Integration Decisions, Models
-Tell me more...
-
-### Live and Syntehtic Testing
-Tell me more...
-
-### Production and Production Operations
-Tell me more...likely a new section this links to....
-
-<div class="note"><strong>Note:</strong> Please note: most methods in this library are asynchronous and therefore return resolved promises. Each method's individual documentation will specify if it is asynchronous.  Take a look at the Quick Start guide to get up and running with the CardSavr library.</div>
-
-***
-
-### Here are the articles in this section:
 
