@@ -3,8 +3,6 @@ title: Overview
 template: guides
 ---
 
-# Strivve Platform
-
 Strivve’s CardSavr Service is a Software As A Service (SaaS) which securely places payment cards on merchant sites on 
 behalf of Card Issuers and their cardholders. It uses Remote Process Automation (RPA) to perform these push-provisioning
 operations.  CardSavr is PCI-DSS compliant.  

@@ -1,11 +1,9 @@
 ---
 title: Credentials
+weight: 1
 template: guides
 ---
 
-# Credential Types and Management
-
-## Purpose
 The purpose of this document is to provide developers and technical product
 managers an overview of the data required by CardSavr. This document covers the
 data required by the CardSavr platform and considerations regarding the safe
