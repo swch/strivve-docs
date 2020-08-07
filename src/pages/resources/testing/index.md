@@ -14,15 +14,26 @@ Synthetic sites are simple responsive web applications that support a number of
 different interactive use cases.  For example, you can emulate a TFA 
 (One-Time-Password) within your system.
 
-
-
 The following table shows the interactions support by synthetic sites:
 
-| Synthetic Site | Capabilities | Reference
------------------|--------------|---------------
-Basic Login | Mimics a site with only username/password login capabilities | "site_hostname": "Synthetic-Basic Login"
-Multi-Factor-Authentication Login | Mimics a site that requires MFA as part of the login process | "site_hostname": "Synthetic-MFA Login"
+| Synthetic Site | Capabilities 
+-----------------|--------------
+Basic Login | Mimics a site with only username/password login capabilities
+Two-Factor-Authentication Login | Mimics a site that requires TFA as part of the login process
 
+The behavior of synthetic sites (either basic login or TFA login) is controlled by the values that are entered into
+the fields on the synthetic site.  Need to test a TFA site, just enter "tfa" for the password and the synthetic site 
+will automatically prompt for a TFA. The behaviors are outlined below:
+
+| Field | Value | Behavior
+-----------------|--------------|---------------
+Email | "good_email" | Will work with all scenarios
+Email | Any value other than "good_email" | Will prompt for new credentials
+Password | "no_tfa" | Will authentication without TFA
+Password | "tfa" | Will require a TFA for authentication
+Password | Any value other than "tfa" or "no_tfa" | Will prompt for new credentials
+TFA | "1234" | Will authenticate user
+TFA | Any value other than "1234" | Will prompt for TFA
 
 ### How To Use
 You can post jobs to the synthetic site just like you would to a live merchant site.
