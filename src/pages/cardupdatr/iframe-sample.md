@@ -1,5 +1,6 @@
 ---
-title: CardUpdatr iFrame Sample
+title: Embedded (iFrame)
+weight: 2
 template: cardupdatr-embed
 ---
 

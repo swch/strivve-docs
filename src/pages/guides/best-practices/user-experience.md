@@ -27,7 +27,6 @@ notify the user of the final status.
 CardSavr handles of the complexity associated with authentication and provides a process indicator but the user 
 experience should account for the various scenarios that can happen.  
 
-![CardSavr API Integration Paths](/images/CardSavrSDK.jpg)
+
 Additionally, notification of the final status can be done out of band using existing notification patterns.
 
-![CardSavr API Integration Paths](/images/CardSavrSDK.jpg)
