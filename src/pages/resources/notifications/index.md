@@ -92,4 +92,4 @@ If the notification is not successfully delivered the CardSavr platform will ret
 notification in intervals of 10, 20, and 40 seconds. Should the CardSavr service experience 
 unexpected downtime, all the notifications will be sent for the entire service downtime upon 
 service restoration. If for any reason your servers are not accessible, we recommend you to 
-unsubscribe to notifications. Once your the servers are up, you can subscribe to webhooks again,
+unsubscribe to notifications. Once your the servers are up, you can subscribe to notifications again.
