@@ -5,33 +5,33 @@ excerpt: >-
 template: resources
 ---
 
-The CardSavr platform has 6 data objects:
+The data model for the CardSavr platform is shown below. 
+![Data Model](/images/data_object.jpeg "Data Model")
 
-* Account - 
-Represents the merchant and credentials for that merchant
-[Accounts Endpoint](https://www.strivve.com "Accounts Endpoint")
 
-* Address - 
-Represents the billing address of a card
-[Addresses Endpoint](https://www.strivve.com "Addresses Endpoint")
-
-* Card - 
-Represents a card
-[Cards Endpoint](https://www.strivve.com "Cards Endpoint")
-
-* Job - 
-Represents the push-provisioning request to place a card as the default payment method at a merchant
-[Jobs Endpoint](https://www.strivve.com "Jobs Endpoint")
-
-* Merchant - 
-Represents the merchant for the CardSavr directory of merchants
-[Merchants Endpoint](https://www.strivve.com "Merchants Endpoint")
+To create a card placement job, there are three data objects that must be created first. In 
+order, these are:
 
 * User - 
 Represents the cardholder
-[Users Endpoint](https://www.strivve.com "Users Endpoint")
+[Users Endpoint](/api-sdk "Users Endpoint")
 
-Data Model: 
-![Data Model](/images/data_object.jpeg "Data Model")
+* Card - 
+Represents a card
+[Cards Endpoint](/api-sdk "Cards Endpoint")
+
+* Account - 
+Represents the credentials for a merchant and is linked to a merchant
+[Accounts Endpoint](/api-sdk "Accounts Endpoint")
+
+* (Optional) Address - 
+Represents the billing address of a card
+[Addresses Endpoint](/api-sdk "Addresses Endpoint")
+
+Once these resources have been created, a card placement job can be create:
+
+* Job - 
+Represents the push-provisioning request to place a card as the default payment method at a merchant
+[Jobs Endpoint](/api-sdk "Jobs Endpoint")
 
 
