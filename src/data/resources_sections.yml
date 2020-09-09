@@ -9,5 +9,6 @@ sections:
   - sdks
   - testing
   - notifications
+  - messaging
   - support
   
