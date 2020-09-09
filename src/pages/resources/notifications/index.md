@@ -30,32 +30,39 @@ the [API/SDK](/api-sdk) section.
 ### Job Placement Completion Event
 
 The data format for a job placement event is:
-
+```json
     {
         "jobs": [
             {
-    "job_id": 10,
-    "completed_on": "2020-06-25T22:39:47.942Z",
-    "merchant_site": {
-    "host": "amazon.com",
-    "name": "Amazon",
-    "id": 10
-    }
-    "termination_type": "USER_DATA_FAILURE",
-    "job_status": "TIMEOUT_TFA",
-    "job_status_message": "Unable to automatically update your card due to invalid or missing two-factor authentication."
+                "job_id": 10,
+                "completed_on": "2020-06-25T22:39:47.942Z",
+                "merchant_site": {
+                    "host": "amazon.com",
+                    "name": "Amazon",
+                    "id": 10
+                },
+                "termination_type": "USER_DATA_FAILURE",
+                "job_status": "TIMEOUT_TFA",
+                "job_status_message": "Unable to automatically update your card due to invalid or missing two-factor authentication.",
+                "custom_data": {
+                    "meta_key": "MB9800665"
+                }
+            }
+        ],
         "custom_data": {
-    "meta_key": "MB9800665"
-    },
-    "trace": {
-    "key": "siazwbp1c81qwoplrr66"
+            "meta_key": "MB9800665",
+            "myfi": {
+                "token": "1234"
+            }
+        },
+        "trace": {
+            "key": "siazwbp1c81qwoplrr66"
+        },
+        "financial_institution": "Acme Bank",
+        "financial_institution_id": 11,
+        "username": "siazwbp1c81qwoplrr66"
     }
-    }
-    ],
-    "financial_institution": "Acme Bank",
-    "financial_institution_id": 11,
-    "username": "siazwbp1c81qwoplrr66",
-    }
+```
 
 The meta_key comprised of the first and last initials of the user, the postal code, and the last 
 two digits of the PAN. For cardholders that have been authenticated by the customer, the CardSavr 
