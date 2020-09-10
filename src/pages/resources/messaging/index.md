@@ -3,17 +3,8 @@ title: Messaging
 template: resources
 ---
 
-## Strivve Messaging System
-
-### Usage and Endpoints
-Messages are an important part of the card updating experience. Ideally, a job can process without any participation from the user, but occasionally some additional user input may be necessary. In these situations, client applications may need to acquire additional security credentials (MFA codes), they may need to fix incorrect credentials, and they may wish to be notified when jobs complete, pass authentication, or even fail.
-Request and Response Messages
-
-There are two kinds of messages. The first type, request and response messages, are for talking with the virtual browser session. Client applications will attain a job_id upon posting a job. The client must then poll on some interval for job request messages. These messages may be requests for new credentials or TFA codes. If a message of this type is attained, the user must be prompted for a response. The cardholder may need to check their MFA device or email for a code, or they may need to provide corrected credentials.
-
-The second kind of message is a broadcast message. These messages improve the overall client experience and contain information about the status of the job. For example, once a user successfully authenticates, no more information is required from the user, and the client session can terminate. These messages support multiple channels. A subscription is attained at the onset of the job, and using the token returned from the subscribe request can be used to poll for status updates. There can be multiple simultaneous message channels with multiple clients. Messages will persist for six hours for clients that have been disconnected during the session. (a job usually lasts less than 5 minutes, so this should be sufficient).
-
-### Diagram
+### Strivve Messaging Usage and Endpoints
+Messages are an important part of the card updating experience. Ideally, a job can process without any participation from the user, but occasionally some additional user input may be necessary. In these situations, client applications may need to acquire additional security credentials (MFA codes), they may need to fix incorrect credentials, and they may wish to be notified when jobs complete, pass authentication, or even fail.  There are two kinds of messages.
 
 ![Messaging Architecture](/images/7aba641-Messaging_Diagram.png "Messaging Architecture") 
 
