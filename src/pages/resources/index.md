@@ -12,11 +12,13 @@ template: resources
 These resources provide information regarding the integration, implemenation, and operation for the CardUpdatr and
 CardSavr products.  
 
-The fastest way to get your integration up and running is to use our [Quickstart guide](/resources/sdks/) or, 
-if your environment supports it, the [Postman guide](/resources/sdks/Using%20Postman/).
+The fastest way to get your integration up and running is to use our 
+[Quickstart guide](/resources/sdks/) or, if your environment has signing disabled, 
+you can use the [Step-by-Step guide](/resources/sdks/Using%20Postman/) to place your first
+card at a merchant site.
  
-We’ve attempted to make this documentation user-friendly but if you have any questions, please contact us
-at support@strivve.com. 
+We’ve attempted to make this documentation user-friendly but if you have any questions, 
+please contact us at support@strivve.com. 
 
 ### Glossary
 
