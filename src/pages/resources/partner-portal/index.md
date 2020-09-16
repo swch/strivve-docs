@@ -18,9 +18,9 @@ passwords changed every 90 days just like all users.
 
 # Accessing
 
-The Partner Portal can be accessed at https://portal.<environment_name>.cardsavr.io where 
+The Partner Portal can be accessed at `https://portal.<environment_name>.cardsavr.io` where 
 <environment_name> indicates the name for your environment.  For example, 
-https://portal.strivve-dev.cardsavr.io. 
+`https://portal.strivve-dev.cardsavr.io`. 
 
 # Menu Items
 The following menu items are available

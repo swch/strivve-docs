@@ -13,7 +13,7 @@ Each CDE is considered a seperate isolated tenant.  A partnering Financial Insti
 
 ### CDE DNS Name Space
 
-All CDEs run under the CardSavr top level domain **cardsavr.io**. Each CDE has its own subdomain name . CardSavr API is accessed  as the subdomain **api** in the invidual CDE subdomain. Example api url takes the form: https://api.<*cde-environment-name*>.cardsavr.io/*endpoint*.
+All CDEs run under the CardSavr top level domain **cardsavr.io**. Each CDE has its own subdomain name . CardSavr API is accessed  as the subdomain **api** in the invidual CDE subdomain. Example api url takes the form: `https://api.<*cde-environment-name*>.cardsavr.io/*endpoint*`.
 
 ### Optional Non-Production CDE API Cryptography Relaxation
 

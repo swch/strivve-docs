@@ -7,38 +7,36 @@ menus:
 template: resources
 ---
 
-Creating applications with the CardSavr API involves working with the API, user and card credentials, PCI compliance, 
-environments, the Partner Portal, and additional components. These resources are intended to provide the information 
-you'll need to successfully integrate the CardSavr API with your system.
+# Introduction
 
-# Software Development Phases
-Application development is more than just code. The CardSavr platform is designed to support your entire software 
-development process. From intial setup to operations and everything in between, you'll find the information you need 
-here.
-![image summary](/images/ProcessSummary.png)
+These resources provide information regarding the integration, implemenation, and operation for the CardUpdatr and
+CardSavr products.  
 
-## Environments
-Development organizations often utilize multiple environments when developing applications. The environments typically
-consist of dev, test, and production. The CardSavr platform supports multiple environments through the use of AWS VPCs.
+The fastest way to get your integration up and running is to use our 
+[Quickstart guide](/resources/sdks/) or, if your environment has signing disabled, 
+you can use the [Step-by-Step guide](/resources/sdks/Using%20Postman/) to place your first
+card at a merchant site.
+ 
+We’ve attempted to make this documentation user-friendly but if you have any questions, 
+please contact us at support@strivve.com. 
 
-(Use the Quickstart guide to start placing cards at merchant sites with minimal effort.)
+### Glossary
 
-## Partner Portal
-Each environment is administrated via the Partner Portal. This administration portal is essentially a custom application
-built using the same APIs that you utilize. This administration portal allows you to create users, register applications,
-get reporting data, and create the financial institutions that will use your application.
+**Environment**: The infrastructure supporting your integration
 
-## Data Model
-The CardSavr API allows the placement of cards as the default payment method at merchant sites. These card placement
-jobs require four objects - billing address (address), card details (card), merchant credentials (account), and user.
+**Partner Portal**: The administrative interface for an environment
 
-## Testing - Live and Synthetic Sites
-Application development requires a lot of testing. While non-production CardSavr environments have access all 
-merchant sites you may not want to test against real merchants. CardSavr provides synthetic sites that mimic the 
-use cases that you will encounter on real merchant sites. The behavior of the synthetic sites is controlled by the 
-data provided so you can write automation tests of your uses cases.
+**CardSavr**: An API platform that provisions cards as the default payment on merchant sites
 
-## Credentials
-Learn about both user credentials (username/password and TFA) as well as payment card credentials.
+**CardUpdatr**: A responsive web application that utilizes the CardSavr API
 
-***
+
+### Next Steps
+
+If you already have access to a dedicated environment, check out the [Partner Portal](/resources/partner-portal)
+page for additional information on the portal and suggested next steps.
+
+If you have a Sandbox account, check out the [Quickstart guides](/resources/sdks/) or the 
+[Postman guide](/resources/sdks/Using%20Postman/)
+
+Also, you'll want to check out the [testing](/resources/testing/) page for information on the use of synthetic sites.
