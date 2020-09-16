@@ -92,4 +92,19 @@ log.Info("username: " + login.cardholder.username + ", grant: " + login.userCred
 
 It's a very similar pattern and requires the same developer integrator and user credentials to set up.  You'll also notice the usage of "custom\_data", which is a gneric object that can be passed into a user object. This custom_data atribute will appear in downstrem reporting and as part of [webhook notifications](/resources/notifications/).
 
-Once your application has the necessary information from the Cardsavr server, the application can embed to redirect to CardUpdatr.  For more information, see the [embedded CardUpdatr](/cardupdatr/embed/) integration.
+## CardUpdatr
+
+Once your application has the necessary information from the Cardsavr server, the application can hand off the credentials to CardUpdatr.  There are two ways to accomplish this.
+
+### Redirection 
+
+By supplying the parameters in the hash value of the url, CardUpdatr will automatically log in as the cardholder, and the cardholder can then select their merchants and corresponding credentials.  
+
+```
+https://acmebank.cardupdatr.app/#username=USERNAME&grant=GRANT&card_id=CARD_ID
+```
+
+### Embedding
+
+For more information, see the [embedded CardUpdatr](/cardupdatr/embed/) integration to see how to embed CardUpdatr in an iframe and logging them in using the username and grant.
+
