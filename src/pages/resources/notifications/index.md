@@ -25,7 +25,7 @@ URL to hit, and an email needs to know what address to email.
 Webhooks require a URL to be saved via the notification endpoint.  This URL must contain all 
 the necessary security information to connect to the customer's web service.  Webhooks are 
 also currently configured by Strivve. The notification endpoint reference is available under 
-the [API/SDK](/api-sdk) section.
+the [API/SDK](https://swch.github.io/slate) section.
 
 ### Job Placement Completion Event
 

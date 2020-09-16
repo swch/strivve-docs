@@ -11,7 +11,7 @@ sections:
     image: images/StrivveLogo-white.png
     actions:
       - label: Quickstart
-        url: api-sdk
+        url: /resources/sdks/
       - label: Request A Sandbox Account
         url: /sandboxrequest
   - type: featuresblock
@@ -35,8 +35,8 @@ sections:
           Quikstart guides, SDKs, and code examples - with just a few lines of code you can implement card placement services. 
         actions:
           - label: View API/SDK
-            url: api-sdk
-            target: _blank
+            url: https://swch.github.io/slate
+            target: _new
   - type: contentblock
     title: MOBILE & WEB APPS
     section_id: text-img

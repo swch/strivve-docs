@@ -24,7 +24,7 @@ In order to receive broadcast messaages, you must first register and set up a de
 
 Endpoint: GET /messages/place\_card\_on\_single\_site\_jobs/:job\_id/broadcasts/registrations
 
-This endpoint returns an access key that needs to be included with status queries.  You must include the cardsavr-messaging-access-key header as part of the request (also avaialble as a parameter in the [SDK](/api-sdk)).
+This endpoint returns an access key that needs to be included with status queries.  You must include the cardsavr-messaging-access-key header as part of the request (also avaialble as a parameter in the [SDK](https://swch.github.io/slate)).
 
 The broadcast response message contains several fields. They may simply serve as a heartbeat to the client to ascertain that the job is still running, changes in status, and also a helpful “percent\_complete”. When a job completes, the message will include a termination\_type which indicates how the job completed.  There is also a job_timeout value that lets the client know when a job is about to end, usually a result of waiting for credentials from the user.
 

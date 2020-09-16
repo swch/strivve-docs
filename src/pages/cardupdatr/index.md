@@ -19,8 +19,5 @@ items are removed to seamlessly blend the CardUpdatr application into your exist
 experience because the user is authenticated by your website before CardUpdatr use within your application. When the user 
 is authenticated, your site or application passes the cardholder card details and cardholder address information directly to CardUpdatr removing the manual entry by the cardholder.
 
-
 ***
-
-### Integration guides:
 
