@@ -53,11 +53,11 @@ There are three sets of settings that can be used to customize your CardUpdatr e
 
 Property | Required | Default | Description 
 -------- | -------- | ------- | -----------
-app_container_id | yes | | HTML element id that CardUpdatr is attached to
+app\_container_id | yes | | HTML element id that CardUpdatr is attached to
 hostname | yes | | hostname of CardUpdatr (e.g. acmebank.cardupdatr.app)
 financial_institution | no | first element of host, or "default" | Override the value in the hostname (recommended for embedded)
 top_sites | no | [] | These sites are listed first on the "select-merchants" page
-merchant_site_tags | no | ["usa", "prod"] | usa AND prod -- to provide "OR" functionality, tags must be listed differently:  "prod", "canada,usa" means prod AND (usa OR canada) 
+merchant_site\_tags | no | ["usa", "prod"] | usa AND prod -- to provide "OR" functionality, tags must be listed differently:  "prod", "canada,usa" means prod AND (usa OR canada) 
 coutnries_supported | no | ["USA"] | Populated in the country field of the address - if only one country, the country is assumed
 
 ### user
@@ -110,7 +110,7 @@ name | no | The FI name | The name of the issuer
 page_title | no | The FI name | The title of the page
 card_description | no | Set in the Partner Portal | included in the copy 
 final_message | no | Set in the Partner Portal | A thank you message that appears after all accounts are linked
-invalid_session_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
+invalid_session\_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
 link_color | no | #000000 | color of links (can also be configured in Partner Portal)
 button_color | no | #000000 | color of buttons (can also be configured in Partner Portal)
 border_color | no | #000000 | color of box borders (can also be configured in Partner Portal)
