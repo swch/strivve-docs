@@ -4,11 +4,13 @@ weight: 2
 template: cardupdatr-embed
 ---
 
-CardUpdatr can be run as a standalone site, or embedded into an iframe directly within your application. Running in this mechanism gives you the flexibility to control your branding, while not having to worry about interfacing with CardSavr directly for intercepting merchant messages and user feedback.
+CardUpdatr can be run as a standalone site, or embedded into an iframe directly within your application. Using this mechanism gives you the flexibility to control your branding, while not having to worry about interfacing with CardSavr directly for intercepting merchant messages and user feedback.
+
+There are a variety of settings outlined below that control how your CardUpdatr application behaves, but the settings to get up and running are minimal.
 
 ## CardUpdatr iframe Example
 
-Insert this code below into your page to host the CardUpdatr within an iframe. Simply replace CARDUPDATR_HOSTNAME with the hostname of your cardupdatr environment instance.  You must create a div that has the correct height, and then pass the id of the div into the initCardupdatr function.
+Insert this code below into your page to host the CardUpdatr within an iframe. Simply replace CARDUPDATR_HOSTNAME with the hostname of your cardupdatr environment instance.  You must create a div that has the correct height, and then pass the id of the div into the initCardupdatr function. 
 
 
 ```javascript
@@ -20,32 +22,98 @@ Insert this code below into your page to host the CardUpdatr within an iframe. S
     </div>
     <script>
 
-      /**
-       * You must pass in an object to initialize CardUpdatr. The required properties in the object are app_container_id and hostname.
-       * Optional object properties are:
-       *  show_header (defaults to false)
-       *  show_terms (defaults to false, if set to true it will show the user the T&C page)
-       *  grant_object: { username, grant (optional), card_id (optional) } (grant_object is an optional object property of settings)
-       * 
-       * The most basic settings you can pass would look like:
-       *  const settings = {
-       *      app_container_id: "APP_CONTAINER_ID",
-       *      hostname: "CARDUPDATR_HOSTNAME"
-       *  };
-       * 
-       * Complete Settings Object Example: 
-       *  const settings = {
-       *      app_container_id: "APP_CONTAINER_ID",
-       *      hostname: "CARDUPDATR_HOSTNAME",
-       *      show_header: false,
-       *      show_terms: false,
-       *      grant_object: { username: "redacted", grant: "redacted", card_id: "redacted" }
-       *  }; 
-       * */
-      window.initCardupdatr(settings = { app_container_id: "cardupdatr-frame", hostname: "https://CARDUPDATR_HOSTNAME.cardupdatr.app/" });
+      window.initCardupdatr(settings = { 
+        config {
+          app_container_id: "cardupdatr-frame", 
+          hostname: "https://CARDUPDATR_HOSTNAME.cardupdatr.app/" 
+        }
+      });
 </script>
 ```
 
-To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>
+To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>  (NOTE: access-control frame-ancestors are used, so please include the hosting domain in your request.
+
+## Additional Settings
+
+There are three sets of settings that can be used to customize your CardUpdatr experience, separated into different configuration objects.  The "user" object is for customer specific data required to authenticate SSO users and also to provide customer specific logging.  The "config" object (some settings required) configures the FI for which CardUpdatr should run, how sites should be sorted, and which countries should be supported.  "style_template" is used to dynamically configured messages, colors and background images.
+
+### config
+
+```javascript
+{
+  config : {
+    app_container_id: "APP_CONTAINER_ID", 
+    hostname: "CARDUPDATR_HOSTNAME",  
+    financial_institution: "acmecu", 
+    top_sites: ["amazon.com", "apple.com", "audible.com", "hulu.com", "netflix.com", "spotify.com", "target.com", "uber.com", "venmo.com", "walgreens.com", "walmart.com"],  
+    merchant_site_tags: ["usa,canada", "prod"],    
+    countries_supported: ["Canada", "USA"] 
+  },
+```         
+
+Property | Required | Default | Description 
+-------- | -------- | ------- | -----------
+app_container_id | yes | | HTML element id that CardUpdatr is attached to
+hostname | yes | | hostname of CardUpdatr (e.g. acmebank.cardupdatr.app)
+financial_institution | no | first element of host, or "default" | Override the value in the hostname (recommended for embedded)
+top_sites | no | [] | These sites are listed first on the "select-merchants" page
+merchant_site_tags | no | ["usa", "prod"] | usa AND prod -- to provide "OR" functionality, tags must be listed differently:  "prod", "canada,usa" means prod AND (usa OR canada) 
+coutnries_supported | no | ["USA"] | Populated in the country field of the address - if only one country, the country is assumed
+
+### user
+
+The user properties are unique to this partiular cardholder, and generally provide login and other customer specific properties necessary to assume a session.
+
+```javascript
+  },
+  user : { 
+    username: "redacted", 
+    grant: "redacted", 
+    card_id: "redacted",
+    custom_data: {
+      SCOPE: { //customer defined SCOPE is optional, but recommended to avoid collisions
+        CUSTOMER_KEY: "000000000000" 
+      }
+    }
+  },
+```
+
+Property | Required | Default | Description 
+-------- | -------- | ------- | -----------
+username | no | | When using SSO, this value is generated by CardSavr and required to continue the session
+grant | no | | Also returned by CardSavr and required for SSO
+card_id | no | user's first card | When using SSO, this is the card_id to be used for this session
+custom_data | no | | Data that identifies this cardholder/session.  It is posted via webhooks when the session is terminated.
+
+### style_template
+
+style_template attributes can be dynamically configured with embedded CardUpdatr.  They can optionally be configured in the Partner Portal, but dynamic flexibilty is sometimes preferred if running multiple brands under the same Financial Institution.
+
+```javascript
+  },
+  style_template : { 
+    name: "ACME Bank", 
+    page_title: "Update your card!", 
+    card_description: "ACME Bank Debit Card"  
+    //By default, a message that will be appended and link to the select-merchants page: "Add your $card_description to more sites"
+    final_message: "Thank you for updating your card, no further action is needed. Sites may notify you that your payment ",
+    invalid_session_url: "URL",  
+    link_color: "#5e35b1",
+    button_color: "#5e35b1",
+    border_color: "#5e35b1"
+  },
+```
+
+Property | Required | Default | Description 
+-------- | -------- | ------- | -----------
+name | no | The FI name | The name of the issuer
+page_title | no | The FI name | The title of the page
+card_description | no | Set in the Partner Portal | included in the copy 
+final_message | no | Set in the Partner Portal | A thank you message that appears after all accounts are linked
+invalid_session_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
+link_color | no | #000000 | color of links (can also be configured in Partner Portal)
+button_color | no | #000000 | color of buttons (can also be configured in Partner Portal)
+border_color | no | #000000 | color of box borders (can also be configured in Partner Portal)
+
 
 ***

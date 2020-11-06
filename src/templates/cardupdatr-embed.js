@@ -17,7 +17,7 @@ export default class CardUpdatr extends React.Component {
     componentDidMount() {
         if (isBrowser) {
             setTimeout(function(w) {
-                    w.initCardupdatr( { "app_container_id": iFrameClassID, "hostname": cardupdatrUrl } );
+                    w.initCardupdatr( { config : { "app_container_id": iFrameClassID, "hostname": cardupdatrUrl } } );
                 },
             1000, window);
         }
