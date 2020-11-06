@@ -57,7 +57,8 @@ app\_container_id | yes | | HTML element id that CardUpdatr is attached to
 hostname | yes | | hostname of CardUpdatr (e.g. acmebank.cardupdatr.app)
 financial_institution | no | first element of host, or "default" | Override the value in the hostname (recommended for embedded)
 top_sites | no | [] | These sites are listed first on the "select-merchants" page
-merchant_site\_tags | no | ["usa", "prod"] | usa AND prod -- to provide "OR" functionality, tags must be listed differently:  "prod", "canada,usa" means prod AND (usa OR canada) 
+exclude_sites | no | [] | List of sites to be excluded (hostnames)
+merchant\_site_tags | no | ["usa", "prod"] | usa AND prod -- to provide "OR" functionality, tags must be listed differently. "prod", "canada,usa" means prod AND (usa OR canada) 
 coutnries_supported | no | ["USA"] | Populated in the country field of the address - if only one country, the country is assumed
 
 ### user
@@ -97,7 +98,7 @@ style_template attributes can be dynamically configured with embedded CardUpdatr
     card_description: "ACME Bank Debit Card"  
     //By default, a message that will be appended and link to the select-merchants page: "Add your $card_description to more sites"
     final_message: "Thank you for updating your card, no further action is needed. Sites may notify you that your payment ",
-    invalid_session\_url: "URL",  
+    invalid\_session_url: "URL",  
     link_color: "#5e35b1",
     button_color: "#5e35b1",
     border_color: "#5e35b1"
