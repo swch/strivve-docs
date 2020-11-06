@@ -97,7 +97,7 @@ style_template attributes can be dynamically configured with embedded CardUpdatr
     card_description: "ACME Bank Debit Card"  
     //By default, a message that will be appended and link to the select-merchants page: "Add your $card_description to more sites"
     final_message: "Thank you for updating your card, no further action is needed. Sites may notify you that your payment ",
-    invalid_session_url: "URL",  
+    invalid_session\_url: "URL",  
     link_color: "#5e35b1",
     button_color: "#5e35b1",
     border_color: "#5e35b1"
