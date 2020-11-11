@@ -8,8 +8,8 @@ import {Layout} from '../components/index';
 import {htmlToReact, toStyleObj} from '../utils';
 
 const isBrowser = typeof window !== "undefined"
-const cardupdatrHostname = 'acmebank';
-const cardupdatrUrl = 'https://' + cardupdatrHostname + '.cardupdatr.app/';
+const cardupdatrHostname = 'acmebank.customer-dev.cardupdatr.app';
+const cardupdatrUrl = 'https://' + cardupdatrHostname + '/';
 const cardupdatrJavascriptUrl = cardupdatrUrl + 'cardupdatr-client.js'
 const iFrameClassID = 'cardupdatr-frame';
 
@@ -17,7 +17,7 @@ export default class CardUpdatr extends React.Component {
     componentDidMount() {
         if (isBrowser) {
             setTimeout(function(w) {
-                    w.initCardupdatr( { config : { "app_container_id": iFrameClassID, "hostname": cardupdatrUrl } } );
+                    w.initCardupdatr( { config : { "app_container_id": iFrameClassID, "hostname": cardupdatrHostname } } );
                 },
             1000, window);
         }
