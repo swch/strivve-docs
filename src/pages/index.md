@@ -46,7 +46,7 @@ sections:
     image: /images/cardsavr_hand_phone-e1547060126327.png
     actions:
       - label: Demo CardUpdatr App Now
-        url: https://acmebank.cardupdatr.app
+        url: https://acmebank.customer-dev.cardupdatr.app
         target: _blank
 template: home
 ---

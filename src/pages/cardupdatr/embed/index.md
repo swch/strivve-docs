@@ -54,7 +54,7 @@ There are three sets of settings that can be used to customize your CardUpdatr e
 Property | Required | Default | Description 
 -------- | -------- | ------- | -----------
 app\_container_id | yes | | HTML element id that CardUpdatr is attached to
-hostname | yes | | hostname of CardUpdatr (e.g. acmebank.cardupdatr.app)
+hostname | yes | | hostname of CardUpdatr (e.g. acmebank.customer-dev.cardupdatr.app)
 financial_institution | no | first element of host, or "default" | Override the value in the hostname (recommended for embedded)
 top_sites | no | [] | These sites are listed first on the "select-merchants" page
 exclude_sites | no | [] | List of sites to be excluded (hostnames)

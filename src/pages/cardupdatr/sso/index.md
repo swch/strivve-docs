@@ -101,7 +101,7 @@ Once your application has the necessary information from the Cardsavr server, th
 By supplying the parameters in the hash value of the url, CardUpdatr will automatically log in as the cardholder, and the cardholder can then select their merchants and corresponding credentials.  
 
 ```
-https://acmebank.cardupdatr.app/#username=USERNAME&grant=GRANT&card_id=CARD_ID
+https://acmebank.customer-dev.cardupdatr.app/#username=USERNAME&grant=GRANT&card_id=CARD_ID
 ```
 
 ### Embedding
