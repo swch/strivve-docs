@@ -8,7 +8,7 @@ import {Layout} from '../components/index';
 import {htmlToReact, toStyleObj} from '../utils';
 
 const isBrowser = typeof window !== "undefined"
-const cardupdatrHostname = 'acmebank.customer-dev.cardupdatr.app';
+const cardupdatrHostname = 'customer-dev.cardupdatr.app';
 const cardupdatrUrl = 'https://' + cardupdatrHostname + '/';
 const cardupdatrJavascriptUrl = cardupdatrUrl + 'cardupdatr-client.js'
 const iFrameClassID = 'cardupdatr-frame';
