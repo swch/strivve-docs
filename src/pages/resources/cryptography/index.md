@@ -141,7 +141,7 @@ The per card holder Strivve Safe protecting the PCI-DSS SAD and MC data for card
 
 #### Persistent Cardholder Safe Keys
 
-Cardholder Safe Keys used with perstent card holder users are generated and managed by the partner.  This type of safe key is sent as a header on the post /cardsavr_users endpoint with a role of cardholder in order to create a persistent card holder user. It is best practice to have a unique key for each card holder. You must send the persistent safe key via header for each request that involves safe-protected information \(specifically, certain requests to /cardsavr_users, /cardsavr_accounts, /carsavr_cards and /place_card_on_single_site. This is listed in the documentation for each endpoint\).
+Cardholder Safe Keys used with perstent card holder users are generated and managed by the partner.  This type of safe key is sent as a header on the post cardsavr_users endpoint with a role of cardholder in order to create a persistent card holder user. It is best practice to have a unique key for each card holder. You must send the persistent safe key via header for each request that involves safe-protected information \(specifically, certain requests to cardsavr_users, cardsavr_accounts, carsavr_cards and place_card_on_single_site. This is listed in the documentation for each endpoint\).
 
 #### Ephemeral Cardholder Safe Keys
 
