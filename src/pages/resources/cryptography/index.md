@@ -101,7 +101,7 @@ All data at rest is stored within a AWS Aurora Postgres data base. The entire da
 
 ### Additional Credential Protection
 
-In addition to the CardSavr data base being AES-256 encrypted, PCI-DSS SAD and MC are stored as encrypted blobs within the data base; known collectively as a per user Strivve Safe employing the AWS-256-CBC algorithm with keys derived by mixing an internal Cardsavr environment key with a Cardholder key that is provided by the application. This dual key system employs a strategy of persistently storing the pair in seperate environments; CardSavr and partner in order to prevent disclosure with persistent material from within CardSavr.
+In addition to the CardSavr data base being AES-256 encrypted, PCI-DSS SAD and MC are stored as encrypted blobs within the data base; known collectively as a per user Strivve Safe employing the AWS-256-CBC algorithm with keys derived by mixing an internal CardSavr environment key with a Cardholder key that is provided by the application. This dual key system employs a strategy of persistently storing the pair in seperate environments; CardSavr and partner in order to prevent disclosure with persistent material from within CardSavr.
 
 For each card placement job, a unique ephemeral Job Safe is created containing  PCI-DSS SAD card information and MC for the merchant site.  This safe is stored as a blob encryted using the AES-256-CBC algorithm with a one time use key and exists only for the duration of a job.
 
@@ -137,19 +137,19 @@ The CardSavr API SDK takes care of this generation process.  Applications which 
 
 ### Cardholder Safe Keys
 
-The per card holder Strivve Safe protecting the PCI-DSS SAD and MC data for card holder users utilizes a pair of 256 bit keys.  One key, known as the enviroment key is generated and managed internally by the CardSavr servjce. The other key, known as the Cardholder Key is generated for each card holder user.  These two keys are mixed together usinng a key derivation function resulting in a 256 bit key used to encrypt and decrypt the Strivve Safe.
+The per card holder Strivve Safe protecting the PCI-DSS SAD and MC data for card holder users utilizes a pair of 256 bit keys.  One key, known as the enviroment key is generated and managed internally by the CardSavr servjce. The other key, known as the Cardholder Safe Key is generated for each card holder user.  These two keys are mixed together usinng a key derivation function resulting in a 256 bit key used to encrypt and decrypt the Strivve Safe.
 
 #### Persistent Cardholder Safe Keys
 
-Cardholder safe keys used with perstent card holder users are generated and managed by the partner.  This type of safe key is sent as a header on the post /cardsavr_users endpoint with a role of cardholder in order to create a persistent card holder user. It is best practice to have a unique key for each card holder. You must send the persistent safe key via header for each request that involves safe-protected information \(specifically, certain requests to /cardsavr_users, cardsavr_accounts, carsavr_cards and /place_card_on_single_site. This is listed in the documentation for each endpoint\).
+Cardholder Safe Keys used with perstent card holder users are generated and managed by the partner.  This type of safe key is sent as a header on the post \/cardsavr_users endpoint with a role of cardholder in order to create a persistent card holder user. It is best practice to have a unique key for each card holder. You must send the persistent safe key via header for each request that involves safe-protected information \(specifically, certain requests to \/cardsavr_users, \/cardsavr_accounts, \/carsavr_cards and \/place_card_on_single_site. This is listed in the documentation for each endpoint\).
 
 #### Ephemeral Cardholder Safe Keys
 
-Cardholder safe keys used with ephemeral card holder users are generated and managed by Strivve.  Ephemeral card holder users are created by not having a safe header present on the post /cardsavr_users with a role of cardholder. These types of users exist only for the short duration it takes to complete card placement during a single CardSavr session. 
+Cardholder safe keys used with ephemeral card holder users are generated and managed by Strivve.  Ephemeral card holder users are created by not having a safe header present on the post \/cardsavr_users with a role of cardholder. These types of users exist only for the short duration it takes to complete card placement during a single CardSavr session. 
 
 #### Cardholder Safe Key Storage
 
-Partners are responsible for maintaining thier own PCI compliant secure storage of persistent card holder safe keys which improves Strivve Safe security by not having them stored within the CardSavr service. 
+Partners are responsible for maintaining thier own PCI compliant secure storage of persistent cardholder safe keys which improves Strivve Safe security by not having them stored within the CardSavr service. 
 
 Strivve is responsible for storing short lived ephemeral cardholder safe keys in a PCI complaint manner and accomplishes this by encrypting them using AES-256-CBC with a secure key encrypting key.
 
