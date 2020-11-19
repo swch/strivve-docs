@@ -17,7 +17,7 @@ export default class CardUpdatr extends React.Component {
     componentDidMount() {
         if (isBrowser) {
             setTimeout(function(w) {
-                    w.initCardupdatr( { config : { "app_container_id": iFrameClassID, "hostname": cardupdatrHostname } } );
+                    w.initCardupdatr( { config : { "app_container_id": iFrameClassID, "hostname": cardupdatrHostname, "financial_institution": "acmebank" } } );
                 },
             1000, window);
         }
