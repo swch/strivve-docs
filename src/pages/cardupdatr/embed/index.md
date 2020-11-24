@@ -111,10 +111,11 @@ name | no | The FI name | The name of the issuer
 page_title | no | The FI name | The title of the page
 card_description | no | Set in the Partner Portal | included in the copy 
 final_message | no | Set in the Partner Portal | A thank you message that appears after all accounts are linked
-invalid_session\_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
+invalid\_session_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
 link_color | no | #000000 | color of links (can also be configured in Partner Portal)
 button_color | no | #000000 | color of buttons (can also be configured in Partner Portal)
 border_color | no | #000000 | color of box borders (can also be configured in Partner Portal)
-
+drop_shadow | no | true | draws a dropshadow around the visible area
+dynamic_height | no | false | creates a fixed heigh on the credit card form and the merchant credential page - this breaks the sticky notification box
 
 ***
