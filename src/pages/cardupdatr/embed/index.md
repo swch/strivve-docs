@@ -116,6 +116,6 @@ link_color | no | #000000 | color of links (can also be configured in Partner Po
 button_color | no | #000000 | color of buttons (can also be configured in Partner Portal)
 border_color | no | #000000 | color of box borders (can also be configured in Partner Portal)
 drop_shadow | no | true | draws a dropshadow around the visible area
-dynamic_height | no | false | creates a fixed heigh on the credit card form and the merchant credential page - this breaks the sticky notification box
+dynamic_height | no | false | creates a fixed height on the credit card form and the merchant credential page - this breaks the sticky notification box
 
 ***
