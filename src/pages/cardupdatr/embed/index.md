@@ -101,7 +101,9 @@ style_template attributes can be dynamically configured with embedded CardUpdatr
     invalid\_session_url: "URL",  
     link_color: "#5e35b1",
     button_color: "#5e35b1",
-    border_color: "#5e35b1"
+    border_color: "#5e35b1",
+    drop_shadow: false,
+    dynamic_height: true
   },
 ```
 
