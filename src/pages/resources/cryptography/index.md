@@ -19,21 +19,23 @@ In addition to TLS protection, all CardSavr RESTful API requests and responses a
 
 ![CardSavr Protected Data Flow](/images/CardSavrDataFlow.jpg "CardSavr Protected Data Flow") 
 
+#### API Session Secret Key
+
+All encryption an signing in in CardSavr is done using a symmetric shared 256 bit key know as the API Session Secret Key. See [API Session Keys](#sessionkeys) for information on the API Session Secret Key lifecycle.
+
 #### Decryption
 
 All responses from CardSavr are encrypted by the method described in encryption. To decrypt a response, follow the procedure below:
 
-1. Convert the shared API session secret key from base64 into binary
+1. Parse API response JSON body.encryptedBody parameter tuple string (Base64-Encrypted-JSON-Body$Base64-IV) into encrypted body component and initialization vector (IV) components (as separated by the '$' delimiter)
 
-2. Separate tuple string into encrypted body and initialization vector (IV) components (as separated by the '$' delimiter)
+2. Convert the Base64-Encrypted-JSON-Body into binary
 
-3. Convert the base64-encoded JSON body into binary
+3. Convert the Base64-IV into binary
 
-4. Convert the base64-encoded IV into binary
+4. Create cipher from the AES-256-CBC algorithm, using binary shared API Session Secret Key and decoded IV (from step 3)
 
-5. Create cipher from the AES-256-CBC algorithm, binary shared API session secret key (from step 1), and decoded IV (from step 4)
-
-6. Decrypt decoded body (from step 3) using the cipher from step 5
+5. Decrypt decoded binary body (from step 2) using the cipher from step 4
 
 ##### SDK Decryption Support
 
@@ -41,13 +43,13 @@ The CardSavr API SDK takes care of this decryption process.  Applications which 
 
 #### Encryption
 
-CardSavr applications and CardSavr will encrypt request and response bodies, respectively, using their API session shared secret key. As a result, the encrypted payloads can only be decrypted by CardSavr or the user.
+CardSavr applications and CardSavr will encrypt request and response bodies, respectively, using the API Session Secret Key. As a result, the encrypted payloads can only be decrypted by CardSavr or the user.
 
-You must encrypt the body of your request using 256-bit, Advanced Encryption Standard cipher block chaining (i.e. AES-CBC-256), a 16-byte, cryptographically strong initilization vector, and your shared secret key.
+You must encrypt the body of your request using 256-bit, Advanced Encryption Standard cipher block chaining (i.e. AES-CBC-256), a 16-byte, cryptographically strong initilization vector, and the API Session Secret Key.
 
 Finally, when placed in your request, the encrypted request body must be combined with the base64-encoded initialization vector that was used to encrypt it. The two values must be separated by a '$' delimiter, illustrated below:
 
-Base64-Encrypted-JSON-Body$Base64-IV
+request.body.encryptedBody = Base64-Encrypted-JSON-Body$Base64-IV
 
 To send your request, put this value into your request body object in the property "encryptedBody".
 
@@ -65,6 +67,8 @@ The authorization header contains the integrator name and a prefix:
 
 "Authorization": 'SWCH-HMAC-SHA256 Credentials=' + integrator name
 
+Example: "Authorization: SWCH-HMAC-256 Credentials=MyAgentApplication"
+
 ##### Nonce Header
 
 The nonce header contains the current UTC time in milliseconds, and therefore provides protection against replay attacks.
@@ -73,11 +77,11 @@ The nonce header contains the current UTC time in milliseconds, and therefore pr
 
 ##### Signature Header
 
-The string-to-sign format is: StringToSign = URL-Path (decoded) + Headers.Authorization + Headers.Nonce + Request Body, where URL-Path is the decoded relative endpoint you are calling.
+The string-to-sign format is: StringToSign = relative-URL-Path (decoded) + Headers.Authorization + Headers.Nonce + Request Body, where URL-Path is the decoded relative endpoint you are calling.
 
-To complete the signature, pass the string-to-sign to an HMAC SHA256 algorithm along with the secret API session key. Place this result value Base64 encoded in the signature header.
+To complete the signature, pass the string-to-sign to an HMAC SHA256 algorithm along with the API Session Secret Key. Place this result value Base64 encoded in the signature header.
 
-"Signature": Base64(HMAC-SHA256(Shared-Secret-Key, StringToSign))
+"Signature": Base64(HMAC-SHA256(API-Session-Secret-Key, StringToSign))
 
 ##### SDK Signing Support
 
@@ -85,7 +89,7 @@ The CardSavr API SDK takes care of this signing process.  Applications which dir
 
 #### Verfication
 
-To verify a response perform the same process as signing to dervie the signature, base64 encode the 256 hit result and compare it with the value in Headers.Signature. 
+To verify a response perform the same process as signing to dervie the signature, base64 encode the 256 bit result and compare it with the value in Headers.Signature. 
 
 ##### SDK Verfication Support
 
@@ -109,6 +113,7 @@ For each card placement job, a unique ephemeral Job Safe is created containing  
 
 In order for cryptographic signing, verification, encryption and decryption to work, keys are needed to use with the various algorithms.  These algorithms are only as secure as thier key number randomnes; as such all keys generated by CardSavr use key stretching derivation algorithms in order to yield acceptable entropy.  All keys persistently stored within CardSavr are encrypted while at rest by key hierarchies protected by a secure root key. All keys other than those used in validating TLS certificates are symmetric 256 bit in length.
 
+<a name=sessionkeys></a>
 ### CardSavr API Session Keys
 
 All applications must identify and authenticate themselves with CardSavr.  This authentication is independent of the user of the application, who must also seperately authenticate themselves.  The application authentication serves two purposes; 1\) to allow only authorized applications to use CardSavr and 2\) to provide integrity  and confidentiality to all CardSavr API requests and responses by digitally signing and verifying them. CardSavr uses a shared API session secret key to encrypt and sign requests and responses.
