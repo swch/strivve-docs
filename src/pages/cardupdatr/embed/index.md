@@ -23,7 +23,7 @@ Insert this code below into your page to host the CardUpdatr within an iframe. S
     <script>
 
       window.initCardupdatr(settings = { 
-        config {
+        config : {
           app_container_id: "cardupdatr-frame", 
           hostname: "https://CARDUPDATR_HOSTNAME.cardupdatr.app/" 
         }
