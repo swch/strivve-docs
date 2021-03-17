@@ -80,8 +80,8 @@ USER\_DATA\_FAILURE | Generally a credential/card problem
 SITE\_INTERACTION\_FAILURE | Cardsavr is unable to navigate the site successfully
 PROCESS\_FAILURE | A unknown backend failure - should be reported as unsuccessful
 
-The job\_status list is frequently updated; it is advised to use the job\_status\_message for 
-unknown job_status values.  Here is a current list of statuses the correspond to the termination types.
+The [job\_status list](../messaging/#termination_types) is frequently updated; it is advised to use the job\_status\_message for 
+unknown job_status values.  
 
 ### Using webhooks with your CardSavr integration
  
