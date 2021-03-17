@@ -69,6 +69,8 @@ two digits of the PAN. For cardholders that have been authenticated by the custo
 username is available and can easily be associated with the necessary contact information 
 (email, mobile number) when the webhook is processed.
 
+### Termination types
+
 The list of termination_types is as follows:
 
 Termination Type | Notes
@@ -79,7 +81,7 @@ SITE\_INTERACTION\_FAILURE | Cardsavr is unable to navigate the site successfull
 PROCESS\_FAILURE | A unknown backend failure - should be reported as unsuccessful
 
 The job\_status list is frequently updated; it is advised to use the job\_status\_message for 
-unknown job_status values.
+unknown job_status values.  Here is a current list of statuses the correspond to the termination types.
 
 ### Using webhooks with your CardSavr integration
  
