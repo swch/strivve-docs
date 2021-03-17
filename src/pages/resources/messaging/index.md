@@ -126,7 +126,7 @@ SITE\_INTERACTION\_FAILURE | Cardsavr is unable to navigate the site successfull
 PROCESS\_FAILURE | A unknown backend failure - should be reported as unsuccessful
 
 The job\_status list is frequently updated; it is advised to use the job\_status\_message for 
-unknown job_status values.  The job\_status\_message accompanies the job_status messages in both the messages, single_site_job entity,
+unknown job\_status values.  The job\_status\_message accompanies the job\_status messages in both the messages, single\_site\_job entity,
 and the [notifications](../notifcations/).
 
 Note that some statuses do not have termination types, those statuses are set/modified during the course of a job.
