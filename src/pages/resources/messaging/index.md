@@ -64,7 +64,7 @@ Examples:
 }
 ```
 
-#### Response and Request Messages
+#### Credential Request and Response Messages
 Request messages adhere to a slightly different format. 
 
 Endpoint: GET /messages/place\_card\_on\_single\_site\_jobs/:job\_id/credential\_requests
@@ -113,3 +113,66 @@ The response has a similar format, only "submitted" is used since the values are
   message: “submitted”
 }
 ```
+
+### Termination types
+
+All jobs end with a termination_type.  Termination types are meant to be broad and encompass multiple exit statuses.  
+
+Termination Type | Notes
+|-----------|--------
+BILLABLE | Success
+USER\_DATA\_FAILURE | Generally a credential/card problem
+SITE\_INTERACTION\_FAILURE | Cardsavr is unable to navigate the site successfully
+PROCESS\_FAILURE | A unknown backend failure - should be reported as unsuccessful
+
+The job\_status list is frequently updated; it is advised to use the job\_status\_message for 
+unknown job_status values.  The job\_status\_message accompanies the job_status messages in both the messages, single_site_job entity,
+and the [notifications](../notifcations/).
+
+Note that some statuses do not have termination types, those statuses are set/modified during the course of a job.
+
+Status | Termination Type | Description
+|------|------------------|-------------
+SUCCESSFUL | BILLABLE | Job completed successfully
+UNSUCCESSFUL | SITE_INTERACTION_FAILURE | Cardsavr was unable to place the card -- generally due to the inability to locate the next element
+TIMEOUT_CAPTCHA | SITE_INTERACTION_FAILURE | A timeout was encountered attempting to solve a captcha
+NETWORK_ISSUE | SITE_INTERACTION_FAILURE | Job has encountered an issue connecting to the merchant site, after the third failure, the job exits
+PREPAID_ACCOUNT | USER_DATA_FAILURE | Prepaid accounts don't have cards on file
+INACTIVE_ACCOUNT | USER_DATA_FAILURE | Account is inactive due to an unpaid bill or closed account
+INVALID_CARD | USER_DATA_FAILURE | Card is detected as invalid by the merchant
+INVALID_ADDRESS | USER_DATA_FAILURE | Some sites require accurate addresses
+PASSWORD_RESET_REQUIRED | USER_DATA_FAILURE | Account is in a state that requires a password reset that must be done by the user
+BUNDLED_SUBSCRIPTION | USER_DATA_FAILURE | No card on file and billed through another subscription (e.g. Disney+)
+FREE_ACCOUNT | USER_DATA_FAILURE | Free accounts don't have a card on file and no paid subscrption
+ACCOUNT_LOCKED | USER_DATA_FAILURE | Account has been locked by previous failed login attempts
+DUPLICATE_CARD | USER_DATA_FAILURE | Some sites don't allow the same card placed twice
+EXPIRED_CARD | USER_DATA_FAILURE | 
+INVALID_CVV | USER_DATA_FAILURE | 
+INVALID_NETWORK | USER_DATA_FAILURE | Some sites only accept one brand of card (no Amex, only VISA, etc.)
+MAX_LIMIT_OF_STORED_CARDS | USER_DATA_FAILURE | Some sites only allow a certain number of cards
+TIMEOUT_CREDENTIALS | USER_DATA_FAILURE | User failed to provide new credentials in a timely manner (~4 minutes)
+TIMEOUT_TFA | USER_DATA_FAILURE | User failed to provide a new TFA code in a timely mannger (~4 minutes)
+TOO_MANY_LOGIN_FAILURES | USER_DATA_FAILURE | Only two failed logins are allowed
+TOO_MANY_TFA_FAILURES | USER_DATA_FAILURE | Only one failed TFA code is allowed
+REQUESTED | | Initial state of a job (and the default)
+QUEUED | | Jobs are immediately queued upon being requested
+IN_PROGRESS | | Task has started
+AUTH | | Task is attempting to authenticate
+PENDING_CREDS | | Initial set of credentials have not been received - starting the job early, and adding credentials after the job is already running can save time
+LOGIN_SUBMITTED | | Login form has been submitted
+PENDING_NEWCREDS | | Task is awaiting new credentails because the initial set was invalid
+LOGIN_RESUBMITTED | | Login form has been resubmitted after new creds
+PENDING_TFA | | Task awaiting a TFA response
+TFA_SUBMITTED | | TFA code has been received
+UPDATING | | Task is successfully authenticated and is placing the card
+PENDING_CARD | | Task is awaiting a card - this only occurs if a job and account are created before the card is added (uncommon implementation)
+CANCEL_REQUESTED | | Job is cancelled by the client, but not yet acknowledged by the task
+INITIATED | | Job should be created, but not queued yet (uncommon implementation)
+CANCELLED_QUICKSTART | NEVER_STARTED | A job that was requested before initial credentails were received is cancelled by the client
+ABANDONED_QUICKSTART | NEVER_STARTED | A job that was requested before initial credentials were received is abandonded
+KILLED | NEVER_STARTED | A job encounters an issue where it gets stuck and needs to be stopped by a remote process (uncommon)
+CANCELLED | NEVER_STARTED | A job in an INITIATED state is cancelled (uncommon implementation)
+ABANDONED | NEVER_STARTED | A job in an INITIATED state is abandoned and credentials are never provided (uncommon implementation)
+PROXY_PROBE_FAILED | PROCESS_FAILURE | Unable to connect through the primary and backup proxy
+VBS_TIMEOUT | PROCESS_FAILURE | Task took too long to run (uncommon)
+VBS_ERROR | PROCESS_FAILURE | Task encountered an unhandled exception (uncommon)
