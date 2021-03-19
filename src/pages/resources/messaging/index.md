@@ -159,10 +159,13 @@ QUEUED | | Jobs are immediately queued upon being requested
 IN_PROGRESS | | Task has started
 AUTH | | Task is attempting to authenticate
 PENDING_CREDS | | Initial set of credentials have not been received - starting the job early, and adding credentials after the job is already running can save time
+CREDS_RECEVIED | | Initial set of credentials have been received - starting the job early, and adding credentials after the job is already running can save time
 LOGIN_SUBMITTED | | Login form has been submitted
-PENDING_NEWCREDS | | Task is awaiting new credentails because the initial set was invalid
-LOGIN_RESUBMITTED | | Login form has been resubmitted after new creds
+PENDING_NEWCREDS | | Task is awaiting new credentials because the initial set was invalid
+NEWCREDS_RECEIVED | | Task has received new credentials because the initial set was invalid
+LOGIN_RESUBMITTED | | Login form has been resubmitted after new credentials
 PENDING_TFA | | Task awaiting a TFA response
+TFA_RECEIVED | | Task has received a TFA response
 TFA_SUBMITTED | | TFA code has been received
 UPDATING | | Task is successfully authenticated and is placing the card
 PENDING_CARD | | Task is awaiting a card - this only occurs if a job and account are created before the card is added (uncommon implementation)
