@@ -73,3 +73,7 @@ yarn-error.log
 
 # Coverage directory used by tools like istanbul
 lambdas-built
+
+
+# ide folders
+.idea/
