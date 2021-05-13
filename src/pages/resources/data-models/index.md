@@ -12,26 +12,26 @@ The data model for the CardSavr platform is shown below.
 To create a card placement job, there are three data objects that must be created first. In 
 order, these are:
 
-* User - 
+* Cardholder - 
 Represents the cardholder
-[Users Endpoint](/api-sdk "Users Endpoint")
+[Cardholders Endpoint](https://swch.github.io/slate/#cardholders "Cardholders Endpoint")
 
 * Card - 
 Represents a card
-[Cards Endpoint](/api-sdk "Cards Endpoint")
+[Cards Endpoint](https://swch.github.io/slate/#cards "Cards Endpoint")
 
 * Account - 
 Represents the credentials for a merchant and is linked to a merchant
-[Accounts Endpoint](/api-sdk "Accounts Endpoint")
+[Accounts Endpoint](https://swch.github.io/slate/#accounts "Accounts Endpoint")
 
 * (Optional) Address - 
 Represents the billing address of a card
-[Addresses Endpoint](/api-sdk "Addresses Endpoint")
+[Addresses Endpoint](https://swch.github.io/slate/#addresses "Addresses Endpoint")
 
 Once these resources have been created, a card placement job can be create:
 
 * Job - 
 Represents the push-provisioning request to place a card as the default payment method at a merchant
-[Jobs Endpoint](/api-sdk "Jobs Endpoint")
+[Jobs Endpoint](https://swch.github.io/slate/#single-site-jobs "Jobs Endpoint")
 
 
