@@ -25,13 +25,13 @@ Credential grants must be properly secured to protect them from unauthorized use
 
 A typical implementation of the credential grant would be:
 
-1. An FI admin or customer agent creates a new cardholder in CardSavr without a password. This restricts login authentication for this cardholder to the credential grant.
-2. The cardholder logs into the FI infrastructure and begins using the FI application.
-3. The FI infrastructure makes a GET request to `/cardsavr_users/:username/credential_grant', which creates and assigns a JWT OAuth credential grant token for the user.
-4. The FI infrastructure provides the token returned by `/cardsavr_users/:id/credential_grant' to the FI application.
-5. The FI application submits the token in the request body to /session/login when the user is being logged in to CardSavr.
-6. The user is now logged into CardSavr. The credential grant will expire 60 seconds after being issued. 
+1. An agent (e.g. customer_agnet) creates a new cardholder in CardSavr. Agents that create cardholders automatically assume the ability to manage these newly created cardholders (add cards, post jobs, etc).  
+1. Often times we wish to pass the responbility of this cardholder to a lesser privileged agent (e.g. cardholder_agent). This requires a grant.  Grants are created upon the creation of a cardholder and can be passed to the client application.  
+1. The FI infrastructure makes a POST to `/cardholders', which creates the cardholder and returns the grant.
+1. The FI infrastructure provides the token to the FI application.
+1. The FI application then posts to `/cardholders/authorize` with the grant token.
+1. The cardholder can now be managed by the FI application. The credential grant will expire 60 seconds after being issued. 
 
 ## Cardholder Authentication Best Practice
 
-Strivve recommends not using passwords with cardholders and strictly rely on using credential grants for authentication of them.  Doing so eliminates the password attack vector for cardholders.  
+Strivve recommends that client applications run as cardholder_agents given the reduced permissions.  Infrastructure applications that procure cardholders and may want to do more privileged activities can run as customer_agents, but since the credentials are exposed in client applications, least privileged users should be used.
