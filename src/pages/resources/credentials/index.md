@@ -40,12 +40,8 @@ such that it has sufficient privileges to do so.  However role reassignment does
 that particular user logins into the platform.  The following roles are available for partner usage:
 
 - **admin:** Most privileged user. This is typically a real person.
-- **analyst:** User with read only access to reports. This is typically a real person.
-- **cardholder:** A cardholder end user who can access their own information and place their card(s) on merchant sites.
 - **cardholder_agent:** A user restricted to creating cardholder users.  This is intended for front end applications performing creation of a cardholder user and acquiring a credential grant for them.
 - **customer_agent:** The second most privileged user.  This is intended for backend applications performing a multitude of automated operations.
-- **customer_auditor:** User with read only access to audit records.
-- **developer:** 3rd most privileged user. This typically a real person developing applications and testing them in non production environments.
 
 ## Payment Card Credentials
 ![image info](/images/credit-card-credential.jpg)
