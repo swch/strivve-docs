@@ -141,7 +141,7 @@ PREPAID_ACCOUNT | USER\_DATA\_FAILURE | Prepaid accounts don't have cards on fil
 INACTIVE_ACCOUNT | USER\_DATA\_FAILURE | Account is inactive due to an unpaid bill or closed account
 INVALID_CARD | USER\_DATA\_FAILURE | Card is detected as invalid by the merchant
 INVALID_ADDRESS | USER\_DATA\_FAILURE | Some sites require accurate addresses
-PASSWORD_RESET_REQUIRED | USER\_DATA\_FAILURE | Account is in a state that requires a password reset that must be done by the user
+PASSWORD\_RESET\_REQUIRED | USER\_DATA\_FAILURE | Account is in a state that requires a password reset that must be done by the user
 BUNDLED_SUBSCRIPTION | USER\_DATA\_FAILURE | No card on file and billed through another subscription (e.g. Disney+)
 FREE_ACCOUNT | USER\_DATA\_FAILURE | Free accounts don't have a card on file and no paid subscrption
 ACCOUNT_LOCKED | USER\_DATA\_FAILURE | Account has been locked by previous failed login attempts
@@ -149,11 +149,11 @@ DUPLICATE_CARD | USER\_DATA\_FAILURE | Some sites don't allow the same card plac
 EXPIRED_CARD | USER\_DATA\_FAILURE | 
 INVALID_CVV | USER\_DATA\_FAILURE | 
 INVALID_NETWORK | USER\_DATA\_FAILURE | Some sites only accept one brand of card (no Amex, only VISA, etc.)
-MAX_LIMIT_OF_STORED_CARDS | USER\_DATA\_FAILURE | Some sites only allow a certain number of cards
+MAX\_LIMIT\_OF\_STORED\_CARDS | USER\_DATA\_FAILURE | Some sites only allow a certain number of cards
 TIMEOUT_CREDENTIALS | USER\_DATA\_FAILURE | User failed to provide new credentials in a timely manner (~4 minutes)
 TIMEOUT_TFA | USER\_DATA\_FAILURE | User failed to provide a new TFA code in a timely mannger (~4 minutes)
-TOO_MANY_LOGIN_FAILURES | USER\_DATA\_FAILURE | Only two failed logins are allowed
-TOO_MANY_TFA_FAILURES | USER\_DATA\_FAILURE | Only one failed TFA code is allowed
+TOO\_MANY\_LOGIN\_FAILURES | USER\_DATA\_FAILURE | Only two failed logins are allowed
+TOO\_MANY\_TFA\_FAILURES | USER\_DATA\_FAILURE | Only one failed TFA code is allowed
 REQUESTED | | Initial state of a job (and the default)
 QUEUED | | Jobs are immediately queued upon being requested
 IN_PROGRESS | | Task has started
