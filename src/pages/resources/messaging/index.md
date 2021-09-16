@@ -114,6 +114,58 @@ The response has a similar format, only "submitted" is used since the values are
 }
 ```
 
+#### Querying Messages by Cardholder 
+
+There is an alternative method for querying messages that is simpler and requires fewer calls.  If the only messages being queried are for a single cardholder, there is an endpoint that will grab messages for multiple jobs through a single endpoint.
+
+Endpoint: GET /messages/cardholders/:cardholder\_id
+
+Unlike the job endpoints, access keys are not required since access is stored on the server and keyed by the session.  This can simplify implementatioin.
+
+It becomes slightly differrent to manage credential_requests:
+
+```json
+{
+  "job_id": "1586",
+  "type": "job_status",
+  "message": {
+    "status": "PENDING_NEWCREDS",
+    "job_timeout": 766325,
+    "percent_complete": 31
+  }
+}
+```
+
+When a PENDIING_NEWCREDS/PENDING_TFA status message is received, the client should access that specific job endpoing:
+
+GET /place_card_on_single_site_jobs/:job\_id 
+
+By including a hydration header of "credential_requests", you can now access the credential request as follows:
+
+```
+"x-cardsavr-hydration": '["credential_requests"]'
+```
+
+```json
+{ 
+  ...
+  "created_on": "2021-09-16T00:06:00.264Z",
+  "last_updated_on": "2021-09-16T00:07:25.975Z",
+  "credential_requests": [
+    {
+      "job_id": 1587,
+      "type": "credential_request",
+      "message": "There was a problem with login credentials, please re-submit.",
+      "envelope_id": "2kRDNRFbPlf98X5S917d4w=="
+    }
+  ]
+}
+```
+
+Credential responses can now be handled the same way as before using the envelope_id.  
+
+It's important to note that when querying a job, a termination_message indicates that the job is completed.
+
 ### Termination types
 
 All jobs end with a termination_type.  Termination types are meant to be broad and encompass multiple exit statuses.  
