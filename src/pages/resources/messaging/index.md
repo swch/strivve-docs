@@ -116,11 +116,11 @@ The response has a similar format, only "submitted" is used since the values are
 
 #### Querying Messages by Cardholder 
 
-There is an alternative method for querying messages that is simpler and requires fewer calls.  If the only messages being queried are for a single cardholder, there is an endpoint that will grab messages for multiple jobs through a single endpoint.
+There is an alternative method for querying messages that is simpler and requires fewer calls.  If the only jobs being queried are for a single cardholder, there is an endpoint that will grab messages for a cardholder's multiple jobs through a single endpoint.
 
 Endpoint: GET /messages/cardholders/:cardholder\_id
 
-Unlike the job endpoints, access keys are not required since access is stored on the server and keyed by the session.  This can simplify implementatioin.
+Unlike the job endpoints, access keys are not required since access is stored on the server and keyed by the session.  This can simplify implementation.
 
 It becomes slightly differrent to manage credential_requests:
 
@@ -136,7 +136,7 @@ It becomes slightly differrent to manage credential_requests:
 }
 ```
 
-When a PENDIING_NEWCREDS/PENDING_TFA status message is received, the client should access that specific job endpoing:
+When a PENDIING_NEWCREDS/PENDING_TFA status message is received, the client should access that specific job endpoint:
 
 GET /place_card_on_single_site_jobs/:job\_id 
 
