@@ -15,6 +15,8 @@ Once a job has been requested, the [current status](../job-progress/#job_statuse
 
 Endpoint: GET /place_card_on_single_site_jobs/:job_id
 
+These calls should be accompanied by a credential-request [hydration header](https://swch.github.io/slate/?java#hydration) so that credential requests are returned on every job request.  
+
 It is essential to maintain user contact until the job status changes to AUTH, which occurs after the VBS has successfully authenticated with the merchant site.  
 
 Examples:
@@ -100,5 +102,5 @@ Examples:
 
 ### Credential responses
 
-All the SDKs provide simple interfaces for ensuring the correct data is returned in the response.  The response format is the same as when using the [messaging endpoints](../progress-messages/#credential_responses/).
+All the SDKs provide simple interfaces for ensuring the correct data is PUT in the response.  The response format is the same as when using the [messaging endpoints](../progress-messages/#credential_responses/).
 
