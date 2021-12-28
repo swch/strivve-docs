@@ -9,9 +9,9 @@ CardSavr utilitizes a messaging system to "stream" messages to clients.  Ideally
 
 ### Status messages
 
-Job status messages can either be acquired from the /messages/place\_card\_on\_single\_site\_jobs or the /messages/cardholders endpoints. These messages contain the job_id, the [current status](../job-progress/#job_statuses), and the percent complete of the job.  Once jobs complete they have a [termination type](../job-progress/#termination_types) which defines the final state of the job.
+Job status messages can either be acquired from the /messages/place\_card\_on\_single\_site\_jobs or the /messages/cardholders endpoints. These messages contain the job\_id, the [current status](../job-progress/#job_statuses), and the percent complete of the job.  Once jobs complete they have a [termination type](../job-progress/#termination_types) which defines the final state of the job.
 
-They may simply serve as a heartbeat to the client to ascertain that the job is still running. There is also a job_timeout value that lets the client know when a job is about to end, usually a result of waiting for credentials from the user.  When you consume status messages, they can only be consumed once.  Although you can always directly query the current status of a job vie the jobs endpoint, old messages are not available.
+They may simply serve as a heartbeat to the client to ascertain that the job is still running. There is also a job_timeout value that lets the client know when a job is about to end, usually a result of waiting for credentials from the user.  When you consume status messages, they can only be consumed once.  Although you can always directly query the current status of a job via the jobs endpoint, old messages are not available.
 
 type | description
 ---- | ------------
