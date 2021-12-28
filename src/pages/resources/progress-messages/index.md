@@ -51,7 +51,7 @@ Examples:
 
 ### Credential requests
 
-Unlike job status messages, credential requests persist until responded to.  Each request has a type, and an envelope\_id.  This envelope_id must accompany each response.  Credential requests have two types: tfa_request and credential_request.  When a request is retrieved by the client, the user should either enter in new credentials or get a tfa response from their email, text message or sometimes even mobile apps.  Once the server receives the credential response, the request is removed, and the job continues.
+Unlike job status messages, credential requests persist until responded to.  Each request has a type, and an envelope\_id.  This envelope\_id must accompany each response.  Credential requests have two types: tfa_request and credential_request.  When a request is retrieved by the client, the user should either enter in new credentials or get a tfa response from their email, text message or sometimes even mobile apps.  Once the server receives the credential response, the request is removed, and the job continues.
 
 type | description
 ---- | ------------
