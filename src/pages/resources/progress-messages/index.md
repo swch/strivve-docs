@@ -81,7 +81,7 @@ Examples:
 
 The most common way to respond to a message request, is through request hydration and the jobs endpoint.  By simply providing a header that contains the appropriate envelope_id ("x-cardsavr-envelope-id": "<GUID>"), responses become simple account updates.
 
-Endpoint:  PUT /messages/place_card_on_single_site_jobs/:job_id
+Endpoint:  PUT /messages/place\_card\_on\_single\_site\_jobs/:job\_id
 
 ```json
 {

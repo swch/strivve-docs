@@ -13,7 +13,7 @@ Although not as efficient as the [messaging system](../progress-messages/), poll
 
 Once a job has been requested, the [current status](../job-progress/#job_statuses) can be queried using the jobs endpoint.
 
-Endpoint: GET /place_card_on_single_site_jobs/:job_id
+Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
 
 These calls should be accompanied by a credential-request [hydration header](https://swch.github.io/slate/?java#hydration) so that credential requests are returned on every job request.  
 
@@ -80,7 +80,7 @@ type | the type of message - tfa\_request or credential\_request
 job\_id | the job\_id for this message channel, this is important to know which merchant is requesting
 envelope\_id | a guid which must be included in the response
 
-Endpoint: GET /place_card_on_single_site_jobs/:job_id
+Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
 
 Examples: 
 
