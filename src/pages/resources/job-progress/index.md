@@ -1,5 +1,5 @@
 ---
-title: Job Progress
+title: Job progress
 template: resources
 ---
 
@@ -40,7 +40,7 @@ SITE\_INTERACTION\_FAILURE | CardSavr is unable to navigate the site successfull
 PROCESS\_FAILURE | An unknown backend failure - should be reported as unsuccessful
 NEVER\_STARTED | This will occur when a job is cancelled or never fully requested, but these should be ignored in webhooks and reeporting.
 
-There are a large number of job statuses for USER\_DATA\_FAILURE termination types.  This value provides important information to the client as to why a job failed. These are included in the status of the [single_site_job](https://swch.github.io/slate/#single-site-jobs), the status field of the final [job update](../messages/), any final webhook [notifications](../notifcations/), as well as any billing reports.  Since these are constantly updated, customers should provide the status\_message to users. 
+There are a large number of job statuses for USER\_DATA\_FAILURE termination types.  This value provides important information to the client as to why a job failed. These are included in the status of the [single\_site\_job](https://swch.github.io/slate/#single-site-jobs), the status field of the final [job update](../progress-messages/), any final webhook [notifications](../notifcations/), as well as any billing reports.  Since these are constantly updated, customers should provide the status\_message to users. 
 
 Status | Termination Type | Description
 |------|------------------|-------------

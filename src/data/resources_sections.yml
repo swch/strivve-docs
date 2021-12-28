@@ -9,6 +9,8 @@ sections:
   - sdks
   - testing
   - notifications
-  - messaging
+  - job-progress
+  - progress-messages
+  - progress-polling
   - support
   
