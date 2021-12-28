@@ -114,7 +114,7 @@ Endpoint: GET /messages/cardholders/:cardholder\_id
 
 It is also possible to only query against a single job.  As with cardholder message queries, the credential requests remain as messages until a response is sent.
 
-Endpoint GET /messages/place_card_on_single_site_jobs/:job_id
+Endpoint GET /messages/place\_card\_on\_single\_site\_jobs/:job\_id
 
 #### Broadcast Messages
 
