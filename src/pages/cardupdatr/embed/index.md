@@ -68,7 +68,6 @@ The user properties are unique to this partiular cardholder, and generally provi
 ```javascript
   },
   user : { 
-    username: "redacted", 
     grant: "redacted", 
     card_id: "redacted",
     custom_data: {
