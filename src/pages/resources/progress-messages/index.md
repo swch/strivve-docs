@@ -19,7 +19,7 @@ type | the type of message - this is currently always job\_status
 job\_id | the job id for this message channel
 job\_timeout | time left before this job times out (in seconds), it is appropriate to alert the cardholder a minute before their session expires. There is an initial timeout of 5 minutes for a job, but if additional information is required from the user, additional time is added to the length of the job. It is important to alert the user that time is about to expire while prompting for new credentials or a TFA code.
 percent\_complete | approximate percentage of the job that is completed.
-status | the status for this job (AUTH, UPDATING or DUPLICATE\_CARD)
+status | the status for this job (e.g. AUTH, UPDATING or DUPLICATE\_CARD)
 termination_type | (only on the final message) - the exit state for this job (BILLABLE, USER\_DATA\_FAILURE, SITE\_INTERACTION\_FAILURE, PROCESS\_FAILURE). The application should alert the clent upon receipt of one of these messages.
 
 Examples:
@@ -79,15 +79,17 @@ Examples:
 
 ### Credential responses
 
-The most common way to respond to a message request, is through request hydration and the jobs endpoint.  By simply providing a header that contains the appropriate envelope_id ("x-cardsavr-envelope-id": "<GUID>"), responses become simple account updates.
+The most common way to respond to a message request, is through request hydration and the jobs endpoint.  By simply providing a header that contains the appropriate envelope_id ("x-cardsavr-envelope-id": "<GUID>"), responses become simple account updates.  Note that credential responses aren't always username/password (although that's most common).  The [merchant site endpoint](https://swch.github.io/slate/#merchant_sites) will 
 
 Endpoint:  PUT /messages/place\_card\_on\_single\_site\_jobs/:job\_id
 
 ```json
 {
-  "account": {    
-    "username": "good_email",
-    "password": "tfa"
+  "account": { 
+    "account_identification" : {
+      "username": "good_email",
+      "password": "tfa"
+    }   
   }
 }
 ```

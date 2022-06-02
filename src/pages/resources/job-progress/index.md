@@ -5,11 +5,13 @@ template: resources
 
 ### Overview
 
-As single_site_jobs are not transactional, CardSavr clients need a way to monitor jobs as they progress.  For example, if additional information is required from the client (like a new password or tfa code), there needs to be a mechanism for the virtual browser (VBS) to make the rerquest to the individual user running the job.  There are a couple of approved methodologies for communicating with the virtual browser: polling the job/cardholder entities directly and by subscribing to ephemeral job events.
+As single\_site\_jobs are not transactional, CardSavr clients need a way to monitor jobs as they progress.  For example, if additional information is required from the client (like a new password or tfa code), there needs to be a mechanism for the virtual browser (VBS) to make the request to the individual cardholder running the job.  There are a couple of recommended methodologies for communicating with the virtual browser: polling the job entities [directly](./progress-polling) and by subscribing to ephemeral [job and cardholder messages](./progress-messages).
 
 ### Job statuses
 
-As a job transitions from one status to the next, you can query the jobs api to see the current status.  The single\_site\_job status is returned as part of a GET response, as well as within a job\_status message.  Some statuses indicate that action by the user must be taken, other statuses are simply informational and can provide important feedback to the user.  Most status changes can only be made by the VBS.
+As a job transitions from one status to the next, applications can query the jobs api to see the current status.  The single\_site\_job status is returned as part of a GET response, as well as within a job\_status message.  Some statuses indicate that action by the user must be taken, other statuses are simply informational and can provide important feedback to the user.  Most status changes are made by the VBS.
+
+This is a list of in-progress status messages that occur before a job terminates. 
 
 Status | Can be set by agent | Description
 |------|---------------------|------------
@@ -23,10 +25,9 @@ PENDING\_TFA | No | TFA required for job to continue.
 NEWCREDS\_RECEIVED | No | VBS has acknowledged receipt of new credentials.
 TFA\_RECEIVED | No | VBS has acknowledged receipt of tfa code.
 UPDATING | No | VBS is authenticated with merchant site, client application may choose to let the user navigate away.
-CANCEL\_REQUETED | Yes | Job is not longer needed by the user, and can be safely deleted.
-CANCELLED | No | Job has successfully been cancelled.
+CANCEL\_REQUESTED | Yes | Job is not longer needed by the user, and can be safely deleted.
 
-There are other statuses that may be returned, but they are mostly informational.  IMPORTANT: Any status that starts with "PENDING" indicates that a request message has been posted for that job, and the envelope_id will be required for a response. 
+There are other statuses that may be returned, but they are mostly informational.  IMPORTANT: "PENDING_NEWCREDS" and "PENDING_TFA" indicates that a request message has been posted for that job, and the envelope_id included in the message will be required for a response. 
 
 ### Termination types
 
@@ -40,7 +41,7 @@ SITE\_INTERACTION\_FAILURE | CardSavr is unable to navigate the site successfull
 PROCESS\_FAILURE | An unknown backend failure - should be reported as unsuccessful
 NEVER\_STARTED | This will occur when a job is cancelled or never fully requested, but these should be ignored in webhooks and reeporting.
 
-There are a large number of job statuses for USER\_DATA\_FAILURE termination types.  This value provides important information to the client as to why a job failed. These are included in the status of the [single\_site\_job](https://swch.github.io/slate/#single-site-jobs), the status field of the final [job update](../progress-messages/), any final webhook [notifications](../notifcations/), as well as any billing reports.  Since these are constantly updated, customers should provide the status\_message to users. 
+There are a large number of job statuses for USER\_DATA\_FAILURE termination types.  This value provides important information to the client as to why a job failed. These are included in the status of the [single\_site\_job](https://swch.github.io/slate/#single-site-jobs), the status field of the final [job update](../progress-messages/), any final webhook [notifications](../notifcations/), as well as any billing reports.  Since these are constantly updated, customers should provide the status\_message to users rather than use a static list. 
 
 Status | Termination Type | Description
 |------|------------------|-------------
@@ -61,3 +62,6 @@ TIMEOUT_CREDENTIALS | USER\_DATA\_FAILURE | User failed to provide new credentia
 TIMEOUT_TFA | USER\_DATA\_FAILURE | User failed to provide a new TFA code in a timely mannger (~4 minutes)
 TOO\_MANY\_LOGIN\_FAILURES | USER\_DATA\_FAILURE | Only one failed login is allowed
 TOO\_MANY\_TFA\_FAILURES | USER\_DATA\_FAILURE | Only one failed TFA code is allowed
+CANCELLED | NEVER_STARTED | When an application explicitly sets the status to "CANCELLED_REQUESTED".
+ABANDONED | NEVER_STARTED | When an application never receives an initial set of credentials.
+
