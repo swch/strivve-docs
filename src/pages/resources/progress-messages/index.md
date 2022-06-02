@@ -79,7 +79,7 @@ Examples:
 
 ### Credential responses
 
-The most common way to respond to a message request, is through request hydration and the jobs endpoint.  By simply providing a header that contains the appropriate envelope_id ("x-cardsavr-envelope-id": "<GUID>"), responses become simple account updates.  Note that credential responses aren't always username/password (although that's most common).  The [merchant site endpoint](https://swch.github.io/slate/#merchant_sites) will 
+The most common way to respond to a message request, is through request hydration and the jobs endpoint.  By simply providing a header that contains the appropriate envelope_id ("x-cardsavr-envelope-id": "<GUID>"), responses become simple account updates.  Note that credential responses aren't always username/password (although that's most common).  The [merchant site endpoint](https://swch.github.io/slate/#merchant-sites) defines the necessary values for each merchant site. (e.g. "pin" or "email")
 
 Endpoint:  PUT /messages/place\_card\_on\_single\_site\_jobs/:job\_id
 
@@ -104,7 +104,7 @@ or for TFA responses:
 }
 ```
 
-All the SDKs provide simple interfaces for ensuring the correct data is returned in the response.
+All the SDKs provide simple interfaces for ensuring the correct data is returned in the response.  There are also sample tests that walk through how to attach envelope_ids in responses.
 
 #### Querying messages by cardholder
 
