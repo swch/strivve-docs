@@ -102,5 +102,5 @@ Examples:
 
 ### Credential responses
 
-All the SDKs provide simple interfaces for ensuring the correct data is PUT in the response.  The response format is the same as when using the [messaging endpoints](../progress-messages/#credential_responses/).
+All the SDKs provide simple interfaces for ensuring the correct data is PUT in the response.  The response format is the same as when using the [messaging endpoints](../progress-messages/#credential_responses).
 
