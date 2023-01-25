@@ -17,7 +17,7 @@ Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
 
 These calls should be accompanied by a credential-request [hydration header](https://swch.github.io/slate/?java#hydration) so that credential requests are returned on every job request.  
 
-It is essential to maintain user contact until the job status changes to AUTH, which occurs after the VBS has successfully authenticated with the merchant site.  
+It is essential to maintain user contact until the job status changes to UPDATING, which occurs after the VBS has successfully authenticated with the merchant site.  
 
 Examples:
 
@@ -72,15 +72,18 @@ Example:
 
 ### Credential requests
 
-Credential requests occur when additional information is required from the user, and they persist until responded to.  Each request has a type, and an envelope\_id.  This envelope\_id must accompany each response.  Credential requests have two types: tfa\_request and credential_request.  When a request is retrieved by the client, the user should either enter in new credentials or get a tfa response from their email, text message or sometimes even mobile apps.  Once the server receives the credential response, the request is removed, and the job continues.
+Credential requests occur when additional information is required from the user, and they persist until responded to.  Each request has a type, an envelope\_id and an account\_link property which contains the required properties for the response.  This envelope\_id must accompany each response. When a request is retrieved by the client, the user must complete some sort of action such as entering in new credentials, getiing a tfa text from their email or text message, or even answer securty questions.  Once the server receives the credential response, the request is removed, and the job continues.
 
 type | description
 ---- | ------------
 type | the type of message - tfa\_request or credential\_request
 job\_id | the job\_id for this message channel, this is important to know which merchant is requesting
 envelope\_id | a guid which must be included in the response
+account\_link | a list of proprerties that need to be collected from the client -- note that some properties are secret and should be obscured when entered
 
 Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
+
+Note - A credential_request [hydration header](https://swch.github.io/slate/#hydration) must be included with the job GET request.
 
 Examples: 
 
@@ -93,8 +96,19 @@ Examples:
     {
       "job_id": 1587,
       "type": "credential_request",
-      "message": "There was a problem with login credentials, please re-submit.",
-      "envelope_id": "2kRDNRFbPlf98X5S917d4w=="
+      "envelope_id": "2kRDNRFbPlf98X5S917d4w==",
+      "account_link": [
+        {
+          "key_name": "username",
+          "label": "Username",
+          "secret": false
+        },
+        {
+          "key_name": "tfa",
+          "label": "Password",
+          "secret": true
+        }
+      ]
     }
   ]
 }

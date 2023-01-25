@@ -18,16 +18,18 @@ Status | Can be set by agent | Description
 REQUESTED | Yes (this is the default) | Job is created, but has not been queued to be run.
 QUEUED    | No | Job is queued and ready to be processed by the VBS.
 IN-PROGRESS | No | Job has been picked up by a VBS.
-PENDING\_CREDS | No | Accounts without credentials can be created and attached to jobs, however once they VBS gets to the login page, the job pauses until it receives creds.
 AUTH | No | Job is authenticating with user credentials.
 PENDING\_NEWCREDS | No | New credentials are required to conintue.
 PENDING\_TFA | No | TFA required for job to continue.
-NEWCREDS\_RECEIVED | No | VBS has acknowledged receipt of new credentials.
+PENDING | No | Additional information required, check the account_link attribute on the credential_request to see what properties are required.
+CREDS\_RECEIVED | No | VBS has acknowledged receipt of new credentials.
 TFA\_RECEIVED | No | VBS has acknowledged receipt of tfa code.
+CREDS\_SUBMITTED | No | VBS has submitted the credentials to the site.
+TFA\_SUBMITTED | No | VBS has submitted the tfa code to the site.
 UPDATING | No | VBS is authenticated with merchant site, client application may choose to let the user navigate away.
 CANCEL\_REQUESTED | Yes | Job is not longer needed by the user, and can be safely deleted.
 
-There are other statuses that may be returned, but they are mostly informational.  IMPORTANT: "PENDING_NEWCREDS" and "PENDING_TFA" indicates that a request message has been posted for that job, and the envelope_id included in the message will be required for a response. 
+There are other statuses that may be returned, but they are mostly informational.  IMPORTANT: "PENDING", "PENDING_NEWCREDS" and "PENDING_TFA" indicate that a request message has been posted for that job, and the envelope_id included in the message will be required for a response. 
 
 ### Termination types
 

@@ -31,7 +31,7 @@ Examples:
   "message": {
     "status": "UPDATING",
     "percent_complete": 80,
-    "job_timeout": 300
+    "job_timeout": 827027
   }
 }
 ```
@@ -43,7 +43,7 @@ Examples:
   "message": {
     "status": "TIMEOUT_TFA",
     "percent_complete": 100,
-    "job_timeout": 150,
+    "job_timeout": 827027,
     "termination_type": "USER_DATA_FAILURE"
   }
 }
@@ -58,6 +58,7 @@ type | description
 type | the type of message - tfa\_request or credential\_request
 job\_id | the job\_id for this message channel, this is important to know which merchant is requesting
 envelope\_id | a guid which must be included in the response
+account\_link | a list of proprerties that need to be collected from the client -- note that some properties are secret and should be obscured when entered
 
 Examples: 
 
@@ -65,7 +66,14 @@ Examples:
 {
   "type": "tfa_request",
   "job_id": 101,
-  "envelope_id": “<GUID>”
+  "envelope_id": “<GUID>”,
+  "account_link": [
+    {
+      "key_name": "tfa",
+      "label": "Please enter the code sent to your mobile device",
+      "secret": false
+    }
+  ]
 }
 ```
 
@@ -73,9 +81,38 @@ Examples:
 {
   "type": "credential_request",
   "job_id": 101,
-  "envelope_id": “<GUID>”
+  "envelope_id": “<GUID>”,
+  "account_link": [
+    {
+      "key_name": "username",
+      "label": "Username",
+      "secret": false
+    },
+    {
+      "key_name": "tfa",
+      "label": "Password",
+      "secret": true
+    }
+  ]
 }
 ```
+
+```json
+{
+  "type": "credential_request",
+  "job_id": 101,
+  "envelope_id": “<GUID>”,
+  "account_link": [
+    {
+      "key_name": "security_1",
+      "label": "What is your mother's maiden name?",
+      "secret": true
+    }
+  ]
+}
+```
+
+To reduce the amount of time required to complete the job, starting a job before credentials have been collected can reduce the overall user waiting time.  When this occurs, there will be a credential_request and a corresponding envelope_id that will need to be used to respond with the initial credentials.
 
 ### Credential responses
 
@@ -86,9 +123,9 @@ Endpoint:  PUT /place\_card\_on\_single\_site\_jobs/:job\_id
 ```json
 {
   "account": { 
-    "account_identification" : {
-      "username": "good_email",
-      "password": "tfa"
+    "account_link" : {
+      "username": "my_username@foo.com",
+      "password": "my_password"
     }   
   }
 }
@@ -99,7 +136,22 @@ or for TFA responses:
 ```json
 {
   "account": {    
-    "tfa": "123"
+    "account_link" : {
+      "tfa": "123"
+    }
+  }
+}
+```
+
+or for security questions:
+
+```json
+{
+  "account": {    
+    "account_link" : {
+      "security_1": "Max",
+      "security_2": "Smith"
+    }
   }
 }
 ```
@@ -115,8 +167,7 @@ Endpoint:  POST /messages/place\_card\_on\_single\_site\_jobs/job\_id:/credentia
   "message": "1234"
 }
 ```
-This method is not recommended for new credentials since the account needs to be updated regardless.
-
+This method is not recommended since this can all be accmplished using the account and job endpoints.  
 
 All the SDKs provide simple interfaces for ensuring the correct data is returned in the response.  There are also sample tests that walk through how to attach envelope_ids in responses.
 
