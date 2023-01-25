@@ -51,11 +51,11 @@ Examples:
 
 ### Credential requests
 
-Unlike job status messages, credential requests persist until responded to.  Each request has a type, and an envelope\_id.  This envelope\_id must accompany each response.  Credential requests have two types: tfa\_request and credential\_request.  When a request is retrieved by the client, the user should either enter in new credentials or get a tfa response from their email, text message or sometimes even mobile apps.  Once the server receives the credential response, the request is removed, and the job continues.
+Unlike job status messages, credential requests persist until responded to.  Each request has a type, and an envelope\_id.  This envelope\_id must accompany each response.  Credential requests have two types: tfa\_request and credential\_request.  When a request is retrieved by the client, the user should either enter in new credentials or get a tfa response from their email, text message or sometimes even mobile apps.  Once the server receives the credential response, the request is removed, and the job continues.  (For backward compatibiliy, you can still key off the request_type:  'tfa_request' always requires a tfa response, and 'credential_request' always requires a username/password, but this functionality is deprecated and will not be supported after 6/1/2023)
 
 type | description
 ---- | ------------
-type | the type of message - tfa\_request or credential\_request
+type | the type of message - tfa\_request or credential\_request (or other types, use account_link for credential request types)
 job\_id | the job\_id for this message channel, this is important to know which merchant is requesting
 envelope\_id | a guid which must be included in the response
 account\_link | a list of proprerties that need to be collected from the client -- note that some properties are secret and should be obscured when entered
