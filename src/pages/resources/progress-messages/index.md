@@ -162,9 +162,11 @@ Endpoint:  POST /messages/place\_card\_on\_single\_site\_jobs/job\_id:/credentia
 
 ```json
 {
-  "job_id": 101
-  "envelope_id": <ENVELOPE_ID>,
-  "message": "1234"
+  "job_id": 101,
+  "envelope_id": "<ENVELOPE_ID>",
+  "account_link" : {
+    "tfa": "123"
+  }
 }
 ```
 This method is not recommended since this can all be accmplished using the account and job endpoints.  
