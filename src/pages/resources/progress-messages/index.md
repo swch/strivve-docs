@@ -79,7 +79,7 @@ Examples:
 
 ```json
 {
-  "type": "credential_request",
+  "type": "initial_account_link",
   "job_id": 101,
   "envelope_id": “<GUID>”,
   "account_link": [
@@ -89,7 +89,7 @@ Examples:
       "secret": false
     },
     {
-      "key_name": "tfa",
+      "key_name": "password",
       "label": "Password",
       "secret": true
     }
@@ -99,7 +99,7 @@ Examples:
 
 ```json
 {
-  "type": "credential_request",
+  "type": "security",
   "job_id": 101,
   "envelope_id": “<GUID>”,
   "account_link": [

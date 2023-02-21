@@ -85,7 +85,7 @@ Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
 
 Note - A credential_request [hydration header](https://swch.github.io/slate/#hydration) must be included with the job GET request.
 
-Examples: 
+Bad Credentials Example: 
 
 ```json
 { 
@@ -95,7 +95,7 @@ Examples:
   "credential_requests": [
     {
       "job_id": 1587,
-      "type": "credential_request",
+      "type": "initial_account_link",
       "envelope_id": "2kRDNRFbPlf98X5S917d4w==",
       "account_link": [
         {
@@ -104,9 +104,33 @@ Examples:
           "secret": false
         },
         {
-          "key_name": "tfa",
+          "key_name": "password",
           "label": "Password",
           "secret": true
+        }
+      ]
+    }
+  ]
+}
+```
+
+TFA Request Example:
+
+```json
+{ 
+  ...
+  "created_on": "2021-09-16T00:06:00.264Z",
+  "last_updated_on": "2021-09-16T00:07:25.975Z",
+  "credential_requests": [
+    {
+      "job_id": 1587,
+      "type": "tfa",
+      "envelope_id": "2kRDNRFbPlf98X5S917d4w==",
+      "account_link": [
+        {
+          "key_name": "tfa",
+          "label": "Please enter the code sent to your device",
+          "secret": false
         }
       ]
     }
