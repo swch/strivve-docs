@@ -63,7 +63,7 @@ MAX\_LIMIT\_OF\_STORED\_CARDS | USER\_DATA\_FAILURE | Some sites only allow a ce
 TIMEOUT_CREDENTIALS | USER\_DATA\_FAILURE | User failed to provide new credentials in a timely manner (~4 minutes)
 TIMEOUT_TFA | USER\_DATA\_FAILURE | User failed to provide a new TFA code in a timely mannger (~4 minutes)
 TOO\_MANY\_LOGIN\_FAILURES | USER\_DATA\_FAILURE | Only one failed login is allowed
-TOO\_MANY\_TFA\_FAILURES | USER\_DATA\_FAILURE | Only one failed TFA code is allowed
+TOO\_MANY\_TFA\_FAILURES | USER\_DATA\_FAILURE | Only two failed TFA attempts are allowed
 CANCELLED | NEVER_STARTED | When an application explicitly sets the status to "CANCELLED_REQUESTED".
 ABANDONED | NEVER_STARTED | When an application never receives an initial set of credentials.
 
