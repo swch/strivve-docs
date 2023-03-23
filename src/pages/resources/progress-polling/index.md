@@ -31,7 +31,7 @@ Examples:
   "type": "CARD_PLACEMENT",
   "status": "AUTH",
   "termination_type": null,
-  "status_message": null,  
+  "status_message": "Linking account.",  
   ...
 }
 ```
@@ -46,7 +46,7 @@ Examples:
   "type": "CARD_PLACEMENT",
   "status": "PENDING_TFA",
   "termination_type": null,
-  "status_message": null,  
+  "status_message": "Additional information required, this code may be sent to your phone or email address.",  
   ...
 }
 ```
@@ -76,10 +76,11 @@ Credential requests occur when additional information is required from the user,
 
 type | description
 ---- | ------------
-type | the type of message - tfa\_request or credential\_request
+type | the type of message - tfa or initial\_account\_link or others
 job\_id | the job\_id for this message channel, this is important to know which merchant is requesting
+message | detailed status information about this request, it includes the same properties as a standard status message (percent_complete, status, and a status_message) -- the status_message should be shown to the users to indicate the status of each job
 envelope\_id | a guid which must be included in the response
-account\_link | a list of proprerties that need to be collected from the client -- note that some properties are secret and should be obscured when entered
+account\_link | a list of proprerties that need to be collected from the client -- note that some properties are marked as secret and should be obscured when entered
 
 Endpoint: GET /place\_card\_on\_single\_site\_jobs/:job\_id
 
@@ -97,6 +98,12 @@ Bad Credentials Example:
       "job_id": 1587,
       "type": "initial_account_link",
       "envelope_id": "2kRDNRFbPlf98X5S917d4w==",
+      "message": {
+        "status": "PENDING_NEWCREDS",
+        "job_timeout": 769392,
+        "percent_complete": 45,
+        "status_message": "The initial credentials provided were incorrect."
+      },
       "account_link": [
         {
           "key_name": "username",
@@ -126,6 +133,12 @@ TFA Request Example:
       "job_id": 1587,
       "type": "tfa",
       "envelope_id": "2kRDNRFbPlf98X5S917d4w==",
+      "message": {
+        "status": "PENDING_TFA",
+        "job_timeout": 769392,
+        "percent_complete": 55,
+        "status_message": "Additional information required, this code may be sent to your phone or email address."
+      },
       "account_link": [
         {
           "key_name": "tfa",

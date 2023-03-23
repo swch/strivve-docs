@@ -17,10 +17,12 @@ type | description
 ---- | ------------
 type | the type of message - this is currently always job\_status
 job\_id | the job id for this message channel
-job\_timeout | time left before this job times out (in seconds), it is appropriate to alert the cardholder a minute before their session expires. There is an initial timeout of 5 minutes for a job, but if additional information is required from the user, additional time is added to the length of the job. It is important to alert the user that time is about to expire while prompting for new credentials or a TFA code.
-percent\_complete | approximate percentage of the job that is completed.
-status | the status for this job (e.g. AUTH, UPDATING or DUPLICATE\_CARD)
-termination_type | (only on the final message) - the exit state for this job (BILLABLE, USER\_DATA\_FAILURE, SITE\_INTERACTION\_FAILURE, PROCESS\_FAILURE). The application should alert the clent upon receipt of one of these messages.
+message | a message containing data aboout this status
+message.job\_timeout | time left before this job times out (in seconds), it is appropriate to alert the cardholder a minute before their session expires. There is an initial timeout of 5 minutes for a job, but if additional information is required from the user, additional time is added to the length of the job. It is important to alert the user that time is about to expire while prompting for new credentials or a TFA code.
+message.percent\_complete | approximate percentage of the job that is completed.
+message.status | the status for this job (e.g. AUTH, UPDATING or DUPLICATE\_CARD)
+message.termination_type | (only on the final message) - the exit state for this job (BILLABLE, USER\_DATA\_FAILURE, SITE\_INTERACTION\_FAILURE, PROCESS\_FAILURE). The application should alert the clent upon receipt of one of these messages.
+message.status_message | a status message that should be shown to the user
 
 Examples:
 
@@ -31,7 +33,8 @@ Examples:
   "message": {
     "status": "UPDATING",
     "percent_complete": 80,
-    "job_timeout": 827027
+    "job_timeout": 827027,
+    "status_message": "Updating your payment method. No further action required."
   }
 }
 ```
@@ -44,6 +47,7 @@ Examples:
     "status": "TIMEOUT_TFA",
     "percent_complete": 100,
     "job_timeout": 827027,
+    "status_message": "Unable to automatically update your card due to invalid or missing two-factor authentication.",
     "termination_type": "USER_DATA_FAILURE"
   }
 }
@@ -64,16 +68,22 @@ Examples:
 
 ```json
 {
-  "type": "tfa_request",
+  "type": "tfa_message",
   "job_id": 101,
   "envelope_id": “<GUID>”,
   "account_link": [
     {
-      "key_name": "tfa",
+      "key_name": "tfa_message",
       "label": "Please enter the code sent to your mobile device",
       "secret": false
     }
-  ]
+  ],
+  "message": {
+    "status": "PENDING_TFA",
+    "percent_complete": 55,
+    "job_timeout": 827027,
+    "status_message": "Please acknowledge the link sent to your email or phone.",
+  }
 }
 ```
 
@@ -93,7 +103,13 @@ Examples:
       "label": "Password",
       "secret": true
     }
-  ]
+  ],
+  "message": {
+    "status": "PENGING_NEWCREDS",
+    "percent_complete": 45,
+    "job_timeout": 827027,
+    "status_message": "The credentials provided were incorrect.",
+  }
 }
 ```
 
@@ -108,11 +124,17 @@ Examples:
       "label": "What is your mother's maiden name?",
       "secret": true
     }
-  ]
+  ],
+  "message": {
+    "status": "PENGING",
+    "percent_complete": 60,
+    "job_timeout": 827027,
+    "status_message": "The site is requiring additional information.",
+  }
 }
 ```
 
-To reduce the amount of time required to complete the job, starting a job before credentials have been collected can reduce the overall user waiting time.  When this occurs, there will be a credential_request and a corresponding envelope_id that will need to be used to respond with the initial credentials.
+To reduce the amount of time required to complete the job, starting a job before credentials have been collected can reduce the overall user waiting time.  When this occurs, there will be a credential_request and a corresponding envelope_id that will need to be used to respond with the initial credentials.  Note that all messages with a status that starts with "PENDING" indicate that the message will be accompanied with an account_link parameter, and that data is required from the user and the job will block until responded to.
 
 ### Credential responses
 
@@ -138,6 +160,18 @@ or for TFA responses:
   "account": {    
     "account_link" : {
       "tfa": "123"
+    }
+  }
+}
+```
+
+or for TFA messages - these should be respoonded to immediately with "ack", the job will simply block until the ack sent to their phone is replid to.
+
+```json
+{
+  "account": {    
+    "account_link" : {
+      "tfa": "ack"
     }
   }
 }
