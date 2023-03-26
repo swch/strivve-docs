@@ -35,6 +35,7 @@ The data format for a job placement event is:
         "jobs": [
             {
                 "job_id": 10,
+                "card_customer_key": 123456789,
                 "completed_on": "2020-06-25T22:39:47.942Z",
                 "merchant_site": {
                     "host": "amazon.com",
@@ -60,7 +61,7 @@ The data format for a job placement event is:
         },
         "financial_institution": "Acme Bank",
         "financial_institution_id": 11,
-        "username": "siazwbp1c81qwoplrr66"
+        "cuid": "siazwbp1c81qwoplrr66",
     }
 ```
 
@@ -90,6 +91,10 @@ There are only a few steps to utilize webhooks within CardSavr:
 1. Create a webhook endpoint on your server
 2. Register the webhook endpoint with a CardSavr event
 
+Webhooks can be either statically configured in the Strivve Portal, or dynamically assigend when a cardholder is created.  Webhook
+payloads are signed using the integrator key used to create the corresponding cardholder.  By installing a 
+[Strivve SDK](https://github.com/swch/strivve-sdk), you can [verify webhook signatures](https://github.com/swch/Strivve-SDK/blob/master/src/cardsavr/CardsavrSessionCrypto.ts#L225) for added security.  (Notice the function takes two keys, current and previous key, in case of key rotation)
+
 ### Testing Webhooks
 
 Webhook behavior in CardSavr environments is identical between production and non-production 
@@ -100,5 +105,5 @@ environments.
 If the notification is not successfully delivered the CardSavr platform will retry the 
 notification in intervals of 10, 20, and 40 seconds. Should the CardSavr service experience 
 unexpected downtime, all the notifications will be sent for the entire service downtime upon 
-service restoration. If for any reason your servers are not accessible, we recommend you to 
-unsubscribe to notifications. Once your the servers are up, you can subscribe to notifications again.
+service restoration. If for any reason your servers are not accessible, we recommend you 
+unsubscribe from notifications. Once your the servers are up, you can subscribe to notifications again.
