@@ -12,5 +12,6 @@ sections:
   - job-progress
   - progress-messages
   - progress-polling
+  - site-tagging
   - support
   
