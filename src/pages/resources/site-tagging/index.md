@@ -4,13 +4,13 @@ excerpt: >-
   Support for how sites are tagged, and how to query the ones you want.
 template: resources
 ---
-Strivve supports a wide range of sites ranging from e-commerce, subscription, to utilities.  It's important to understand the process for how sites are tagged, so you can ensure you are querying them with the correct parameters.
+Strivve supports a wide range of sites from e-commerce, to subscription, to utilities.  It's important to understand the process for how sites are tagged, so integrators can ensure they are querying with the correct parameters.
 
 Strivve uses tags to identify certain site criteria.  These tags can be used for different sorts of categorization such as locales or success rates.  
 
 ### Available tags
 
-Tags are assigned and removed based on their support and availability. 
+Tags are assigned based on their support and availability. 
 
 Site         | Tags              | Effect
 ------------ | ----------------- | --------------------
