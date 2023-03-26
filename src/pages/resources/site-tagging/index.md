@@ -22,7 +22,7 @@ Site E       | synthetic         | Synthtetic sites are very useful for testing 
 
 ### Query Examples
 
-The merchant sites endpoint is used to query sites.  To query all "usa" and "prod" sites:
+The [merchant sites endpoint](https://swch.github.io/slate/#get-merchant-site) is used to query sites.  To query all "usa" and "prod" sites:
 
 ```
 https://api.{{CARDSAVR-INSTANCE}}.cardsavr.io/merchant_sites?tags=usa&tags=prod
