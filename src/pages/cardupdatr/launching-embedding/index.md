@@ -61,7 +61,7 @@ Similar to launching from a link, you can just as easily construct the web windo
 
 https://CARDUPDATR_HOSTNAME.cardupdatr.app/#settings={ ENDCODED\_SETTINGS\_JSON }
 
-ENCODED\_SETTINGS\_JSON is simply the same json object passed in as the first parameter in launchcardUpdatr and embedCardUpdatr, only it must be url encoded.
+ENCODED\_SETTINGS\_JSON is simply the same json object passed in as the first parameter to launchCardUpdatr and embedCardUpdatr, only it must be url encoded.
 
 [Here](https://github.com/swch/Strivve-SDK/tree/master/CU-iOS) is a sample iOS application that demonstrates this launching option.
 
