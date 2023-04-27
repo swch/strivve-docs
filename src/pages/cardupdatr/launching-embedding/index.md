@@ -59,9 +59,9 @@ Embedding works well for embedding within a desktop experience.  It can provide 
 
 Similar to launching from a link, you can just as easily construct the web window url.  Both iOS and Android have simple mechanims for launching webviews within apps, but generally are launched using native parameters to control the containing child window.  This is not difficult, but it does require the application to assemble the url itself.
 
-https://CARDUPDATR_HOSTNAME.cardupdatr.app/#settings={ ENDCODED_SETTINGS_JSON }
+https://CARDUPDATR_HOSTNAME.cardupdatr.app/#settings={ ENDCODED\_SETTINGS\_JSON }
 
-ENCODED_SETTINGS_JSON is simply the same json object passed in as the first parameter in launchcardUpdatr and embedCardUpdatr, only it must be url encoded.
+ENCODED\_SETTINGS\_JSON is simply the same json object passed in as the first parameter in launchcardUpdatr and embedCardUpdatr, only it must be url encoded.
 
 [Here](https://github.com/swch/Strivve-SDK/tree/master/CU-iOS) is a sample iOS application that demonstrates this launching option.
 
