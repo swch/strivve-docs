@@ -1,5 +1,5 @@
 ---
-title: Embedded
+title: Launching and Configuration
 weight: 2
 template: cardupdatr-embed
 ---
@@ -125,7 +125,7 @@ custom_data | no | | Data that identifies this cardholder/session.  It is posted
 
 ### style_template
 
-style_template attributes can be dynamically configured with embedded CardUpdatr.  They can optionally be configured in the Partner Portal, but dynamic flexibilty is sometimes preferred if running multiple brands under the same Financial Institution.
+style_template attributes can be dynamically configured with CardUpdatr's carduupdatr-client-v2.js.  They can optionally be configured in the Partner Portal, but dynamic flexibilty is sometimes preferred if running multiple brands under the same Financial Institution.
 
 ```javascript
   },

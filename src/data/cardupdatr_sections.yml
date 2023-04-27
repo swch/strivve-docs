@@ -1,5 +1,5 @@
 root_folder: /cardupdatr/
 sections:
-  - embed  
+  - launching-embedding  
   - sso
   - quick-start

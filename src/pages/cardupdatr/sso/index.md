@@ -106,5 +106,5 @@ https://acmebank.customer-dev.cardupdatr.app/#username=USERNAME&grant=GRANT&card
 
 ### Embedding
 
-For more information, see the [embedded CardUpdatr](/cardupdatr/embed/) integration to see how to embed CardUpdatr in an iframe and logging them in using the username and grant.
+For more information, see the [Launching and Embedding CardUpdatr](/cardupdatr/launching-embedding/) integration to see how to embed CardUpdatr in an iframe and logging them in using the username and grant.
 
