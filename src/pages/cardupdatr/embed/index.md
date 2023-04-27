@@ -4,14 +4,39 @@ weight: 2
 template: cardupdatr-embed
 ---
 
-CardUpdatr can be run as a standalone site, or embedded into an iframe directly within your application. Using this mechanism gives you the flexibility to control your branding, while not having to worry about interfacing with CardSavr directly for intercepting merchant messages and user feedback.
+CardUpdatr can be run as a standalone application simply launched as a url and configured within the Strivve Partner Portal (e.g. (https://acmebank.customer-dev.carupdatr.app))  However, CardUpdatr can also be embedded directly within a website, or launched from a configured link using a bootstrap library available on your CardUpdatr instance.  By using this bootstrap library, you can configure the look and feel and define custom FI parameters.  By using the CardUpdatr SSO product, you can even launch or embed CardUpdatr using an access grant created by a custom application that enables cardholders to avoid having to provide their card information. 
 
-There are a variety of settings outlined below that control how your CardUpdatr application behaves, but the settings to get up and running are minimal.
+This section outlines four possiblities for launching CardUpdatr, how to configure the settings, and pros and cons for each.
 
-## CardUpdatr iframe Example
+## CardUpdatr launch modes
 
-Insert this code below into your page to host the CardUpdatr within an iframe. Simply replace CARDUPDATR_HOSTNAME with the hostname of your cardupdatr environment instance.  You must create a div that has the correct height, and then pass the id of the div into the initCardupdatr function. 
+In the examples below, simply replace CARDUPDATR_HOSTNAME with the hostname provided via the following [form](https://strivve.com/cardupdatr/#cardupdatr-form).
 
+### Launch with a Link
+
+Launching CardUpdatr in a dedicated window is frequently the easiest experience for Cardholders.  Scrolling is simply achieved using a browser scrollbar, and when the user is finished, they can simply close the window.  
+
+```html
+    <script src="https://CARDUPDATR_HOSTNAME.cardupdatr.app/cardupdatr-client-v2.js"></script>
+    <a href="#" onclick='launchCardUpdatr(
+      {
+        config: { 
+          hostname : "CARDUPDATR_HOSTNAME.cardupdatr.app" 
+        }, 
+        user: {
+          ...
+        },
+        style : { 
+          ...
+        } 
+      }, target, options); return false;'>LAUNCH</a>
+```
+
+launchCardUpdatr can be called as a click handler from an anchor, a button or any other clickable element.
+
+### Embedded
+
+Embedding works well for embedding within a desktop experience.  It can provide the CardUpdatr app with supporting instructions and may fit more seamlessly into the application or browser experience.  Although inserted as an iframe, once again the boostrap library makes the insertion much more seamless.   Use the code below in your page to host the CardUpdatr within an iframe.  You must create a div that has the correct height, and then pass the id of the div into the initCardupdatr function. 
 
 ```javascript
     <div class="container" style="background-color: deepskyblue; width: 100%; text-align: center; padding-top: 3vh; min-height: 100vh;">
@@ -21,19 +46,30 @@ Insert this code below into your page to host the CardUpdatr within an iframe. S
     <div class="cardupdatr-frame" id="cardupdatr-frame"></div>
     </div>
     <script>
-
       window.initCardupdatr(settings = { 
-        config : {
+        config: { 
           app_container_id: "cardupdatr-frame", 
           hostname: "https://CARDUPDATR_HOSTNAME.cardupdatr.app/" 
-        }
+        } 
       });
 </script>
 ```
 
-To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>  (NOTE: access-control frame-ancestors are used, so please include the hosting domain in your request.
+### Launch from a Mobile Application
 
-## Additional Settings
+Similar to launching from a link, you can just as easily construct the web window url.  Both iOS and Android have simple mechanims for launching webviews within apps, but generally are launched using native parameters to control the containing child window.  This is not difficult, but it does require the application to assemble the url itself.
+
+https://CARDUPDATR_HOSTNAME.cardupdatr.app/#settings={ ENDCODED_SETTINGS_JSON }
+
+ENCODED_SETTINGS_JSON is simply the same json object passed in as the first parameter in launchcardUpdatr and embedCardUpdatr, only it must be url encoded.
+
+[Here](https://github.com/swch/Strivve-SDK/tree/master/CU-iOS) is a sample iOS application that demonstrates this launching option.
+
+### Launch as a standalone link
+
+If configured entirely within the Strivve Partner Portal, cardholder can launch using their CardUpdatr url:  https://CARDUPDATR_HOSTNAME.cardupdatr.app/.
+
+## Configuration Settings
 
 There are three sets of settings that can be used to customize your CardUpdatr experience, separated into different configuration objects.  The "user" object is for customer specific data required to authenticate SSO users and also to provide customer specific logging.  The "config" object (some settings required) configures the FI for which CardUpdatr should run, how sites should be sorted, and which countries should be supported.  "style_template" is used to dynamically configured messages, colors and background images.
 
@@ -42,11 +78,11 @@ There are three sets of settings that can be used to customize your CardUpdatr e
 ```javascript
 {
   config : {
-    app_container_id: "APP_CONTAINER_ID", 
+    app\_container\_id: "APP_CONTAINER_ID", 
     hostname: "CARDUPDATR_HOSTNAME",  
     financial_institution: "acmecu", 
     top_sites: ["amazon.com", "apple.com", "audible.com", "hulu.com", "netflix.com", "spotify.com", "target.com", "uber.com", "venmo.com", "walgreens.com", "walmart.com"],  
-    merchant_site_tags: ["usa,canada", "prod"],    
+    merchant\_site\_tags: ["usa,canada", "prod"],    
     countries_supported: ["Canada", "USA"] 
   },
 ```         
@@ -114,11 +150,16 @@ name | no | The FI name | The name of the issuer
 page_title | no | The FI name | The title of the page
 card_description | no | Set in the Partner Portal | included in the copy 
 final_message | no | Set in the Partner Portal | A thank you message that appears after all accounts are linked
-invalid_session_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
+invalid\_session\_url | no | select-merchants | Once a session ends, the user can be directed to a new page to re-authenticate
 link_color | no | #000000 | color of links (can also be configured in Partner Portal)
 button_color | no | #000000 | color of buttons (can also be configured in Partner Portal)
 border_color | no | #000000 | color of box borders (can also be configured in Partner Portal)
 drop_shadow | no | true | draws a dropshadow around the visible area
 dynamic_height | no | false | creates a fixed height on the credit card form and the merchant credential page - this breaks the sticky notification box
+
+
+## Requesting a Sandbox Environment 
+
+To request your own CardUpdatr preview instance, fill out the free preview form:  <a href="https://strivve.com/cardupdatr/#cardupdatr-form" target="_blank">Request Preview Now</a>  (NOTE: access-control frame-ancestors are used, so please include the hosting domain in your request.
 
 ***
